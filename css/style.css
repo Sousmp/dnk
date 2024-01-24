@@ -563,6 +563,15 @@ html.lock .menu__body {
           transform: rotate(40deg);
 }
 
+.icon-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .icon-menu svg line {
   -webkit-transition: 0.3s ease 0s;
   transition: 0.3s ease 0s;
@@ -601,57 +610,6 @@ html.pc .icon-menu svg:hover line {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   background-color: rgba(25, 45, 34, 0);
-}
-
-.menu__icon {
-  border-radius: 50%;
-  display: block;
-  position: relative;
-  width: 3.375rem;
-  height: 3.375rem;
-  cursor: pointer;
-  border: 0.0625rem solid #dfc58a;
-  border-radius: 50%;
-  -webkit-transition: border 0.3s ease 0s;
-  transition: border 0.3s ease 0s;
-}
-
-.menu__icon span,
-.menu__icon::before,
-.menu__icon::after {
-  content: "";
-  width: 1.625rem;
-  right: 50%;
-  -webkit-transform: translateX(50%);
-      -ms-transform: translateX(50%);
-          transform: translateX(50%);
-  position: absolute;
-  height: 0.0625rem;
-  background-color: #dfc58a;
-  -webkit-transition: background-color 0.3s ease 0s;
-  transition: background-color 0.3s ease 0s;
-}
-
-.menu__icon::before {
-  top: 1.125rem;
-}
-
-.menu__icon::after {
-  top: 2rem;
-}
-
-.menu__icon span {
-  top: calc(50% - 0.0625rem);
-}
-
-html.pc .menu__icon:hover {
-  border: 0.0625rem solid #f7f3e3;
-}
-
-html.pc .menu__icon:hover span,
-html.pc .menu__icon:hover::before,
-html.pc .menu__icon:hover::after {
-  background-color: #f7f3e3;
 }
 
 .menu__body {
@@ -3130,8 +3088,12 @@ html.pc .footer__link:hover {
     padding-top: 1.25rem;
   }
 
+  .cards__container {
+    padding: 0;
+  }
+
   .cards__title {
-    padding: 0 0 1.25rem 0;
+    padding: 0 1.25rem 1.25rem 1.25rem;
   }
 
   .cards__name {
