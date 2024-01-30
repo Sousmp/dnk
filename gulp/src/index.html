@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="cards">
+				<div class="cards__container">
+					<div class="cards__items">
+						<div class="cards__item">
+							<h1 class="cards__title _title"><span>Крым.</span> <br>
+								Строим, <br> ремонтируем, <br> продаём, <br> инвестируем</h1>
+							<button data-popup="#popup" class="_gold-btn cards__request-btn">
+								Получить консультацию
+							</button>
+						</div>
+						<a href="#" class="cards__item cards__hover">
+							<img class="cards__img" src="@img/cards/photos/1.jpg" alt="Image">
+							<div class="cards__plate">
+								<img class="cards__icon" src="@img/cards/icons/1.svg" alt="Image">
+								<h3 class="cards__name">Строительство</h3>
+							</div>
+						</a>
+						<a href="#" class="cards__item cards__hover">
+							<img class="cards__img" src="@img/cards/photos/2.jpg" alt="Image">
+							<div class="cards__plate">
+								<img class="cards__icon" src="@img/cards/icons/2.svg" alt="Image">
+								<h3 class="cards__name">Ремонт</h3>
+							</div>
+						</a>
+						<a href="#" class="cards__item cards__hover">
+							<img class="cards__img" src="@img/cards/photos/3.jpg" alt="Image">
+							<div class="cards__plate">
+								<img class="cards__icon" src="@img/cards/icons/3.svg" alt="Image">
+								<h3 class="cards__name">Дизайн</h3>
+							</div>
+						</a>
+						<a href="#" class="cards__item cards__hover">
+							<img class="cards__img" src="@img/cards/photos/4.jpg" alt="Image">
+							<div class="cards__plate">
+								<img class="cards__icon" src="@img/cards/icons/4.svg" alt="Image">
+								<h3 class="cards__name">Проектирование</h3>
+							</div>
+						</a>
+						<a href="#" class="cards__item cards__hover">
+							<img class="cards__img" src="@img/cards/photos/5.jpg" alt="Image">
+							<div class="cards__plate">
+								<img class="cards__icon" src="@img/cards/icons/5.svg" alt="Image">
+								<h3 class="cards__name">Инвестирование</h3>
+							</div>
+						</a>
+						<a href="#" class="cards__item cards__hover">
+							<img class="cards__img" src="@img/cards/photos/6.jpg" alt="Image">
+							<div class="cards__plate">
+								<img class="cards__icon" src="@img/cards/icons/6.svg" alt="Image">
+								<h3 class="cards__name">Продажа недвижимости</h3>
+							</div>
+						</a>
+						<a href="#" class="cards__item cards__hover">
+							<img class="cards__img" src="@img/cards/photos/7.jpg" alt="Image">
+							<div class="cards__plate">
+								<img class="cards__icon" src="@img/cards/icons/7.svg" alt="Image">
+								<h3 class="cards__name">Инженерия</h3>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section class="withus">
+				<div class="withus__container">
+					<h2 class="withus__title _title"><span>Вместе</span> <br> с нами</h2>
+					<div class="withus__content">
+						<div class="withus__right">
+							<p class="withus__text">вы получаете не только услуги, но и надежного партнера, готового поддержать вас на каждом этапе. Наш опыт в области ремонта, строительства и недвижимости говорит о нашей надежности и качественном подходе. <br> <br>
+								Мы не просто строим стены, мы создаем пространства, наполненные уютом и комфортом. Наше стремление к совершенству видно в каждой детали. Мы понимаем, что дом – это не просто место, где вы живете, это ваша история, ваша безопасность, ваше убежище <br> <br>
+								Наша компания не только занимается ремонтом и строительством, но и предлагает вам лучшие варианты недвижимости. Мы заботимся о том, чтобы каждый клиент нашел не просто дом, а именно свой дом.</p>
+							<div class="withus__img">
+								<img src="@img/withus.svg" alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="form">
+				<div class="form__container">
+					<div class="form__body">
+						<h3 class="form__title _title"><span>Оставьте заявку</span></h3>
+						<p class="form__subtitle">Оставьте свой номер телефона и наш специалист свяжется с Вами в течении 5 минут и предоставит всю необходимую информацию.</p>
+						<form action="#" class="form__form">
+							<input type="tel" class="form__input" placeholder="Номер телефона">
+							<button type="submit" class="form__submit _gold-btn _empty-tel">
+								Получить консультацию
+							</button>
+						</form>
+						<p data-da=".form__form,768,1" class="form__policy">Нажимая на кнопку «Получить консультацию», Вы соглашаетесь
+							с условиями <a href="#">политики конфиденциальности</a>
+						</p>
+						<div class="form__icon">
+							<img src="@img/form-icon.svg" alt="Image">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="reviews">
+				<div class="reviews__container">
+					<div class="reviews__content">
+						<h3 class="reviews__title _title">Отзывы клиентов</h3>
+						<div data-da=".reviews__container, 991" class="reviews__request-body">
+							<a href="#" class="reviews__request _transparent-btn" type="button">
+								Смотреть все отзывы
+							</a>
+						</div>
+					</div>
+					<div class="reviews__slider swiper">
+						<div class="reviews__navigate">
+							<div class="reviews__arrow reviews__arrow-left"><span class="_icon-left-arrow"></span></div>
+							<div class="reviews__arrow reviews__arrow-right"><span class="_icon-right-arrow"></span></div>
+						</div>
+						<div class="reviews__wrapper swiper-wrapper">
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-body">
+									<div class="reviews__review">
+										<p class="reviews__count">105 из 148</p>
+										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
+											квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей.</p>
+										<div class="reviews__more">
+											<a href="#" class="reviews__btn">Подробнее</a>
+										</div>
+									</div>
+									<div class="reviews__user user">
+										<div class="user__img">
+											<img src="@img/reviews/users-avatar/1.png" alt="Image">
+										</div>
+										<div class="user__info">
+											<h6 class="user__name">Кристина Алексеева</h6>
+											<p class="user__task">Ремонт двухкомнатной квартиры</p>
+										</div>
+									</div>
+									<div class="reviews__icon">
+										<img src="@img/reviews/icon.svg" alt="Image">
+									</div>
+								</div>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-body">
+									<div class="reviews__review">
+										<p class="reviews__count">105 из 148</p>
+										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
+											квартире.</p>
+										<div class="reviews__more">
+											<a href="#" class="reviews__btn">Подробнее</a>
+										</div>
+									</div>
+									<div class="reviews__user user">
+										<div class="user__img">
+											<img src="@img/reviews/users-avatar/1.png" alt="Image">
+										</div>
+										<div class="user__info">
+											<h6 class="user__name">Кристина Алексеева</h6>
+											<p class="user__task">Ремонт двухкомнатной квартиры</p>
+										</div>
+									</div>
+									<div class="reviews__icon">
+										<img src="@img/reviews/icon.svg" alt="Image">
+									</div>
+								</div>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-body">
+									<div class="reviews__review">
+										<p class="reviews__count">105 из 148</p>
+										<p class="reviews__text">Все круто, спасибо</p>
+										<div class="reviews__more">
+											<a href="#" class="reviews__btn">Подробнее</a>
+										</div>
+									</div>
+									<div class="reviews__user user">
+										<div class="user__img">
+											<img src="@img/reviews/users-avatar/1.png" alt="Image">
+										</div>
+										<div class="user__info">
+											<h6 class="user__name">Кристина Алексеева</h6>
+											<p class="user__task">Ремонт двухкомнатной квартиры</p>
+										</div>
+									</div>
+									<div class="reviews__icon">
+										<img src="@img/reviews/icon.svg" alt="Image">
+									</div>
+								</div>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-body">
+									<div class="reviews__review">
+										<p class="reviews__count">105 из 148</p>
+										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
+											квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей.</p>
+										<div class="reviews__more">
+											<a href="#" class="reviews__btn">Подробнее</a>
+										</div>
+									</div>
+									<div class="reviews__user user">
+										<div class="user__img">
+											<img src="@img/reviews/users-avatar/1.png" alt="Image">
+										</div>
+										<div class="user__info">
+											<h6 class="user__name">Кристина Алексеева</h6>
+											<p class="user__task">Ремонт двухкомнатной квартиры</p>
+										</div>
+									</div>
+									<div class="reviews__icon">
+										<img src="@img/reviews/icon.svg" alt="Image">
+									</div>
+								</div>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-body">
+									<div class="reviews__review">
+										<p class="reviews__count">105 из 148</p>
+										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
+											квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей.</p>
+										<div class="reviews__more">
+											<a href="#" class="reviews__btn">Подробнее</a>
+										</div>
+									</div>
+									<div class="reviews__user user">
+										<div class="user__img">
+											<img src="@img/reviews/users-avatar/1.png" alt="Image">
+										</div>
+										<div class="user__info">
+											<h6 class="user__name">Кристина Алексеева</h6>
+											<p class="user__task">Ремонт двухкомнатной квартиры</p>
+										</div>
+									</div>
+									<div class="reviews__icon">
+										<img src="@img/reviews/icon.svg" alt="Image">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="gradient">
+				<span></span>
+			</div>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	<script src="https://unpkg.com/imask"></script>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

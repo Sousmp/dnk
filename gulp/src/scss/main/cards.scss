@@ -1,0 +1,147 @@
+.cards {
+   padding-top: rem(100);
+   @include adaptiveValue("padding-bottom", 60, 20);
+   &__items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem(30);
+   }
+
+   &__img {
+      width: 100%;
+   }
+
+   &__item {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      flex: 0 0 calc(50% - rem(15));
+   }
+
+   &__title {
+      font-size: rem(80);
+      padding-top: rem(20);
+   }
+
+   &__hover {
+      border-radius: rem(20);
+      transition: transform 0.5s ease 0s;
+      html.pc &:hover {
+         transform: scale(1.05);
+         & .cards__plate {
+            bottom: rem(-130);
+         }
+      }
+   }
+
+   &__plate {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      padding: rem(35) rem(30);
+      align-items: center;
+      gap: rem(16);
+      transition: bottom 0.5s ease 0s;
+      background: var(--broze-80, rgba(165, 117, 64, 0.8));
+   }
+
+   &__name {
+      color: $mainColor;
+      font-size: rem(30);
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%;
+      letter-spacing: em(0.6, 30);
+   }
+
+   &__request-btn {
+      margin-top: rem(100);
+   }
+   @media (max-width: rem(1260)) {
+      &__title {
+         @include adaptiveValue("font-size", 80, 54, 1260, 767);
+      }
+      &__request-btn {
+         @include adaptiveValue("margin-top", 100, 25, 1260, 767);
+      }
+   }
+   @media (max-width: rem(991)) {
+      padding-top: rem(60);
+      &__items {
+         gap: rem(20);
+      }
+      &__item {
+         flex: 0 0 calc(50% - rem(10));
+      }
+      &__name {
+         font-size: rem(24);
+      }
+      &__plate {
+         padding: rem(25) rem(20);
+      }
+      &__icon {
+         width: rem(50);
+      }
+   }
+   @media (max-width: rem(768)) {
+      padding-top: rem(40);
+      &__item {
+         flex: 0 0 100%;
+      }
+      &__items {
+         gap: rem(40);
+      }
+      &__title {
+         padding: 0 0 rem(40) 0;
+         @include adaptiveValue("font-size", 80, 40, 769, 320);
+      }
+      &__request-btn {
+         display: none;
+      }
+      &__name {
+         font-size: rem(30);
+      }
+      &__plate {
+         padding: rem(35) rem(30);
+      }
+      &__icon {
+         width: rem(60);
+      }
+   }
+   @media (max-width: rem(650)) {
+      &__items {
+         gap: rem(20);
+      }
+      &__name {
+         font-size: rem(24);
+      }
+      &__plate {
+         padding: rem(25) rem(20);
+      }
+      &__icon {
+         width: rem(50);
+      }
+   }
+   @media (max-width: rem(425)) {
+      &__container {
+         padding: 0;
+      }
+      padding-top: rem(20);
+      &__title {
+         padding: 0 rem(20) rem(20) rem(20);
+      }
+      &__name {
+         font-size: rem(16);
+      }
+      &__plate {
+         gap: rem(12);
+         padding: rem(20);
+      }
+      &__icon {
+         width: rem(30);
+      }
+   }
+}

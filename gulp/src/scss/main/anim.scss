@@ -1,0 +1,70 @@
+// Тест анимации на будущие страницы
+
+.anim {
+   position: sticky;
+   top: 0;
+   transition: 0.3s ease 0s;
+   h3 {
+      transition: 0.3s ease 0s;
+      font-size: rem(40);
+   }
+   &__body {
+      display: flex;
+      align-items: center;
+      gap: rem(30);
+      height: rem(155);
+   }
+   &__container {
+      transition: 0.3s ease 0s;
+   }
+   @media (max-width: rem(991)) {
+      &__body {
+         height: rem(105);
+      }
+   }
+   @media (max-width: rem(650)) {
+      &__body {
+         gap: rem(15);
+         height: rem(85);
+      }
+   }
+}
+html._anim {
+   .header__request p {
+      transition: 0.3s ease 0s;
+   }
+   .header__logo {
+      transition: 0.3s ease 0s;
+   }
+   .cards__items {
+      padding: rem(0) 0 0 0;
+   }
+   .cards {
+      padding-top: 0;
+   }
+   .header__container {
+      position: relative;
+      z-index: 4;
+   }
+}
+html._scroll {
+   & .header__request {
+      gap: 0;
+   }
+   & .header__request p {
+      font-size: 0;
+   }
+   & .header__logo {
+      transform: translateY(-200%);
+   }
+   & .anim {
+      z-index: 3;
+      left: rem(30);
+      &__container {
+         max-width: 100%;
+      }
+      h3 {
+         font-size: rem(20);
+      }
+   }
+}

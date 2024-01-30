@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru" class="_anim">
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+
+<body>
+   <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <section class="anim">
+         <div class="anim__container">
+            <div class="anim__body">
+               <h3 class="cards__name">ООО Артлайн</h3>
+            </div>
+         </div>
+      </section>
+      <main class="page">
+         <section class="cards">
+            <div class="cards__container">
+               <div class="cards__items">
+                  <a href="#" class="cards__item cards__hover">
+                     <img class="cards__img" src="@img/cards/photos/1.jpg" alt="Image">
+                     <div class="cards__plate">
+                        <img class="cards__icon" src="@img/cards/icons/1.svg" alt="Image">
+                        <h3 class="cards__name">Строительство</h3>
+                     </div>
+                  </a>
+                  <a href="#" class="cards__item cards__hover">
+                     <img class="cards__img" src="@img/cards/photos/2.jpg" alt="Image">
+                     <div class="cards__plate">
+                        <img class="cards__icon" src="@img/cards/icons/2.svg" alt="Image">
+                        <h3 class="cards__name">Ремонт</h3>
+                     </div>
+                  </a>
+                  <a href="#" class="cards__item cards__hover">
+                     <img class="cards__img" src="@img/cards/photos/3.jpg" alt="Image">
+                     <div class="cards__plate">
+                        <img class="cards__icon" src="@img/cards/icons/3.svg" alt="Image">
+                        <h3 class="cards__name">Дизайн</h3>
+                     </div>
+                  </a>
+                  <a href="#" class="cards__item cards__hover">
+                     <img class="cards__img" src="@img/cards/photos/4.jpg" alt="Image">
+                     <div class="cards__plate">
+                        <img class="cards__icon" src="@img/cards/icons/4.svg" alt="Image">
+                        <h3 class="cards__name">Проектирование</h3>
+                     </div>
+                  </a>
+                  <a href="#" class="cards__item cards__hover">
+                     <img class="cards__img" src="@img/cards/photos/5.jpg" alt="Image">
+                     <div class="cards__plate">
+                        <img class="cards__icon" src="@img/cards/icons/5.svg" alt="Image">
+                        <h3 class="cards__name">Инвестирование</h3>
+                     </div>
+                  </a>
+                  <a href="#" class="cards__item cards__hover">
+                     <img class="cards__img" src="@img/cards/photos/6.jpg" alt="Image">
+                     <div class="cards__plate">
+                        <img class="cards__icon" src="@img/cards/icons/6.svg" alt="Image">
+                        <h3 class="cards__name">Продажа недвижимости</h3>
+                     </div>
+                  </a>
+                  <a href="#" class="cards__item cards__hover">
+                     <img class="cards__img" src="@img/cards/photos/7.jpg" alt="Image">
+                     <div class="cards__plate">
+                        <img class="cards__icon" src="@img/cards/icons/7.svg" alt="Image">
+                        <h3 class="cards__name">Инженерия</h3>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </section>
+      </main>
+      @@include('html/_footer.htm',{})
+   </div>
+   <script src="https://unpkg.com/imask"></script>
+   @@include('html/_popup.htm',{})
+   @@include('html/_js.htm',{})
+</body>
+
+</html>

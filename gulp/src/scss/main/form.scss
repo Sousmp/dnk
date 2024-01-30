@@ -1,0 +1,128 @@
+.form {
+   @include adaptiveValue("padding-top", 60, 20);
+   @include adaptiveValue("padding-bottom", 60, 20);
+   &__body {
+      position: relative;
+      padding: rem(60) rem(40);
+      border-radius: rem(20);
+      background: $bordeauxColor;
+      box-shadow: 0 20px 20px 0 rgba(25, 45, 34, 0.2);
+   }
+
+   &__title {
+      padding-right: rem(80);
+      @include adaptiveValue("font-size", 80, 40);
+   }
+
+   &__subtitle {
+      @include adaptiveValue("padding-top", 50, 30);
+      @include adaptiveValue("padding-bottom", 50, 30);
+      font-size: rem(20);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 160%; /* rem(32) */
+      letter-spacing: em(0.4, 20);
+      max-width: rem(870);
+   }
+
+   &__form {
+      display: flex;
+      gap: rem(30);
+   }
+
+   &__input {
+      width: 100%;
+      max-width: rem(455);
+      font-size: rem(20);
+      padding: rem(10) rem(20);
+      font-weight: 500;
+      line-height: 160%;
+      color: $bronseColor;
+      border-radius: rem(30);
+      border: rem(1) solid $bronseColor;
+      background: $darkGreenColor;
+      &::placeholder {
+         color: $bronseColor;
+      }
+      &:focus {
+         outline: none !important;
+         border: rem(1) solid $goldColor;
+      }
+   }
+   &__icon {
+      top: rem(40);
+      right: rem(40);
+      position: absolute;
+      @include adaptiveValue("width", 80, 40);
+      img {
+         width: 100%;
+      }
+   }
+
+   &__submit {
+      white-space: nowrap;
+   }
+
+   &__policy {
+      font-size: rem(14);
+      font-weight: 500;
+      line-height: 160%;
+      letter-spacing: em(0.28, 14);
+      max-width: rem(455);
+      padding-top: rem(20);
+      a {
+         color: $goldColor;
+         transition: 0.2s ease 0s;
+         text-decoration: underline;
+         text-decoration-color: transparent;
+         html.pc &:hover {
+            text-decoration-color: $goldColor;
+         }
+      }
+   }
+   @media (max-width: rem(768)) {
+      &__form {
+         flex-direction: column;
+         gap: rem(15);
+      }
+      &__policy {
+         @include adaptiveValue("font-size", 14, 9, 769, 360);
+         padding: 0;
+         @include adaptiveValue("padding-bottom", 30, 20, 769, 319);
+      }
+      &__submit {
+         width: max-content;
+      }
+      &__subtitle {
+         @include adaptiveValue("font-size", 20, 12, 769, 319);
+      }
+      &__input {
+         @include adaptiveValue("font-size", 16, 13, 769, 319);
+      }
+   }
+   @media (max-width: rem(650)) {
+      &__input {
+         font-size: rem(13);
+      }
+      &__form {
+         gap: rem(10);
+      }
+      &__subtitle {
+         padding: rem(25) 0;
+      }
+      &__body {
+         position: relative;
+         padding: rem(30) rem(20);
+      }
+      &__icon {
+         top: rem(20);
+         right: rem(20);
+      }
+   }
+   @media (max-width: rem(360)) {
+      &__policy {
+         padding-bottom: rem(10);
+         font-size: rem(9);
+      }
+   }
+}
