@@ -1,5 +1,7 @@
 //====================================================================================================
 
+//====================================================================================================
+
 .footer {
    padding: 60px 0;
    background-color: $bordeauxColor;
@@ -9,41 +11,54 @@
 
    &__top {
       justify-content: space-between;
-      align-items: center;
       display: flex;
+      align-items: start;
    }
-
-   &__content {
+   &__links {
       display: flex;
-      align-items: center;
-      gap: rem(25);
-   }
-
-   &__bottom {
-      padding-top: 120px;
-      display: grid;
-      gap: 30px;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
+      flex-direction: column;
+      gap: 20px;
    }
 
    &__link {
       text-align: right;
-      font-size: rem(16);
+      @include adaptiveValue("font-size", 20, 10);
       font-weight: 500;
-      line-height: 160%;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
+      letter-spacing: 0.02em;
       text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: 6px;
+      transition: color 0.3s ease 0s;
+      html.pc &:hover {
+         color: $goldColor;
+      }
+      div {
+         @include adaptiveValue(" font-size", 24, 12);
+         color: $goldColor;
+      }
+   }
+
+   &__bottom {
+      padding-top: rem(45);
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__policy {
+      font-weight: 500;
+      @include adaptiveValue("font-size", 20, 9);
+      line-height: 160%;
+      letter-spacing: 0.1em;
       transition: color 0.3s ease 0s;
       html.pc &:hover {
          color: $goldColor;
       }
    }
-
    &__text {
       color: $grayColor;
-      font-size: 12px;
+      @include adaptiveValue("font-size", 16, 7);
       font-style: normal;
       font-weight: 600;
       line-height: 200%;
@@ -58,29 +73,22 @@
       &__request {
          display: none;
       }
-      &__bottom {
-         padding-top: 80px;
-      }
    }
    @media (max-width: 768px) {
-      &__socials {
-         padding-top: 5px;
+      &__links {
+         gap: 15px;
       }
       &__logo-img {
          height: 65px;
       }
-      padding: 50px 0;
+      &__bottom {
+         padding-top: 30px;
+      }
       &__logo-text {
          line-height: 120%;
          font-size: 14px;
          max-width: 144px;
          padding-bottom: 10px;
-      }
-      &__text {
-         @include adaptiveValue("font-size", 12, 7, 769, 360);
-      }
-      &__link {
-         @include adaptiveValue("font-size", 16, 10, 769, 319);
       }
    }
    @media (max-width: 650px) {
@@ -94,37 +102,15 @@
          padding-bottom: 12px;
          font-size: 10px;
       }
-      &__bottom {
-         padding-top: 40px;
-         grid-column-gap: 20px;
-         grid-row-gap: 10px;
-      }
-      &__phone {
-         @include adaptiveValue("font-size", 16, 12, 651, 319);
-      }
    }
    @media (max-width: 425px) {
       &__logo-text {
          font-size: 9px;
       }
    }
-   @media (max-width: 360px) {
-      &__text {
-         font-size: 7px;
-      }
-   }
    @media (max-width: 320px) {
-      &__phone {
-         font-size: 12px;
-      }
       &__logo-text {
          font-size: 8px;
-      }
-      &__text {
-         font-size: 7px;
-      }
-      &__link {
-         font-size: 10px;
       }
    }
 }

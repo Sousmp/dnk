@@ -18,19 +18,15 @@
       flex-direction: column;
       justify-content: space-between;
    }
-
    &__request {
       width: max-content;
    }
-
    &__slider {
       position: relative;
    }
-
    &__wrapper {
       position: static !important;
    }
-
    &__slide {
       position: relative;
       z-index: 3;
@@ -39,6 +35,7 @@
       color: $darkGreenColor;
       text-align: center;
       opacity: 0;
+      transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
       visibility: hidden;
       &-body {
          transition: 0.3s ease 0s;
@@ -156,12 +153,10 @@
       line-clamp: 9;
       box-orient: vertical;
    }
-
    &__more {
       padding: rem(50) 0 rem(10);
       display: flex;
    }
-
    &__btn {
       display: inline-block;
       padding: rem(8) rem(20);
@@ -219,10 +214,16 @@
       }
    }
    @media (max-width: rem(650)) {
+      &__container {
+         padding: 0;
+      }
+      &__title {
+         padding-left: rem(20);
+      }
       &__slide {
          height: auto;
-         @include adaptiveValue("width", 440, 240, 651, 319);
-         @include adaptiveValue("min-height", 580, 285, 651, 319);
+         @include adaptiveValue("width", 440, 286, 651, 319);
+         @include adaptiveValue("min-height", 580, 377, 651, 319);
          &-body {
             border-radius: rem(20);
             @include adaptiveValue("padding", 30, 15, 651, 319);
@@ -254,6 +255,9 @@
       }
    }
    @media (max-width: rem(425)) {
+      &__slide {
+         width: calc(100% - 40px);
+      }
       &__btn {
          padding: rem(2) rem(12);
       }
@@ -265,8 +269,8 @@
    }
    @media (max-width: rem(320)) {
       &__slide {
-         width: rem(240);
-         min-height: rem(285);
+         width: rem(286);
+         min-height: rem(377);
          &-body {
             padding: rem(15);
          }
@@ -304,7 +308,6 @@
       }
    }
 }
-
 .user {
    border-top: rem(1) solid rgba(25, 45, 34, 0.1);
    padding-top: rem(30);
@@ -356,7 +359,6 @@
       &__name {
          font-size: rem(12);
       }
-
       &__task {
          font-size: rem(9);
       }

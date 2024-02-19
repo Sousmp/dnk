@@ -27,42 +27,65 @@ import "../../scss/base/swiper.scss";
 // Инициализация слайдеров
 function initSliders() {
 	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
-		// Создаем слайдер
-		var mySwiper = new Swiper('.swiper', { // Указываем скласс нужного слайдера
-			modules: [Navigation, EffectCards],
-			observer: true,
-			slidesPerView: 'auto',
-			centeredSlides: true,
-			effect: 'cards',
-			grabCursor: true,
-			speed: 400,
-			cardsEffect: {
-				rotate: false,
-				perSlideOffset: 12, // Space between cards in px
-				perSlideRotate: 0, // Rotation of cards in degrees
-			},
-			navigation: {
-				prevEl: '.reviews__arrow-left',
-				nextEl: '.reviews__arrow-right',
-			},
-			breakpoints: {
-				0: {
-					cardsEffect: {
-						perSlideOffset: 10, // Space between cards in px
+		let windowWidth = window.innerWidth;
+		let params;
+
+		if (windowWidth >= 650) {
+			params = {
+				modules: [Navigation, EffectCards],
+				observer: true,
+				slidesPerView: 'auto',
+				centeredSlides: true,
+				grabCursor: true,
+				speed: 400,
+				navigation: {
+					prevEl: '.reviews__arrow-left',
+					nextEl: '.reviews__arrow-right',
+				},
+				effect: 'cards',
+				cardsEffect: {
+					rotate: false,
+					perSlideOffset: 12, // Space between cards in px
+					perSlideRotate: 0, // Rotation of cards in degrees
+				},
+				on: {
+					init: function () {
+						setTimeout(function () {
+							updateSlideClasses();
+						}, 0);
+					},
+					slideChange: function () {
+						updateSlideClasses();
 					},
 				}
-			},
-			on: {
-				init: function () {
-					setTimeout(function () {
+			};
+		} else {
+			params = {
+				modules: [Navigation, EffectCards],
+				observer: true,
+				slidesPerView: 'auto',
+				centeredSlides: true,
+				grabCursor: true,
+				speed: 400,
+				navigation: {
+					prevEl: '.reviews__arrow-left',
+					nextEl: '.reviews__arrow-right',
+				},
+				spaceBetween: -3,
+				on: {
+					init: function () {
+						setTimeout(function () {
+							updateSlideClasses();
+						}, 0);
+					},
+					slideChange: function () {
 						updateSlideClasses();
-					}, 0);
-				},
-				slideChange: function () {
-					updateSlideClasses();
-				},
+					},
+				}
 			}
-		});
+		}
+
+		var mySwiper = new Swiper('.swiper', params);
 	}
 	// Функция для обновления классов слайдов
 	function updateSlideClasses() {

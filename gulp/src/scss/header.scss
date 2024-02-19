@@ -1,7 +1,4 @@
 //====================================================================================================
-// anim
-
-// anim end
 .header {
 	position: sticky;
 	z-index: 3;
@@ -129,111 +126,47 @@ html.lock {
 	}
 }
 
-.icon-menu {
-	display: flex;
-	align-items: center;
-	svg line {
-		transition: 0.3s ease 0s;
-	}
-	svg {
-		fill: transparent;
-		transition: 0.3s ease 0s;
-		html.pc &:hover {
-			fill: $goldColor;
-			line {
-				stroke: $darkGreenColor;
-			}
-		}
-	}
-	@media (max-width: rem(768)) {
-		svg {
-			width: rem(40);
-			height: rem(40);
-		}
-	}
-}
-
 .menu {
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	&::before {
-		content: "";
-		top: 0;
-		left: 0;
-		z-index: 4;
-		display: block;
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		visibility: hidden;
-		transition: all 0.3s ease-out;
-		background-color: rgba(25, 45, 34, 0);
-	}
-	&__body {
-		visibility: hidden;
-		z-index: 5;
-		overflow-y: scroll;
-		background-color: $darkGreenColor;
-		padding: rem(40) rem(50);
-		height: 100%;
-		position: fixed;
-		top: 0;
-		left: 100vw;
-		opacity: 0;
-		transition: transform 0.3s ease 0s;
-		box-shadow: rem(0) rem(20) rem(20) rem(0) rgba(25, 45, 34, 0.2);
-		display: flex;
-		flex-direction: column;
-	}
-	&__top {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	&__close {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(30);
-		cursor: pointer;
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			transition: background-color 0.3s ease 0s;
-			background-color: $grayColor;
-		}
-		&::before {
-			top: calc(50% - rem(1));
-			transform: rotate(-45deg);
-		}
-		&::after {
-			bottom: calc(50% - rem(1));
-			transform: rotate(45deg);
-		}
-		html.pc &:hover {
-			&::before,
-			&::after {
-				background-color: $goldColor;
-			}
-		}
+	&__wrapper {
+		padding-top: 125px;
+		justify-content: start;
 	}
 	&__nav {
-		padding-top: rem(50);
 		flex: 1 1 auto;
 	}
 	&__links {
-		padding-bottom: rem(30);
+		display: grid;
+		grid-template-columns: max-content max-content max-content;
+		grid-template-rows: auto auto auto;
+		column-gap: 60px;
+		row-gap: 30px;
 		li {
-			padding-top: rem(30);
+			grid-column: span 1;
 		}
 	}
-
+	&__icon {
+		display: flex;
+		align-items: center;
+		svg line {
+			transition: 0.3s ease 0s;
+		}
+		svg {
+			fill: transparent;
+			transition: 0.3s ease 0s;
+			html.pc &:hover {
+				fill: $goldColor;
+				line {
+					stroke: $darkGreenColor;
+				}
+			}
+		}
+		@media (max-width: rem(768)) {
+			svg {
+				width: rem(40);
+				height: rem(40);
+			}
+		}
+	}
 	&__link {
 		transition: color 0.3s ease 0s;
 		color: $mainColor;
@@ -258,204 +191,43 @@ html.lock {
 			}
 		}
 	}
-
-	&__info {
-		@include adaptiveValue("width", 635, 570, 1920, 767);
-		border-top: rem(1) solid $grayColor;
-	}
-	@media (max-width: rem(991)) {
-		&__logo-text {
-			@include adaptiveValue("font-size", 20, 9);
-		}
-		&__body {
-			background-color: $darkGreenColor;
-			padding: rem(30) rem(40);
-		}
-		&__logo-img {
-			height: rem(65);
-		}
-	}
-	@media (max-width: rem(768)) {
-		&__icon {
-			width: rem(40);
-			height: rem(40);
-			span,
-			&::before,
-			&::after {
-				width: rem(20);
-			}
-			&::before {
-				top: rem(12);
-			}
-			&::after {
-				bottom: rem(12);
-			}
-		}
-
-		&__nav {
-			@include adaptiveValue("padding-top", 50, 15, 769, 319);
-		}
-
+	@media (max-width: 1200px) {
 		&__links {
-			li {
-				@include adaptiveValue("padding-top", 30, 20, 769, 319);
-			}
+			grid-template-columns: max-content max-content;
 		}
+	}
+	@media (max-width: 991px) {
+		&__wrapper {
+			padding-top: 75px;
+		}
+		&__links {
+			grid-template-columns: max-content;
+			grid-template-rows: auto auto auto;
+			column-gap: 60px;
+		}
+	}
 
+	@media (max-width: rem(768)) {
 		&__link {
 			@include adaptiveValue("font-size", 20, 13, 769, 319);
 		}
-
-		&__info {
-			width: 100%;
-		}
-		&__body {
-			width: 100%;
-			@include adaptiveValue("padding-top", 30, 15, 769, 319);
-			@include adaptiveValue("padding-bottom", 30, 15, 769, 319);
-			@include adaptiveValue("padding-left", 40, 20, 769, 319);
-			@include adaptiveValue("padding-right", 40, 20, 769, 319);
-		}
 	}
 	@media (max-width: rem(650)) {
-		&__logo-text {
-			padding-left: rem(13);
+		&__links {
+			gap: 20px;
+		}
+		&__wrapper {
+			padding-top: 58px;
 		}
 		&__link {
-			gap: rem(10);
 			img {
 				width: rem(20);
 			}
 		}
 	}
-	@media (max-width: rem(425)) {
-		&__logo-text {
-			padding-bottom: rem(14);
-		}
-		&__logo-img {
-			height: rem(55);
-		}
-	}
 	@media (max-width: rem(320)) {
-		&__body {
-			width: 100%;
-			padding: rem(15) rem(20);
-		}
 		&__link {
 			font-size: rem(13);
-		}
-
-		&__nav {
-			padding-top: rem(15);
-		}
-
-		&__links {
-			li {
-				padding-top: rem(20);
-			}
-		}
-	}
-}
-
-@media (max-width: rem(319)) {
-	.menu__body {
-		left: auto;
-		right: -100%;
-	}
-}
-
-.info {
-	padding-top: rem(50);
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-template-rows: auto auto auto;
-	gap: rem(30); /* Расстояние между элементами */
-	&__request {
-		font-weight: 500;
-	}
-
-	&__phone {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-	}
-	&__socials {
-		@include adaptiveValue("padding-top", 50, 20);
-	}
-
-	&__link {
-		display: flex;
-		align-items: end;
-		justify-content: flex-end;
-		text-transform: uppercase;
-		color: $mainColor;
-		font-size: rem(16);
-		font-weight: 500;
-		text-align: right;
-		line-height: 160%;
-		letter-spacing: em(1.4, 14);
-		text-transform: uppercase;
-		a {
-			transition: color 0.3s ease 0s;
-			html.pc &:hover {
-				color: $goldColor;
-			}
-		}
-	}
-
-	&__text {
-		display: flex;
-		align-items: end;
-		color: $grayColor;
-		font-size: rem(12);
-		font-weight: 600;
-		line-height: 160%;
-		letter-spacing: em(0.24, 12);
-	}
-	@media (max-width: rem(768)) {
-		padding-top: rem(30);
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: auto auto auto;
-		grid-column-gap: rem(10);
-		grid-row-gap: rem(20);
-		&__link {
-			letter-spacing: em(1);
-			@include adaptiveValue("font-size", 16, 10, 769, 319);
-		}
-		&__text {
-			@include adaptiveValue("font-size", 12, 7, 769, 319);
-		}
-		&__phone {
-			a {
-				@include adaptiveValue("font-size", 16, 12, 769, 319);
-			}
-		}
-		&__request-btn {
-			@include adaptiveValue("font-size", 16, 13, 769, 319);
-			@include adaptiveValue("gap", 10, 4, 769, 319);
-			padding: rem(10) rem(20);
-		}
-	}
-
-	@media (max-width: rem(359)) {
-		&__request-btn {
-			white-space: nowrap;
-			padding: rem(10) rem(18);
-			font-size: rem(12);
-			gap: rem(4);
-		}
-	}
-	@media (max-width: rem(320)) {
-		&__link {
-			font-size: rem(10);
-		}
-		&__text {
-			font-size: rem(7);
-		}
-		&__phone {
-			a {
-				font-size: rem(12);
-			}
 		}
 	}
 }
