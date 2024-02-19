@@ -41,7 +41,7 @@
 }
 
 @font-face {
-  font-family: MullerMedium;
+  font-family: Muller;
   font-display: swap;
   src: url("../fonts/MullerMedium.woff2") format("woff2"), url("../fonts/MullerMedium.woff") format("woff");
   font-weight: 400;
