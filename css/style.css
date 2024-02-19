@@ -3,15 +3,23 @@
 @font-face {
   font-family: icons;
   font-display: swap;
-  src: url("../fonts/icons-old.woff2") format("woff2"), url("../fonts/icons-old.woff") format("woff");
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: icons;
+  font-family: Manrope;
   font-display: swap;
-  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
+  src: url("../fonts/Manrope-Bold.woff2") format("woff2"), url("../fonts/Manrope-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Manrope;
+  font-display: swap;
+  src: url("../fonts/Manrope-Regular.woff2") format("woff2"), url("../fonts/Manrope-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -27,32 +35,16 @@
 @font-face {
   font-family: Manrope;
   font-display: swap;
-  src: url("../fonts/Manrope-Regular.woff2") format("woff2"), url("../fonts/Manrope-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Muller;
-  font-display: swap;
-  src: url("../fonts/MullerMedium.woff2") format("woff2"), url("../fonts/MullerMedium.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Manrope;
-  font-display: swap;
   src: url("../fonts/Manrope-SemiBold.woff2") format("woff2"), url("../fonts/Manrope-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Manrope;
+  font-family: MullerMedium;
   font-display: swap;
-  src: url("../fonts/Manrope-Bold.woff2") format("woff2"), url("../fonts/Manrope-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/MullerMedium.woff2") format("woff2"), url("../fonts/MullerMedium.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -72,7 +64,7 @@
 }
 
 ._icon-empty-phone:before {
-  content: "\e907";
+  content: "\e906";
 }
 
 ._icon-instagram:before {
@@ -268,6 +260,7 @@ body::after {
 }
 
 .popup__wrapper {
+  overflow: visible;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
