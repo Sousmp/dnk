@@ -1437,9 +1437,16 @@ html.pc .form__policy a:hover {
 }
 
 .reviews__slide.swiper-slide-prev-prev .reviews__slide-body {
+  background: #a2a898;
   -webkit-transform: scale(0.8);
       -ms-transform: scale(0.8);
           transform: scale(0.8);
+}
+
+.reviews__slide.swiper-slide-prev-prev .reviews__slide-body .reviews__review,
+.reviews__slide.swiper-slide-prev-prev .reviews__slide-body .reviews__user,
+.reviews__slide.swiper-slide-prev-prev .reviews__slide-body .reviews__icon {
+  opacity: 0;
 }
 
 .reviews__slide.swiper-slide-prev {
@@ -1448,9 +1455,16 @@ html.pc .form__policy a:hover {
 }
 
 .reviews__slide.swiper-slide-prev .reviews__slide-body {
+  background: #e6e3d4;
   -webkit-transform: scale(0.9);
       -ms-transform: scale(0.9);
           transform: scale(0.9);
+}
+
+.reviews__slide.swiper-slide-prev .reviews__slide-body .reviews__review,
+.reviews__slide.swiper-slide-prev .reviews__slide-body .reviews__user,
+.reviews__slide.swiper-slide-prev .reviews__slide-body .reviews__icon {
+  opacity: 0;
 }
 
 .reviews__slide.swiper-slide-active {
@@ -1475,6 +1489,12 @@ html.pc .form__policy a:hover {
           transform: scale(0.9);
 }
 
+.reviews__slide.swiper-slide-next .reviews__slide-body .reviews__review,
+.reviews__slide.swiper-slide-next .reviews__slide-body .reviews__user,
+.reviews__slide.swiper-slide-next .reviews__slide-body .reviews__icon {
+  opacity: 0;
+}
+
 .reviews__slide.swiper-slide-next-next {
   visibility: visible;
   opacity: 0.6;
@@ -1486,7 +1506,15 @@ html.pc .form__policy a:hover {
           transform: scale(0.8);
 }
 
+.reviews__slide.swiper-slide-next-next .reviews__slide-body .reviews__review,
+.reviews__slide.swiper-slide-next-next .reviews__slide-body .reviews__user,
+.reviews__slide.swiper-slide-next-next .reviews__slide-body .reviews__icon {
+  opacity: 0;
+}
+
 .reviews__review {
+  -webkit-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -1552,6 +1580,8 @@ html.pc .reviews__arrow:hover {
 }
 
 .reviews__icon {
+  -webkit-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
   position: absolute;
   right: 1.875rem;
   top: 3.75rem;
@@ -1609,6 +1639,8 @@ html.pc .reviews__btn:hover {
 }
 
 .user {
+  -webkit-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
   border-top: 0.0625rem solid rgba(25, 45, 34, 0.1);
   padding-top: 1.875rem;
   display: -webkit-box;
