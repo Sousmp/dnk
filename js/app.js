@@ -123,6 +123,7 @@
     };
     let bodyUnlock = (delay = 500) => {
         let body = document.querySelector("body");
+        let PopupWrapper = document.querySelectorAll(".popup__wrapper");
         if (bodyLockStatus) {
             let lock_padding = document.querySelectorAll("[data-lp]");
             setTimeout((() => {
@@ -130,6 +131,7 @@
                     const el = lock_padding[index];
                     el.style.paddingRight = "0px";
                 }
+                PopupWrapper.forEach((e => e.style.paddingRight = "0px"));
                 body.style.paddingRight = "0px";
                 document.documentElement.classList.remove("lock");
             }), delay);
@@ -141,12 +143,14 @@
     };
     let bodyLock = (delay = 500) => {
         let body = document.querySelector("body");
+        let PopupWrapper = document.querySelectorAll(".popup__wrapper");
         if (bodyLockStatus) {
             let lock_padding = document.querySelectorAll("[data-lp]");
             for (let index = 0; index < lock_padding.length; index++) {
                 const el = lock_padding[index];
                 el.style.paddingRight = window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px";
             }
+            PopupWrapper.forEach((e => e.style.paddingRight = window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px"));
             body.style.paddingRight = window.innerWidth - document.querySelector(".wrapper").offsetWidth + "px";
             document.documentElement.classList.add("lock");
             bodyLockStatus = false;
@@ -3835,41 +3839,61 @@
         });
     }
     function initSliders() {
-        if (document.querySelector(".swiper")) var mySwiper = new swiper_core_Swiper(".swiper", {
-            modules: [ Navigation, EffectCards ],
-            observer: true,
-            slidesPerView: "auto",
-            centeredSlides: true,
-            effect: "cards",
-            grabCursor: true,
-            speed: 400,
-            cardsEffect: {
-                rotate: false,
-                perSlideOffset: 12,
-                perSlideRotate: 0
-            },
-            navigation: {
-                prevEl: ".reviews__arrow-left",
-                nextEl: ".reviews__arrow-right"
-            },
-            breakpoints: {
-                0: {
-                    cardsEffect: {
-                        perSlideOffset: 10
+        if (document.querySelector(".swiper")) {
+            let windowWidth = window.innerWidth;
+            let params;
+            if (windowWidth >= 650) params = {
+                modules: [ Navigation, EffectCards ],
+                observer: true,
+                slidesPerView: "auto",
+                centeredSlides: true,
+                grabCursor: true,
+                speed: 400,
+                navigation: {
+                    prevEl: ".reviews__arrow-left",
+                    nextEl: ".reviews__arrow-right"
+                },
+                effect: "cards",
+                cardsEffect: {
+                    rotate: false,
+                    perSlideOffset: 12,
+                    perSlideRotate: 0
+                },
+                on: {
+                    init: function() {
+                        setTimeout((function() {
+                            updateSlideClasses();
+                        }), 0);
+                    },
+                    slideChange: function() {
+                        updateSlideClasses();
                     }
                 }
-            },
-            on: {
-                init: function() {
-                    setTimeout((function() {
-                        updateSlideClasses();
-                    }), 0);
+            }; else params = {
+                modules: [ Navigation, EffectCards ],
+                observer: true,
+                slidesPerView: "auto",
+                centeredSlides: true,
+                grabCursor: true,
+                speed: 400,
+                navigation: {
+                    prevEl: ".reviews__arrow-left",
+                    nextEl: ".reviews__arrow-right"
                 },
-                slideChange: function() {
-                    updateSlideClasses();
+                spaceBetween: -3,
+                on: {
+                    init: function() {
+                        setTimeout((function() {
+                            updateSlideClasses();
+                        }), 0);
+                    },
+                    slideChange: function() {
+                        updateSlideClasses();
+                    }
                 }
-            }
-        });
+            };
+            var mySwiper = new swiper_core_Swiper(".swiper", params);
+        }
         function updateSlideClasses() {
             if (mySwiper) {
                 var slides = document.querySelectorAll(".swiper-slide");
