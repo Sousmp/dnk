@@ -15,11 +15,10 @@
 	<meta name="msapplication-config" content="https://sousmp.github.io/myworks/crimea/browserconfig.xml">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240130184712">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240219021407">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 
 <body>
 	<div class="wrapper">
@@ -40,7 +39,7 @@
 					<button data-popup="#popup" class="header__request _gold-btn">
 						<p>Заказать звонок</p>
 					</button>
-					<button class="icon-menu" aria-label="Гид">
+					<button class="menu__icon" data-popup="#menu" aria-label="Гид">
 						<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect x="0.5" y="0.5" width="53" height="53" rx="26.5" stroke="#DFC58A" />
 							<line x1="13" y1="20.5" x2="41" y2="20.5" stroke="#DFC58A" />
@@ -52,85 +51,6 @@
 				<!-- </div> -->
 			</div>
 		</header>
-		<div class="header__menu menu">
-			<div class="menu__body">
-				<div class="menu__top">
-					<a href="#" class="logo menu__logo">
-						<img class="menu__logo-img" src="img/header/logo.svg" alt="Logo">
-						<p class="menu__logo-text logo__text">Департамент недвижимости <br> Крыма</p>
-					</a>
-					<button class="menu__close icon-close">
-						<span></span>
-					</button>
-				</div>
-				<nav class="menu__nav">
-					<ul class="menu__links">
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/1.svg" alt="Image">Строительство
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/2.svg" alt="Image">Ремонт
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/3.svg" alt="Image">Дизайн
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/4.svg" alt="Image">Проектирование
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/7.svg" alt="Image">Инженерия
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/6.svg" alt="Image">Продажа недвижимости
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/5.svg" alt="Image">Инвестирование
-							</a>
-						</li>
-					</ul>
-				</nav>
-				<div class="menu__info info">
-					<div class="info__request">
-						<button data-popup="#popup" class="_gold-btn info__request-btn">
-							Заказать звонок
-						</button>
-					</div>
-					<div class="info__phone _phone">
-						<a href="tel:+79789727070">
-							<div class="_icon-telephone"></div>
-							+7 (978) 972-70-70
-						</a>
-					</div>
-					<ul class="info__socials socials">
-						<li class="socials__link">
-							<a href="#" class="_icon-instagram"></a>
-						</li>
-						<li class="socials__link">
-							<a href="#" class="_icon-telegram"></a>
-						</li>
-						<li class="socials__link">
-							<a href="#" class="_icon-whatsUp"></a>
-						</li>
-					</ul>
-					<div class="info__link"><a href="#">наши услуги</a></div>
-					<p class="info__text">© Департамент недвижимости Крыма</p>
-					<div class="info__link"><a href="#">Политика конфиденциальности</a></div>
-				</div>
-			</div>
-		</div>
 		<main class="page">
 			<section class="error">
 				<div class="error__container">
@@ -149,46 +69,29 @@
 						<img class="footer__logo-img" src="img/header/red-logo.svg" alt="Logo">
 						<p class="footer__logo-text  logo__text">Департамент недвижимости <br> Крыма</p>
 					</a>
-					<div class="footer__content">
-						<div class="footer__phone _phone">
-							<a href="tel:+79789727070">
-								<div class="_icon-telephone"></div>
-								+7 (978) 972-70-70
-							</a>
-						</div>
-						<button data-popup="#popup" class="footer__request _gold-btn">
-							Заказать звонок
-						</button>
-						<button class="footer__icon icon-menu">
-							<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<rect x="0.5" y="0.5" width="53" height="53" rx="26.5" stroke="#DFC58A" />
-								<line x1="13" y1="20.5" x2="41" y2="20.5" stroke="#DFC58A" />
-								<line x1="13" y1="32.5" x2="41" y2="32.5" stroke="#DFC58A" />
-								<line x1="13" y1="26.5" x2="41" y2="26.5" stroke="#DFC58A" />
-							</svg>
-						</button>
+					<div class="footer__links">
+						<a class="footer__link" href="tel:+79789727070">
+							<div class="_icon-empty-phone"></div>
+							+7 (978) 972-70-70
+						</a>
+						<a class="footer__link" href="tel:+79789727070">
+							<div class="_icon-whatsUp"></div>
+							+7 (978) 972-70-70
+						</a>
+						<a class="footer__link" target="_blank" href="https://t.me">
+							<div class="_icon-telegram"></div>
+							@dep-vip
+						</a>
 					</div>
 				</div>
 				<div class="footer__bottom">
-					<ul class="footer__socials socials">
-						<li class="socials__link">
-							<a href="#" class="_icon-instagram"></a>
-						</li>
-						<li class="socials__link">
-							<a href="#" class="_icon-telegram"></a>
-						</li>
-						<li class="socials__link">
-							<a href="#" class="_icon-whatsUp"></a>
-						</li>
-					</ul>
-					<a href="#" class="footer__link">наши услуги</a>
+					<a href="#" class="footer__policy">Политика <br> конфиденциальности</a>
 					<p class="footer__text">© Департамент недвижимости Крыма</p>
-					<a href="#" class="footer__link">Политика конфиденциальности</a>
 				</div>
 			</div>
 		</footer>
 	</div>
-	<script src="https://unpkg.com/imask?_v=20240130184712"></script>
+	<script src="https://unpkg.com/imask?_v=20240219021407"></script>
 	<div id="popup" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
@@ -198,7 +101,7 @@
 					<input type="tel" class="form__input" placeholder="Номер телефона">
 					<button type="submit" class="form__submit _gold-btn _empty-tel">
 						Получить консультацию
-						<span class="_icon-right-arrow"></span>
+
 					</button>
 				</form>
 				<p data-da=".popup-form,768,1" class="form__policy">Нажимая на кнопку «Получить консультацию», Вы соглашаетесь
@@ -223,7 +126,56 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240130184712"></script>
+
+	<div id="menu" aria-hidden="true" class="popup">
+		<div class="popup__wrapper menu__wrapper">
+			<div class="popup__content menu">
+				<nav class="menu__nav">
+					<ul class="menu__links">
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/1.svg" alt="Image">Строительство
+							</a>
+						</li>
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/4.svg" alt="Image">Проектирование
+							</a>
+						</li>
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/5.svg" alt="Image">Инвестирование
+							</a>
+						</li>
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/2.svg" alt="Image">Ремонт
+							</a>
+						</li>
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/7.svg" alt="Image">Инженерия
+							</a>
+						</li>
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/3.svg" alt="Image">Дизайн
+							</a>
+						</li>
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/6.svg" alt="Image">Продажа недвижимости
+							</a>
+						</li>
+
+					</ul>
+				</nav>
+
+				<button data-close type="button" class="popup__close"></button>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20240219021407"></script>
 </body>
 
 </html>
