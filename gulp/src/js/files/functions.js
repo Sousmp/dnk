@@ -140,6 +140,7 @@ export let bodyLockToggle = (delay = 500) => {
 }
 export let bodyUnlock = (delay = 500) => {
 	let body = document.querySelector("body");
+	let PopupWrapper = document.querySelectorAll(".popup__wrapper");
 	if (bodyLockStatus) {
 		let lock_padding = document.querySelectorAll("[data-lp]");
 		setTimeout(() => {
@@ -147,6 +148,7 @@ export let bodyUnlock = (delay = 500) => {
 				const el = lock_padding[index];
 				el.style.paddingRight = '0px';
 			}
+			PopupWrapper.forEach((e) => e.style.paddingRight = "0px")
 			body.style.paddingRight = '0px';
 			document.documentElement.classList.remove("lock");
 		}, delay);
@@ -158,12 +160,14 @@ export let bodyUnlock = (delay = 500) => {
 }
 export let bodyLock = (delay = 500) => {
 	let body = document.querySelector("body");
+	let PopupWrapper = document.querySelectorAll(".popup__wrapper");
 	if (bodyLockStatus) {
 		let lock_padding = document.querySelectorAll("[data-lp]");
 		for (let index = 0; index < lock_padding.length; index++) {
 			const el = lock_padding[index];
 			el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 		}
+		PopupWrapper.forEach((e) => e.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px')
 		body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 		document.documentElement.classList.add("lock");
 

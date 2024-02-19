@@ -54,14 +54,26 @@
          visibility: visible;
          opacity: 0.6;
          & .reviews__slide-body {
+            background: #a2a898;
             transform: scale(0.8);
+            .reviews__review,
+            .reviews__user,
+            .reviews__icon {
+               opacity: 0;
+            }
          }
       }
       &.swiper-slide-prev {
          visibility: visible;
          opacity: 0.8;
          & .reviews__slide-body {
+            background: #e6e3d4;
             transform: scale(0.9);
+            .reviews__review,
+            .reviews__user,
+            .reviews__icon {
+               opacity: 0;
+            }
          }
       }
       &.swiper-slide-active {
@@ -76,6 +88,11 @@
          opacity: 0.8;
          & .reviews__slide-body {
             transform: scale(0.9);
+            .reviews__review,
+            .reviews__user,
+            .reviews__icon {
+               opacity: 0;
+            }
          }
       }
       &.swiper-slide-next-next {
@@ -83,10 +100,16 @@
          opacity: 0.6;
          & .reviews__slide-body {
             transform: scale(0.8);
+            .reviews__review,
+            .reviews__user,
+            .reviews__icon {
+               opacity: 0;
+            }
          }
       }
    }
    &__review {
+      transition: opacity 0.3s ease 0s;
       flex: 1 1 auto;
    }
    &__arrow {
@@ -133,6 +156,7 @@
       background: rgba(25, 45, 34, 0.1);
    }
    &__icon {
+      transition: opacity 0.3s ease 0s;
       position: absolute;
       right: rem(30);
       top: rem(60);
@@ -309,6 +333,7 @@
    }
 }
 .user {
+   transition: opacity 0.3s ease 0s;
    border-top: rem(1) solid rgba(25, 45, 34, 0.1);
    padding-top: rem(30);
    display: flex;
