@@ -2942,7 +2942,7 @@ html.pc .footer__policy:hover {
   }
 }
 
-@media (max-width: 26.5625rem) {
+@media (max-width: 28.125rem) {
   .cards {
     padding-top: 1.25rem;
   }
@@ -2967,7 +2967,9 @@ html.pc .footer__policy:hover {
   .cards__icon {
     width: 1.875rem;
   }
+}
 
+@media (max-width: 23.75rem) {
   .reviews__slide {
     width: calc(100% - 40px);
   }
