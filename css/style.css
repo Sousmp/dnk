@@ -743,6 +743,11 @@ html.pc .menu__icon svg:hover line {
   stroke: #192d22;
 }
 
+.menu__icon:active,
+.menu__icon:focus {
+  outline: none;
+}
+
 .menu__link {
   -webkit-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
@@ -776,6 +781,11 @@ html.pc .menu__link:hover {
 html.pc .menu__link:hover::before,
 html.pc .menu__link:hover::after {
   background-color: #dfc58a;
+}
+
+.menu__link:active,
+.menu__link:focus {
+  outline: none;
 }
 
 .anim {
