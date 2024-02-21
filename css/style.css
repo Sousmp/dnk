@@ -2163,33 +2163,6 @@ html.pc .footer__policy:hover {
   }
 }
 
-@media (max-width: 450px) {
-  .cards {
-    padding-top: 1.25rem;
-  }
-
-  .cards__container {
-    padding: 0 !important;
-  }
-
-  .cards__title {
-    padding: 0 1.25rem 1.25rem 1.25rem;
-  }
-
-  .cards__name {
-    font-size: 1rem;
-  }
-
-  .cards__plate {
-    gap: 0.75rem;
-    padding: 1.5625rem 1.25rem;
-  }
-
-  .cards__icon {
-    width: 1.875rem;
-  }
-}
-
 @media (max-width: 425px) {
   .footer__logo-text {
     font-size: 9px;
@@ -2970,6 +2943,31 @@ html.pc .footer__policy:hover {
 }
 
 @media (max-width: 26.5625rem) {
+  .cards {
+    padding-top: 1.25rem;
+  }
+
+  .cards__container {
+    padding: 0 !important;
+  }
+
+  .cards__title {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+
+  .cards__name {
+    font-size: 1rem;
+  }
+
+  .cards__plate {
+    gap: 0.75rem;
+    padding: 1.5625rem 1.25rem;
+  }
+
+  .cards__icon {
+    width: 1.875rem;
+  }
+
   .reviews__slide {
     width: calc(100% - 40px);
   }
