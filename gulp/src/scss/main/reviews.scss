@@ -278,7 +278,7 @@
          @include adaptiveValue("font-size", 16, 13, 651, 319);
       }
    }
-   @media (max-width: rem(425)) {
+   @media (max-width: rem(380)) {
       &__slide {
          width: calc(100% - 40px);
       }

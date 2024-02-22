@@ -166,6 +166,10 @@ html.lock {
 				height: rem(40);
 			}
 		}
+		&:active,
+		&:focus {
+			outline: none;
+		}
 	}
 	&__link {
 		transition: color 0.3s ease 0s;
@@ -189,6 +193,10 @@ html.lock {
 			&::after {
 				background-color: $goldColor;
 			}
+		}
+		&:active,
+		&:focus {
+			outline: none;
 		}
 	}
 	@media (max-width: 1200px) {
