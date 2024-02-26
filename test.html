@@ -15,7 +15,7 @@
 	<meta name="msapplication-config" content="https://sousmp.github.io/myworks/crimea/browserconfig.xml">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240219220108">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240226202938">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -26,9 +26,9 @@
 		<header class="header">
 			<div class="header__container">
 				<!-- <div class="header__body"> -->
-				<a href="#" class="header__logo logo">
+				<a href="index.html" class="header__logo logo">
 					<img class="header__logo-img" src="img/header/red-logo.svg" alt="Logo">
-					<p class="header__logo-text  logo__text">Департамент недвижимости <br> Крыма</p>
+					<p class="header__logo-text  logo__text">Департамент недвижимости <br>Крыма</p>
 				</a>
 				<div class="header__content">
 					<div class="header__phone _phone">
@@ -38,6 +38,7 @@
 						</a>
 					</div>
 					<button data-popup="#popup" class="header__request _gold-btn">
+						<span class="_icon-telephone"></span>
 						<p>Заказать звонок</p>
 					</button>
 					<button class="menu__icon" data-popup="#menu" aria-label="Гид">
@@ -145,7 +146,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://unpkg.com/imask?_v=20240219220108"></script>
+	<script src="https://unpkg.com/imask?_v=20240226202938"></script>
 	<div id="popup" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
@@ -166,7 +167,7 @@
 		</div>
 	</div>
 
-	<div id="thanks" aria-hidden="true" class="popup">
+	<div id="thanks" aria-hidden="true" class="popup thanks">
 		<div class="popup__wrapper">
 			<div class="popup__content thanks__content">
 				<h5 class="thanks__title form__title _title"><span>Благодарим!</span></h5>
@@ -180,34 +181,24 @@
 		</div>
 	</div>
 
-	<div id="menu" aria-hidden="true" class="popup">
+	<div id="menu" aria-hidden="true" class="popup menu">
 		<div class="popup__wrapper menu__wrapper">
 			<div class="popup__content menu">
 				<nav class="menu__nav">
 					<ul class="menu__links">
 						<li>
 							<a href="#" class="menu__link">
-								<img src="img/cards/icons/1.svg" alt="Image">Строительство
+								<img src="img/cards/icons/1.svg" alt="Image">Продажа недвижимости
 							</a>
 						</li>
 						<li>
 							<a href="#" class="menu__link">
-								<img src="img/cards/icons/4.svg" alt="Image">Проектирование
+								<img src="img/cards/icons/4.svg" alt="Image">Строительство
 							</a>
 						</li>
 						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/5.svg" alt="Image">Инвестирование
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
+							<a href="service.html" class="menu__link">
 								<img src="img/cards/icons/2.svg" alt="Image">Ремонт
-							</a>
-						</li>
-						<li>
-							<a href="#" class="menu__link">
-								<img src="img/cards/icons/7.svg" alt="Image">Инженерия
 							</a>
 						</li>
 						<li>
@@ -217,9 +208,21 @@
 						</li>
 						<li>
 							<a href="#" class="menu__link">
-								<img src="img/cards/icons/6.svg" alt="Image">Продажа недвижимости
+								<img src="img/cards/icons/6.svg" alt="Image">Проектирование
 							</a>
 						</li>
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/5.svg" alt="Image">Инвестирование
+							</a>
+						</li>
+
+						<li>
+							<a href="#" class="menu__link">
+								<img src="img/cards/icons/7.svg" alt="Image">Инженерия
+							</a>
+						</li>
+
 
 					</ul>
 				</nav>
@@ -228,7 +231,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240219220108"></script>
+	<script src="js/app.min.js?_v=20240226202938"></script>
 </body>
 
 </html>

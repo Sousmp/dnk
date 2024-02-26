@@ -526,6 +526,7 @@
             this.openPopupsCount--;
             if (this.openPopupsCount === 0 && !document.documentElement.classList.contains("menu-open")) this.bodyLock = false;
             this.popupLogging(`Закрыл попап`);
+            history.replaceState(null, null, window.location.href.split("#")[0]);
         }
         _getHash() {
             if (this.options.hashSettings.location) this.hash = this.targetOpen.selector.includes("#") ? this.targetOpen.selector : this.targetOpen.selector.replace(".", "#");
@@ -4015,10 +4016,18 @@
     da.init();
     document.addEventListener("DOMContentLoaded", (function() {
         if (document.documentElement.classList.contains("_anim")) window.addEventListener("scroll", (function() {
-            const header = document.querySelector(".header");
             const scrollPosition = window.scrollY;
-            console.log(scrollPosition, header.offsetHeight);
-            if (scrollPosition > header.offsetHeight) document.documentElement.classList.add("_scroll"); else document.documentElement.classList.remove("_scroll");
+            const logo = document.querySelector(".header__logo");
+            if (window.innerWidth < 769) {
+                if (scrollPosition > 0 && window.scrollY < 130) logo.style.transform = `translateY(-${window.scrollY}px)`; else if (window.scrollY > 129) logo.style.transform = `translateY(-120px)`; else logo.style.transform = `translateY(0px)`;
+                if (scrollPosition > 20) document.documentElement.classList.add("_scroll"); else document.documentElement.classList.remove("_scroll");
+            } else if (window.innerWidth > 991) {
+                if (scrollPosition > 50) logo.style.transform = `translateY(-${window.scrollY - 50}px)`; else if (window.scrollY > 200) logo.style.transform = `translateY(-200px)`; else logo.style.transform = `translateY(0px)`;
+                if (scrollPosition > 140) document.documentElement.classList.add("_scroll"); else document.documentElement.classList.remove("_scroll");
+            } else {
+                if (scrollPosition > 40) logo.style.transform = `translateY(-${window.scrollY - 40}px)`; else if (window.scrollY > 120) logo.style.transform = `translateY(-120px)`; else logo.style.transform = `translateY(0px)`;
+                if (scrollPosition > 100) document.documentElement.classList.add("_scroll"); else document.documentElement.classList.remove("_scroll");
+            }
         }));
     }));
     document.addEventListener("DOMContentLoaded", (function() {
