@@ -828,6 +828,17 @@ html._anim .anim {
   z-index: 3;
 }
 
+html._anim .service__title {
+  line-height: 90%;
+}
+
+html._anim .service__title._line-break span {
+  font-size: 60px;
+  line-height: 90%;
+  margin-top: 0;
+  word-spacing: 9999px;
+}
+
 html._anim .header__request p {
   -webkit-transition: 0.4s ease 0s;
   transition: 0.4s ease 0s;
@@ -2319,6 +2330,10 @@ html.pc .footer__policy:hover {
     padding-top: 0px;
   }
 
+  html._anim .cards__item:nth-child(1) {
+    display: none;
+  }
+
   html._anim .cards__title {
     -webkit-transform: translateY(0px);
         -ms-transform: translateY(0px);
@@ -2457,10 +2472,6 @@ html.pc .footer__policy:hover {
     margin-top: 3px;
     font-size: 1.25rem;
     padding-left: 0.625rem;
-  }
-
-  .service .cards__item:nth-child(1) {
-    display: none;
   }
 
   .service__plate {
@@ -2779,10 +2790,6 @@ html.pc .footer__policy:hover {
 }
 
   .cards__request-btn {
-    display: none;
-  }
-
-  .cards__item:nth-child(1) {
     display: none;
   }
 
