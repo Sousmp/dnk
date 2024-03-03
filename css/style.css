@@ -860,7 +860,7 @@ html._anim .service__title._line-break {
 }
 
 html._anim .service__title._line-break span {
-  padding-top: 3px;
+  padding-top: 12px;
   font-size: 70px;
   line-height: 90%;
   margin-top: 0;
@@ -878,6 +878,10 @@ html._anim .cards__items {
 
 html._anim .cards__text {
   padding-top: 140px;
+}
+
+html._anim .cards__text._line-break {
+  padding-top: 180px;
 }
 
 html._anim .cards {
@@ -3100,6 +3104,10 @@ html.pc .form-review__submit._active:hover {
 @media (max-width: 650px) {
   ._gold-btn {
     font-size: 14px;
+  }
+
+  html._anim .service__title._line-break span {
+    padding-top: 8px;
   }
 
   html._anim .service__title._line-break img {
