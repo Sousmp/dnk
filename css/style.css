@@ -1894,7 +1894,7 @@ html.pc .reviews__btn:hover {
 
 .photos__container {
   max-width: 1920px;
-  padding: 0;
+  padding: 0 !important;
 }
 
 .photos__slider {
