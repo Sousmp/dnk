@@ -15,7 +15,7 @@
 	<meta name="msapplication-config" content="https://sousmp.github.io/myworks/crimea/browserconfig.xml">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240228185339">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240303175429">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -26,10 +26,19 @@
 		<header class="header">
 			<div class="header__container">
 				<!-- <div class="header__body"> -->
-				<a href="index.html" class="header__logo logo">
-					<img class="header__logo-img" src="img/header/red-logo.svg" alt="Logo">
-					<p class="header__logo-text  logo__text">Департамент недвижимости <br>Крыма</p>
-				</a>
+				<div class="header__logo">
+					<a href="index.html" class="logo">
+						<img class="header__logo-img" src="img/header/red-logo.svg" alt="Logo">
+						<p class="header__logo-text  logo__text">Департамент недвижимости <br>Крыма</p>
+					</a>
+					<a href="service.html" class="header__back">
+						<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="0.5" y="0.5" width="39" height="39" rx="19.5" stroke="#DFC58A" />
+							<path d="M22.5 13.75L16.25 20L22.5 26.25" stroke="#DFC58A" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a>
+				</div>
+
 				<div class="header__content">
 					<div class="header__phone _phone">
 						<a href="tel:+79789727070">
@@ -356,6 +365,20 @@
 			</div>
 		</div>
 
+		<div id="thanks2" aria-hidden="true" class="popup thanks">
+			<div class="popup__wrapper">
+				<div class="popup__content thanks__content">
+					<h5 class="thanks__title form__title _title"><span>Благодарим!</span></h5>
+					<p class="form__subtitle">Модератор проверит Ваш отзыв и он появится на странице данной компании в течении нескольких часов.</p>
+					<a data-close href="#" class="thanks__link _transparent-btn">
+						На главную
+					</a>
+					<button data-close type="button" class="popup__close"></button>
+				</div>
+			</div>
+		</div>
+
+
 		<div id="menu" aria-hidden="true" class="popup menu">
 			<div class="popup__wrapper menu__wrapper">
 				<div class="popup__content menu">
@@ -406,9 +429,46 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="review" aria-hidden="true" class="popup review">
+			<div class="popup__wrapper form-review__wrapper">
+				<div class="popup__content form-review">
+					<h5 class="form-review__title _title"><span>Оставьте отзыв</span></h5>
+					<form action="#" class="form-review__form">
+						<label class="form-review__input-body">
+							<input type="text" placeholder="Ваши имя и фамилия" class="form-review__input form-review__name">
+						</label>
+						<label class="form-review__input-body">
+							<input type="text" class="form-review__input form-review__service">
+							<p class="form-review__placeholder">Оказанная услуга <span>Например: Ремонт двухкомнатной квартиры</span></p>
+						</label>
+						<div class="form-review__file-body">
+							<label for="form-review__avatar" class="form-review__file-lable">
+								<img alt="Image" class="form-review__preview">
+								<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#DFC58A" />
+									<path d="M29.2857 35.11V22.7529L25.9571 26.0814L24.9457 25.0543L30 20L35.0543 25.0543L34.0443 26.0829L30.7143 22.7529V35.11H29.2857ZM22.3071 40C21.65 40 21.1014 39.78 20.6614 39.34C20.2205 38.899 20 38.35 20 37.6929V34.2314H21.4286V37.6929C21.4286 37.9119 21.52 38.1133 21.7029 38.2971C21.8867 38.48 22.0881 38.5714 22.3071 38.5714H37.6929C37.9119 38.5714 38.1133 38.48 38.2971 38.2971C38.48 38.1133 38.5714 37.9119 38.5714 37.6929V34.2314H40V37.6929C40 38.35 39.78 38.8986 39.34 39.3386C38.899 39.7795 38.35 40 37.6929 40H22.3071Z" fill="#DFC58A" />
+								</svg>
+								<p>Загрузить аватар</p>
+							</label>
+							<input type="file" accept=".jpg, .png, .webp" class="form-review__file" id="form-review__avatar">
+						</div>
+						<div class="form-review__textarea-body">
+							<p class="form-review__text">Минимум 20 слов</p>
+							<textarea class="form-review__textarea" name="" placeholder="Текст отзыва..." id="" cols="30" rows="10"></textarea>
+						</div>
+						<p class="form-review__policy">Нажимая на кнопку «Получить консультацию», Вы соглашаетесь
+							с условиями <a href="#">политики конфиденциальности</a>
+						</p>
+						<button type="submit" class="form-review__submit _gold-btn">Оставить отзыв</button>
+					</form>
+					<button data-close type="button" class="popup__close"></button>
+				</div>
+			</div>
+		</div>
 	</div>
-	<script src="https://unpkg.com/imask?_v=20240228185339"></script>
-	<script src="js/app.min.js?_v=20240228185339"></script>
+	<script src="https://unpkg.com/imask?_v=20240303175429"></script>
+	<script src="js/app.min.js?_v=20240303175429"></script>
 </body>
 
 </html>
