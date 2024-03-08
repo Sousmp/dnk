@@ -2,7 +2,7 @@
 <html lang="ru" class="_anim">
 
 <head>
-	<title>Главная</title>
+	<title>Ремонт</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -19,6 +19,7 @@
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 
 <body>
 	<div class="wrapper">
@@ -61,59 +62,341 @@
 				<!-- </div> -->
 			</div>
 		</header>
-		<section class="anim anim__second">
+		<section class="anim service__anim">
 			<div class="anim__container">
-				<div class="anim__body anim__second-body">
-					<h1 class="anim__title _title"><span>ООО Артлайн</span></h1>
+				<div class="anim__body">
+					<h1 class="cards__title service__title _title"><img class="cards__icon" src="img/cards/icons/2.svg" alt="Image"><span>Недвижимость</span></h1>
 				</div>
 			</div>
 		</section>
 		<main class="page">
-			<section class="text">
-				<div class="text__container">
-					<p class="text__text _text">
-						Современный ремонт квартир премиум-класса в Крыму
-					</p>
-				</div>
-			</section>
-			<section class="photos">
-				<div class="photos__container">
-					<div class="photos__slider swiper">
-						<div class="photos__navigate">
-							<div class="photos__arrow photos__arrow-left"><span class="_icon-left-arrow"></span></div>
-							<div class="photos__arrow photos__arrow-right"><span class="_icon-right-arrow"></span></div>
-							<div class="photos__number">0/0 Offers</div>
+			<section class="estate">
+				<div class="estate__container">
+					<div class="estate__items">
+						<div class="estate__item estate__filter filter">
+							<form data-one-select action="#" class="filter__form">
+								<div class="filter__first">
+									<div class="filter__search-box">
+										<div class="filter__input">
+											<input type="text" class="filter__search" placeholder="Введите Ваш запрос... ">
+											<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M15.5002 15.5002L11.881 11.881M11.881 11.881C12.5001 11.2619 12.9912 10.527 13.3262 9.71813C13.6612 8.90927 13.8337 8.04234 13.8337 7.16684C13.8337 6.29134 13.6612 5.42441 13.3262 4.61555C12.9912 3.80669 12.5001 3.07174 11.881 2.45267C11.2619 1.8336 10.527 1.34252 9.71813 1.00748C8.90927 0.672443 8.04234 0.5 7.16684 0.5C6.29134 0.5 5.42441 0.672443 4.61555 1.00748C3.80669 1.34252 3.07174 1.8336 2.45267 2.45267C1.2024 3.70295 0.5 5.39868 0.5 7.16684C0.5 8.93499 1.2024 10.6307 2.45267 11.881C3.70295 13.1313 5.39868 13.8337 7.16684 13.8337C8.93499 13.8337 10.6307 13.1313 11.881 11.881Z" stroke="#DFC58A" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</div>
+										<p class="filter__name">Поиск</p>
+									</div>
+									<div class="filter__currency-box">
+										<div class="filter__currency-select">
+											<select data-vertical name="" id="" class="filter__currency">
+												<option value="rub">₽</option>
+												<option value="usd">$</option>
+												<option value="eur">€</option>
+											</select>
+										</div>
+										<p class="filter__currency-name">Валюта</p>
+									</div>
+								</div>
+								<div class="filter__left-column">
+									<div class="filter__item">
+										<div class="filter__select">
+											<select name="" id="" class="filter__estate">
+												<option value="residential">Жилая</option>
+												<option value="commercial">Коммерческая</option>
+												<option value="plot">Участок</option>
+											</select>
+										</div>
+										<p class="filter__name">Недвижимость</p>
+									</div>
+									<div class="filter__item filter__bedroom-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__bedroom">
+												<option value="1">2 спальни</option>
+												<option value="2">1 спальня</option>
+												<option value="3">3 и более</option>
+											</select>
+										</div>
+										<p class="filter__name">Кол-во спален</p>
+									</div>
+									<div hidden class="filter__item filter__room-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__room">
+												<option value="1">6 помещений</option>
+												<option value="2">4 помещения</option>
+												<option value="3">2 помещения</option>
+											</select>
+										</div>
+										<p class="filter__name">Кол-во помещения</p>
+									</div>
+									<div hidden class="filter__item filter__comunications-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__comunications">
+												<option value="1">Газ, вода, эл-во</option>
+												<option value="2">Газ</option>
+												<option value="3">Вода</option>
+												<option value="4">Электричество</option>
+											</select>
+										</div>
+										<p class="filter__name">Коммуникации</p>
+									</div>
+									<div class="filter__item">
+										<div class="filter__range">
+											<p><span class="filter__value filter__area-value"></span> м<sup>2</sup></p>
+											<!-- Вся логика инпутов с ползунком осуществляется в файле files/forms/range.js -->
+											<div class="filter__area"></div>
+										</div>
+										<p class="filter__name">Метраж до</p>
+									</div>
+								</div>
+								<div class="filter__right-column">
+									<div class="filter__item filter__residential-type-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__residential-type">
+												<option value="1">Квартира</option>
+												<option value="2">Дом</option>
+												<option value="3">Таунхауз</option>
+											</select>
+										</div>
+										<p class="filter__name">Тип</p>
+									</div>
+									<div hidden class="filter__item filter__commercial-type-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__commercial-type">
+												<option value="1">Магазин</option>
+												<option value="2">Кафэ</option>
+												<option value="3">Склад</option>
+											</select>
+										</div>
+										<p class="filter__name">Назначение</p>
+									</div>
+									<div hidden class="filter__item filter__plot-type-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__plot-type">
+												<option value="1">Для жилья</option>
+												<option value="2">Для коммерции</option>
+												<option value="3">Сельхоз</option>
+											</select>
+										</div>
+										<p class="filter__name">Назначение</p>
+									</div>
+									<div class="filter__item filter__repair-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__repair">
+												<option value="1">С ремонтом</option>
+												<option value="2">Без ремонта</option>
+											</select>
+										</div>
+										<p class="filter__name">Состояние</p>
+									</div>
+									<div hidden class="filter__item filter__buildings-box">
+										<div class="filter__select">
+											<select name="" id="" class="filter__buildings">
+												<option value="1">Есть</option>
+												<option value="2">Нет</option>
+											</select>
+										</div>
+										<p class="filter__name">Строения</p>
+									</div>
+									<div class="filter__item">
+										<div class="filter__range">
+											<!-- Смена валюты осуществляется в файле libs/select.js на 460 строке примерно -->
+											<p><span class="filter__value filter__price-value"></span><span id="currency-show">₽</span></p>
+											<div class="filter__price"></div>
+										</div>
+										<p class="filter__name">Стоимость до</p>
+									</div>
+								</div>
+							</form>
+							<p class="filter__text">Найдено подходящих вариантов: <span id="filter__result">12</span></p>
+							<button data-popup="#popup" class="estate__request _gold-btn">Получить консультацию</button>
 						</div>
-						<div class="photos__wrapper swiper-wrapper">
-							<div class="photos__slide swiper-slide">
-								<picture><source srcset="img/partner/1.webp" type="image/webp"><img src="img/partner/1.jpg" alt="Image"></picture>
+						<a href="#" class="estate__item estate__hover">
+							<div class="estate__img">
+								<picture><source srcset="img/estate/1.webp" type="image/webp"><img class="estate__img" src="img/estate/1.jpg" alt="Image"></picture>
+								<p class="estate__update">Обновлено: 29.01.2024</p>
+								<p class="estate__views">89 просмотров</p>
 							</div>
-							<div class="photos__slide swiper-slide">
-								<picture><source srcset="img/partner/2.webp" type="image/webp"><img src="img/partner/2.jpg" alt="Image"></picture>
+							<div class="estate__estate-info estate-info">
+								<h6 class="estate-info__title">Четырёхкомнатная квартира
+									в Ялте, Приморский парк</h6>
+								<div class="estate-info__items">
+									<div class="estate-info__row">
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/1.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Недвижимость:</p>
+												<p class="estate-info__value">Квартира</p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/2.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Стоимость:</p>
+												<p class="estate-info__value">154 442 230 руб.</p>
+											</div>
+										</div>
+									</div>
+									<div class="estate-info__row">
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/3.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Спален:</p>
+												<p class="estate-info__value">4</p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/4.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Площадь:</p>
+												<p class="estate-info__value">237.70 м <sup>2</sup></p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/5.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Этаж:</p>
+												<p class="estate-info__value">12/16</p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="photos__slide swiper-slide">
-								<picture><source srcset="img/partner/3.webp" type="image/webp"><img src="img/partner/3.jpg" alt="Image"></picture>
+						</a>
+						<a href="#" class="estate__item estate__hover">
+							<div class="estate__img">
+								<picture><source srcset="img/estate/2.webp" type="image/webp"><img class="estate__img" src="img/estate/2.jpg" alt="Image"></picture>
+								<p class="estate__update">Обновлено: 29.01.2024</p>
+								<p class="estate__views">89 просмотров</p>
 							</div>
-							<div class="photos__slide swiper-slide">
-								<picture><source srcset="img/partner/2.webp" type="image/webp"><img src="img/partner/2.jpg" alt="Image"></picture>
+							<div class="estate__estate-info estate-info">
+								<h6 class="estate-info__title">Четырёхкомнатная квартира
+									в Ялте, Приморский парк</h6>
+								<div class="estate-info__items">
+									<div class="estate-info__row">
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/1.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Недвижимость:</p>
+												<p class="estate-info__value">Квартира</p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/2.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Стоимость:</p>
+												<p class="estate-info__value">154 442 230 руб.</p>
+											</div>
+										</div>
+									</div>
+									<div class="estate-info__row">
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/3.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Спален:</p>
+												<p class="estate-info__value">4</p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/4.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Площадь:</p>
+												<p class="estate-info__value">237.70 м <sup>2</sup></p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/5.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Этаж:</p>
+												<p class="estate-info__value">12/16</p>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="photos__slide swiper-slide">
-								<picture><source srcset="img/partner/3.webp" type="image/webp"><img src="img/partner/3.jpg" alt="Image"></picture>
+						</a>
+						<a href="#" class="estate__item estate__hover">
+							<div class="estate__img">
+								<picture><source srcset="img/estate/3.webp" type="image/webp"><img class="estate__img" src="img/estate/3.jpg" alt="Image"></picture>
+								<p class="estate__update">Обновлено: 29.01.2024</p>
+								<p class="estate__views">89 просмотров</p>
 							</div>
-						</div>
+							<div class="estate__estate-info estate-info">
+								<h6 class="estate-info__title">Четырёхкомнатная квартира
+									в Ялте, Приморский парк</h6>
+								<div class="estate-info__items">
+									<div class="estate-info__row">
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/1.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Недвижимость:</p>
+												<p class="estate-info__value">Квартира</p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/2.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Стоимость:</p>
+												<p class="estate-info__value">154 442 230 руб.</p>
+											</div>
+										</div>
+									</div>
+									<div class="estate-info__row">
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/3.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Спален:</p>
+												<p class="estate-info__value">4</p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/4.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Площадь:</p>
+												<p class="estate-info__value">237.70 м <sup>2</sup></p>
+											</div>
+										</div>
+										<div class="estate-info__item">
+											<div class="estate-info__img">
+												<img src="img/estate/info/5.svg " alt="Image">
+											</div>
+											<div class="estate-info__texts">
+												<p class="estate-info__type">Этаж:</p>
+												<p class="estate-info__value">12/16</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
 					</div>
-					<div class="photos__pagination"></div>
-				</div>
-			</section>
-			<section class="propose">
-				<div class="propose__container">
-					<h3 class="propose__title _title">Современный ремонт квартир премиум-класса в Крыму</h3>
-					<div class="propose__text-body">
-						<p class="propose__text _text">предоставить Вам не только услуги, но и надежного партнера, готового поддержать вас на каждом этапе. Наш опыт в области ремонта, строительства и недвижимости говорит о нашей надежности и качественном подходе.
-							<br><br>
-							Мы не просто строим стены, мы создаем пространства, наполненные уютом и комфортом. Наше стремление к совершенству видно в каждой детали.
-						</p>
-					</div>
+					<button class="estate__more _transparent-btn">Показать еще</button>
 				</div>
 			</section>
 			<section class="form">
@@ -141,8 +424,8 @@
 					<div class="reviews__content">
 						<h3 class="reviews__title _title">Отзывы клиентов</h3>
 						<div data-da=".reviews__container, 991" class="reviews__request-body">
-							<a data-popup="#review" href="#" class="reviews__request _transparent-btn" type="button">
-								Оставить отзыв
+							<a href="#" class="reviews__request _transparent-btn" type="button">
+								Смотреть все отзывы
 							</a>
 						</div>
 					</div>
@@ -159,7 +442,7 @@
 										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
 											квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей.</p>
 										<div class="reviews__more">
-											<button data-popup="#full-review" class="reviews__btn">Подробнее</button>
+											<a href="#" class="reviews__btn">Подробнее</a>
 										</div>
 									</div>
 									<div class="reviews__user user">
@@ -183,7 +466,7 @@
 										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
 											квартире.</p>
 										<div class="reviews__more">
-											<button data-popup="#full-review" class="reviews__btn">Подробнее</button>
+											<a href="#" class="reviews__btn">Подробнее</a>
 										</div>
 									</div>
 									<div class="reviews__user user">
@@ -206,7 +489,7 @@
 										<p class="reviews__count">105 из 148</p>
 										<p class="reviews__text">Все круто, спасибо</p>
 										<div class="reviews__more">
-											<button data-popup="#full-review" class="reviews__btn">Подробнее</button>
+											<a href="#" class="reviews__btn">Подробнее</a>
 										</div>
 									</div>
 									<div class="reviews__user user">
@@ -230,7 +513,7 @@
 										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
 											квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей.</p>
 										<div class="reviews__more">
-											<button data-popup="#full-review" class="reviews__btn">Подробнее</button>
+											<a href="#" class="reviews__btn">Подробнее</a>
 										</div>
 									</div>
 									<div class="reviews__user user">
@@ -251,12 +534,10 @@
 								<div class="reviews__slide-body">
 									<div class="reviews__review">
 										<p class="reviews__count">105 из 148</p>
-										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания.Ремонт с этой компанией превзошел мои ожидания.Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап
-											ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
-											квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей. Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с
-											учетом моих предпочтений, что создало уютную и стильную атмосферу в квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей. Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках.</p>
+										<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в
+											квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей.</p>
 										<div class="reviews__more">
-											<button data-popup="#full-review" class="reviews__btn">Подробнее</button>
+											<a href="#" class="reviews__btn">Подробнее</a>
 										</div>
 									</div>
 									<div class="reviews__user user">
@@ -445,40 +726,6 @@
 				</div>
 			</div>
 		</div>
-
-
-		<div id="full-review" aria-hidden="true" class="popup full-review">
-			<div class="popup__wrapper">
-				<div class="popup__content full-review__content">
-					<div class="reviews__slide-body">
-						<div class="reviews__review">
-							<p class="reviews__count">105 из 148</p>
-							<p class="reviews__text">Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений, что создало уютную и стильную атмосферу в квартире.
-								Без
-								сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей. Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках и качественное исполнение работ поразили меня. Каждый этап ремонта осуществлялся с учетом моих предпочтений,
-								что
-								создало уютную и стильную атмосферу в квартире. Без сомнений, рекомендую эту команду для всех, кто ищет надежных исполнителей. Ремонт с этой компанией превзошел мои ожидания. Профессиональный подход, точность в сроках.</p>
-							<div class="reviews__more">
-								<button data-close class="popup__close reviews__btn">Закрыть</button>
-							</div>
-						</div>
-						<div class="reviews__user user">
-							<div class="user__img">
-								<picture><source srcset="img/reviews/users-avatar/1.webp" type="image/webp"><img src="img/reviews/users-avatar/1.png" alt="Image"></picture>
-							</div>
-							<div class="user__info">
-								<h6 class="user__name">Кристина Алексеева</h6>
-								<p class="user__task">Ремонт двухкомнатной квартиры</p>
-							</div>
-						</div>
-						<div class="reviews__icon">
-							<img src="img/reviews/icon.svg" alt="Image">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 	</div>
 	<script src="https://unpkg.com/imask?_v=20240308141011"></script>
 	<script src="js/app.min.js?_v=20240308141011"></script>
