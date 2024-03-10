@@ -331,6 +331,107 @@
             }
         }));
     }
+    function showMore() {
+        window.addEventListener("load", (function(e) {
+            const showMoreBlocks = document.querySelectorAll("[data-showmore]");
+            let showMoreBlocksRegular;
+            let mdQueriesArray;
+            if (showMoreBlocks.length) {
+                showMoreBlocksRegular = Array.from(showMoreBlocks).filter((function(item, index, self) {
+                    return !item.dataset.showmoreMedia;
+                }));
+                showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
+                document.addEventListener("click", showMoreActions);
+                mdQueriesArray = dataMediaQueries(showMoreBlocks, "showmoreMedia");
+                if (mdQueriesArray && mdQueriesArray.length) {
+                    mdQueriesArray.forEach((mdQueriesItem => {
+                        mdQueriesItem.matchMedia.addEventListener("change", (function() {
+                            initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                        }));
+                    }));
+                    initItemsMedia(mdQueriesArray);
+                }
+            }
+            function initItemsMedia(mdQueriesArray) {
+                mdQueriesArray.forEach((mdQueriesItem => {
+                    initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                }));
+            }
+            function initItems(showMoreBlocks, matchMedia) {
+                showMoreBlocks.forEach((showMoreBlock => {
+                    initItem(showMoreBlock, matchMedia);
+                }));
+            }
+            function initItem(showMoreBlock, matchMedia = false) {
+                showMoreBlock = matchMedia ? showMoreBlock.item : showMoreBlock;
+                let showMoreContent = showMoreBlock.querySelectorAll("[data-showmore-content]");
+                let showMoreButton = showMoreBlock.querySelectorAll("[data-showmore-button]");
+                showMoreContent = Array.from(showMoreContent).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
+                showMoreButton = Array.from(showMoreButton).filter((item => item.closest("[data-showmore]") === showMoreBlock))[0];
+                const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
+                if (matchMedia.matches || !matchMedia) if (hiddenHeight < getOriginalHeight(showMoreContent)) {
+                    _slideUp(showMoreContent, 0, hiddenHeight);
+                    showMoreButton.hidden = false;
+                } else {
+                    _slideDown(showMoreContent, 0, hiddenHeight);
+                    showMoreButton.hidden = true;
+                } else {
+                    _slideDown(showMoreContent, 0, hiddenHeight);
+                    showMoreButton.hidden = true;
+                }
+            }
+            function getHeight(showMoreBlock, showMoreContent) {
+                let hiddenHeight = 0;
+                const showMoreType = showMoreBlock.dataset.showmore ? showMoreBlock.dataset.showmore : "size";
+                if (showMoreType === "items") {
+                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 3;
+                    const showMoreItems = showMoreContent.children;
+                    for (let index = 1; index < showMoreItems.length; index++) {
+                        const showMoreItem = showMoreItems[index - 1];
+                        hiddenHeight += showMoreItem.offsetHeight;
+                        if (index == showMoreTypeValue) break;
+                    }
+                } else {
+                    const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? showMoreContent.dataset.showmoreContent : 150;
+                    hiddenHeight = showMoreTypeValue;
+                }
+                return hiddenHeight;
+            }
+            function getOriginalHeight(showMoreContent) {
+                let parentHidden;
+                let hiddenHeight = showMoreContent.offsetHeight;
+                showMoreContent.style.removeProperty("height");
+                if (showMoreContent.closest(`[hidden]`)) {
+                    parentHidden = showMoreContent.closest(`[hidden]`);
+                    parentHidden.hidden = false;
+                }
+                let originalHeight = showMoreContent.offsetHeight;
+                parentHidden ? parentHidden.hidden = true : null;
+                showMoreContent.style.height = `${hiddenHeight}px`;
+                return originalHeight;
+            }
+            function showMoreActions(e) {
+                const targetEvent = e.target;
+                const targetType = e.type;
+                if (targetType === "click") {
+                    if (targetEvent.closest("[data-showmore-button]")) {
+                        const showMoreButton = targetEvent.closest("[data-showmore-button]");
+                        const showMoreBlock = showMoreButton.closest("[data-showmore]");
+                        const showMoreContent = showMoreBlock.querySelector("[data-showmore-content]");
+                        const showMoreSpeed = showMoreBlock.dataset.showmoreButton ? showMoreBlock.dataset.showmoreButton : "500";
+                        const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
+                        if (!showMoreContent.classList.contains("_slide")) {
+                            showMoreBlock.classList.contains("_showmore-active") ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
+                            showMoreBlock.classList.toggle("_showmore-active");
+                        }
+                    }
+                } else if (targetType === "resize") {
+                    showMoreBlocksRegular && showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
+                    mdQueriesArray && mdQueriesArray.length ? initItemsMedia(mdQueriesArray) : null;
+                }
+            }
+        }));
+    }
     function functions_FLS(message) {
         setTimeout((() => {
             if (window.FLS) console.log(message);
@@ -994,7 +1095,7 @@
             if (originalSelect.hasAttribute("data-search")) return `<div class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}"><input autocomplete="off" type="text" placeholder="${selectTitleValue}" data-placeholder="${selectTitleValue}" class="${this.selectClasses.classSelectInput}"></span></div>`; else {
                 const customClass = this.getSelectedOptionsData(originalSelect).elements.length && this.getSelectedOptionsData(originalSelect).elements[0].dataset.class ? ` ${this.getSelectedOptionsData(originalSelect).elements[0].dataset.class}` : "";
                 const currencyShow = document.getElementById("currency-show");
-                if (originalSelect.classList.contains("filter__currency")) currencyShow.textContent = ` ${selectTitleValue}`;
+                if (currencyShow && originalSelect.classList.contains("filter__currency")) currencyShow.textContent = ` ${selectTitleValue}`;
                 return `<button type="button" class="${this.selectClasses.classSelectTitle}"><span${pseudoAttribute} class="${this.selectClasses.classSelectValue}${pseudoAttributeClass}"><span class="${this.selectClasses.classSelectContent}${customClass}">${selectTitleValue}</span></span></button>`;
             }
         }
@@ -1136,39 +1237,6 @@
         }
     }
     modules_flsModules.select = new SelectConstructor({});
-    document.addEventListener("selectCallback", (function(e) {
-        const currentSelect = e.detail.select;
-        if (currentSelect.value === "residential") {
-            document.querySelector(".filter__bedroom-box").hidden = false;
-            document.querySelector(".filter__room-box").hidden = true;
-            document.querySelector(".filter__comunications-box").hidden = true;
-            document.querySelector(".filter__residential-type-box").hidden = false;
-            document.querySelector(".filter__commercial-type-box").hidden = true;
-            document.querySelector(".filter__plot-type-box").hidden = true;
-            document.querySelector(".filter__repair-box").hidden = false;
-            document.querySelector(".filter__buildings-box").hidden = true;
-        }
-        if (currentSelect.value === "commercial") {
-            document.querySelector(".filter__bedroom-box").hidden = true;
-            document.querySelector(".filter__room-box").hidden = false;
-            document.querySelector(".filter__comunications-box").hidden = true;
-            document.querySelector(".filter__residential-type-box").hidden = true;
-            document.querySelector(".filter__commercial-type-box").hidden = false;
-            document.querySelector(".filter__plot-type-box").hidden = true;
-            document.querySelector(".filter__repair-box").hidden = false;
-            document.querySelector(".filter__buildings-box").hidden = true;
-        }
-        if (currentSelect.value === "plot") {
-            document.querySelector(".filter__bedroom-box").hidden = true;
-            document.querySelector(".filter__room-box").hidden = true;
-            document.querySelector(".filter__comunications-box").hidden = false;
-            document.querySelector(".filter__residential-type-box").hidden = true;
-            document.querySelector(".filter__commercial-type-box").hidden = true;
-            document.querySelector(".filter__plot-type-box").hidden = false;
-            document.querySelector(".filter__repair-box").hidden = true;
-            document.querySelector(".filter__buildings-box").hidden = false;
-        }
-    }));
     var PipsMode;
     (function(PipsMode) {
         PipsMode["Range"] = "range";
@@ -6590,6 +6658,18 @@
     const da = new DynamicAdapt("max");
     da.init();
     document.addEventListener("DOMContentLoaded", (function() {
+        const selectFilterCurrency = document.querySelector(".select_filter__currency");
+        const titleSpan = document.querySelector(".anim__object._title");
+        const observer = new MutationObserver((function(mutationsList, observer) {
+            for (let mutation of mutationsList) if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                const isOpen = selectFilterCurrency.classList.contains("_select-open");
+                if (isOpen) titleSpan.classList.add("_min"); else titleSpan.classList.remove("_min");
+            }
+        }));
+        const config = {
+            attributes: true
+        };
+        observer.observe(selectFilterCurrency, config);
         let h1 = document.querySelector(".service__title");
         let text = document.querySelector(".cards__text");
         if (h1) {
@@ -6608,37 +6688,43 @@
         if (input) input.addEventListener("input", (function(event) {
             if (event.target.value.length === 0) placeholder.style.opacity = "1"; else placeholder.style.opacity = "0";
         }));
-        var parentElement = document.querySelector(".select_filter__currency");
-        if (parentElement) parentElement.addEventListener("change", (function(event) {
-            var target = event.target;
-            if (target && target.matches(".filter__currency")) {
-                var selectedOption = target.options[target.selectedIndex];
-                console.log(selectedOption.value);
+        window.addEventListener("resize", (function() {
+            if (window.innerWidth < 991) {
+                var map = document.querySelector(".map__map iframe");
+                if (map) {
+                    var width = map.offsetWidth;
+                    map.style.height = width + "px";
+                }
             }
         }));
-        document.addEventListener("DOMContentLoaded", (function() {
-            var currencySelect = document.querySelector(".filter__currency");
-            currencySelect.addEventListener("change", (function() {
-                var selectedOption = currencySelect.options[currencySelect.selectedIndex];
-                currencyShow.textContent = selectedOption.value;
-            }));
+        window.addEventListener("load", (function() {
+            if (window.innerWidth < 991) {
+                var map = document.querySelector(".map__map iframe");
+                if (map) {
+                    var width = map.offsetWidth;
+                    map.style.height = width + "px";
+                }
+            }
         }));
     }));
     document.addEventListener("DOMContentLoaded", (function() {
         if (document.documentElement.classList.contains("_anim")) window.addEventListener("scroll", (function() {
             const scrollPosition = window.scrollY;
             const logo = document.querySelector(".header__logo");
-            this.document.querySelector(".anim");
+            let translateY = 0;
+            let scrollThreshold = 0;
             if (window.innerWidth < 769) {
-                if (scrollPosition > 0 && window.scrollY < 130) logo.style.transform = `translateY(-${window.scrollY}px)`; else if (window.scrollY > 129) logo.style.transform = `translateY(-120px)`; else logo.style.transform = `translateY(0px)`;
-                if (scrollPosition > 20) document.documentElement.classList.add("_scroll"); else document.documentElement.classList.remove("_scroll");
+                translateY = Math.min(scrollPosition, 130);
+                scrollThreshold = 20;
             } else if (window.innerWidth > 991) {
-                if (scrollPosition > 50) logo.style.transform = `translateY(-${window.scrollY - 50}px)`; else if (window.scrollY > 200) logo.style.transform = `translateY(-200px)`; else logo.style.transform = `translateY(0px)`;
-                if (scrollPosition > 140) document.documentElement.classList.add("_scroll"); else document.documentElement.classList.remove("_scroll");
+                translateY = Math.min(scrollPosition - 50, 150);
+                scrollThreshold = 140;
             } else {
-                if (scrollPosition > 40) logo.style.transform = `translateY(-${window.scrollY - 40}px)`; else if (window.scrollY > 120) logo.style.transform = `translateY(-120px)`; else logo.style.transform = `translateY(0px)`;
-                if (scrollPosition > 100) document.documentElement.classList.add("_scroll"); else document.documentElement.classList.remove("_scroll");
+                translateY = Math.min(scrollPosition - 40, 80);
+                scrollThreshold = 100;
             }
+            logo.style.transform = `translateY(-${translateY}px)`;
+            document.documentElement.classList.toggle("_scroll", scrollPosition > scrollThreshold);
         }));
     }));
     document.addEventListener("DOMContentLoaded", (function() {
@@ -6742,10 +6828,57 @@
             }
         }));
     }));
+    document.addEventListener("selectCallback", (function(e) {
+        const currentSelect = e.detail.select;
+        const actions = {
+            residential: {
+                show: [ ".filter__residential-type-box", ".filter__repair-box" ],
+                hide: [ ".filter__commercial-type-box", ".filter__plot-type-box", ".filter__bedroom-box", ".filter__room-box", ".filter__comunications-box", ".filter__buildings-box" ]
+            },
+            commercial: {
+                show: [ ".filter__commercial-type-box", ".filter__room-box", ".filter__repair-box" ],
+                hide: [ ".filter__residential-type-box", ".filter__plot-type-box", ".filter__bedroom-box", ".filter__comunications-box", ".filter__buildings-box" ]
+            },
+            plot: {
+                show: [ ".filter__plot-type-box", ".filter__buildings-box", ".filter__comunications-box" ],
+                hide: [ ".filter__residential-type-box", ".filter__commercial-type-box", ".filter__bedroom-box", ".filter__room-box", ".filter__repair-box" ]
+            }
+        };
+        if (currentSelect.value in actions) {
+            const action = actions[currentSelect.value];
+            action.show.forEach((selector => {
+                document.querySelector(selector).hidden = false;
+            }));
+            action.hide.forEach((selector => {
+                document.querySelector(selector).hidden = true;
+            }));
+        }
+    }));
+    document.addEventListener("selectCallback", (function(e) {
+        const currentSelect = e.detail.select;
+        const currency = document.querySelector(".info__currency");
+        if (currentSelect.classList.contains("filter__currency") && currency) switch (currentSelect.value) {
+          case "usd":
+            currency.innerHTML = "дол.";
+            break;
+
+          case "eur":
+            currency.innerHTML = "евро";
+            break;
+
+          case "rub":
+            currency.innerHTML = "руб.";
+            break;
+
+          default:
+            break;
+        }
+    }));
     window["FLS"] = false;
     isWebp();
     addTouchClass();
     menuInit();
     fullVHfix();
     spollers();
+    showMore();
 })();
