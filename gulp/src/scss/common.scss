@@ -38,6 +38,16 @@
    }
 }
 
+._last {
+   padding-bottom: rem(120) !important;
+   @media (max-width: 991px) {
+      padding-bottom: rem(60) !important;
+   }
+   @media (max-width: 650px) {
+      padding-bottom: rem(40) !important;
+   }
+}
+
 ._paragraph {
    h6 {
       padding: 15px 0;
@@ -73,7 +83,7 @@
 
 ._title {
    font-family: "Muller";
-   font-size: rem(80);
+   font-size: rem(70);
    font-weight: 500;
    line-height: 90%;
    letter-spacing: em(-3.2, 80);
@@ -147,9 +157,6 @@
    @media (min-width: 768px) {
       padding-left: rem(30);
       padding-right: rem(30);
-      span {
-         font-size: rem(16);
-      }
    }
    html.pc &:hover {
       background-color: $goldColor;
@@ -187,9 +194,6 @@
    @media (min-width: 768px) {
       padding-left: rem(30);
       padding-right: rem(30);
-      span {
-         font-size: rem(16);
-      }
    }
    &._empty-tel {
       cursor: initial;
@@ -200,8 +204,11 @@
          color: $darkGreenColor;
       }
    }
-   @media (max-width: 1024px) {
-      @include adaptiveValue("font-size", 20, 13);
+   @media (max-width: 991px) {
+      font-size: 18px;
+   }
+   @media (max-width: 650px) {
+      font-size: 14px;
    }
 }
 
@@ -219,7 +226,7 @@
          color: $goldColor;
       }
    }
-   @media (max-width: 1024px) {
+   @media (max-width: 1100px) {
       font-size: rem(16);
    }
 }

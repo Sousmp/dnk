@@ -19,8 +19,17 @@
       flex: 0 0 calc(50% - rem(15));
    }
 
+   &__text {
+      @include adaptiveValue("padding-right", 75, 0);
+      @include adaptiveValue("padding-top", 50, 10);
+      font-weight: 500;
+      @include adaptiveValue("font-size", 20, 10);
+      line-height: 160%;
+      
+   }
+
    &__title {
-      font-size: rem(80);
+      font-size: rem(70);
       padding-top: rem(20);
    }
 
@@ -30,7 +39,7 @@
       html.pc &:hover {
          transform: scale(1.05);
          & .cards__plate {
-            bottom: rem(-130);
+            bottom: rem(-180);
          }
       }
    }
@@ -60,9 +69,11 @@
    &__request-btn {
       margin-top: rem(100);
    }
+   @media (max-width: 991px) {
+   }
    @media (max-width: rem(1260)) {
       &__title {
-         @include adaptiveValue("font-size", 80, 54, 1260, 767);
+         @include adaptiveValue("font-size", 70, 54, 1260, 767);
       }
       &__request-btn {
          @include adaptiveValue("margin-top", 100, 25, 1260, 767);
@@ -88,6 +99,10 @@
    }
    @media (max-width: rem(768)) {
       padding-top: rem(40);
+      &__text {
+         display: none;
+         font-size: 0;
+      }
       &__item {
          flex: 0 0 100%;
       }
@@ -96,7 +111,7 @@
       }
       &__title {
          padding: 0 0 rem(40) 0;
-         @include adaptiveValue("font-size", 80, 40, 769, 320);
+         @include adaptiveValue("font-size", 70, 40, 769, 320);
       }
       &__request-btn {
          display: none;
@@ -128,7 +143,7 @@
    @media (max-width: rem(450)) {
       padding-top: rem(20);
       &__container {
-         padding: 0 !important;
+         padding: 0;
       }
       &__title {
          padding: 0 rem(20) rem(20) rem(20);
@@ -142,6 +157,104 @@
       }
       &__icon {
          width: rem(30);
+      }
+   }
+}
+
+.service {
+   &__title {
+      display: flex;
+      align-items: center;
+      img {
+         width: 70px;
+      }
+      span {
+         margin-top: 10px;
+         line-height: 100%;
+         font-size: rem(70);
+         padding-left: 20px;
+      }
+   }
+
+   &__plate {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      grid-template-rows: 1fr max-content;
+      grid-gap: rem(15);
+      flex-wrap: wrap;
+   }
+
+   &__name {
+      font-weight: 700;
+      @include adaptiveValue("font-size", 34, 20);
+      grid-column-start: 1;
+      grid-column-end: 3;
+   }
+
+   &__text {
+      font-weight: 500;
+      max-width: 315px;
+      font-size: 20px;
+      line-height: 130%;
+   }
+
+   &__reviews {
+      font-weight: 500;
+      border-radius: rem(30);
+      background-color: $goldColor;
+      font-size: rem(20);
+      color: $darkGreenColor;
+      padding: rem(12);
+   }
+   @media (max-width: 991px) {
+      &__title {
+         padding-top: 10px;
+         img {
+            width: 60px;
+         }
+         span {
+            font-size: rem(60);
+         }
+      }
+      &__plate {
+         padding: 20px;
+      }
+      &__text {
+         font-size: 14px;
+      }
+      &__reviews {
+         font-size: 14px;
+      }
+   }
+   @media (max-width: 768px) {
+      &__title {
+         padding-bottom: 0;
+      }
+      &__plate {
+         padding: 20px;
+      }
+      &__text {
+         @include adaptiveValue("font-size", 20, 12, 769, 319);
+      }
+      &__reviews {
+         @include adaptiveValue("font-size", 20, 12, 769, 319);
+      }
+   }
+   @media (max-width: 650px) {
+      &__plate {
+         padding: 20px;
+      }
+      &__reviews {
+         padding: 8px;
+      }
+   }
+   @media (max-width: 320px) {
+      &__text {
+         font-size: 12px;
+      }
+      &__reviews {
+         font-size: 12px;
       }
    }
 }

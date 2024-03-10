@@ -1,0 +1,569 @@
+.filter {
+   &__form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 540px;
+   }
+
+   &__item {
+      &:not(:last-child) {
+         padding-bottom: 20px;
+      }
+   }
+   &__first {
+      flex: 0 0 100%;
+      display: flex;
+      gap: 20px;
+   }
+   &__left-column {
+      flex: 0 0 calc(50% - 10px);
+   }
+   &__right-column {
+      flex: 0 0 calc(50% - 10px);
+   }
+
+   &__name {
+      padding: 10px 0 0 25px;
+      font-weight: 500;
+      font-size: 10px;
+      color: $grayColor;
+   }
+   &__search-box {
+      flex: 1 1 auto;
+   }
+   &__input {
+      position: relative;
+      svg {
+         top: 50%;
+         transform: translateY(-50%);
+         right: 25px;
+         position: absolute;
+      }
+   }
+   & .select__option {
+      transition: color 0.3s ease 0s;
+      html.pc &:hover {
+         color: $mainColor;
+      }
+   }
+   .select__content {
+      transition: color 0.3s ease 0s;
+   }
+   & .select__title {
+      html.pc &:hover .select__content {
+         color: $mainColor;
+      }
+   }
+
+   &__currency-select {
+      & .select._select-open .select__options {
+         display: flex;
+         align-items: center;
+      }
+      & .select__body {
+         display: flex;
+      }
+      & .select__title {
+         padding: 0 7px;
+      }
+      & .select__option {
+         font-size: 20px;
+         padding: 5px;
+         margin-left: 15px;
+         transition: color 0.3s ease 0s;
+      }
+      & .select__value {
+         display: flex;
+         align-items: center;
+      }
+      & .select__options {
+         margin-right: 5px;
+         &._slide {
+            min-height: 100%;
+            display: flex;
+         }
+      }
+      & .select__content,
+      .select__option {
+         font-weight: 700;
+      }
+   }
+   &__currency-select {
+      background-color: $bordeauxColor;
+      display: flex;
+      max-height: 54px;
+      padding: 7px 10px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      border: 1px solid $bronseColor;
+      font-size: 28px;
+      color: $goldColor;
+   }
+
+   &__currency-name {
+      text-align: center;
+      padding-top: 10px;
+      font-weight: 500;
+      font-size: 10px;
+      color: $grayColor;
+   }
+
+   &__search {
+      width: 100%;
+      padding: 15px 25px;
+      border: 1px solid $bronseColor;
+      border-radius: 30px;
+      background-color: transparent;
+      color: $goldColor;
+      &::placeholder {
+         color: $bronseColor;
+      }
+      &:focus {
+         outline: none !important;
+         border: rem(1) solid $goldColor;
+      }
+   }
+   &__value {
+      font-size: rem(16);
+      font-weight: 700;
+   }
+
+   &__range {
+      border: 1px solid $bronseColor;
+      border-radius: 30px;
+      padding: 0px 20px 0px 25px;
+      height: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      p {
+         color: $goldColor;
+         margin-bottom: 16px;
+      }
+   }
+   &__text {
+      padding-top: 50px;
+      font-size: rem(16);
+      line-height: 160%;
+      letter-spacing: 0.02em;
+      span {
+         color: $goldColor;
+      }
+   }
+
+   &__select {
+      position: relative;
+      border: 1px solid $bronseColor;
+      border-radius: 30px;
+      padding: 0px 20px 0px 25px;
+      & .select {
+         &__body {
+            padding: 11px 0;
+         }
+         &__title {
+            padding: 5px 0;
+            width: 100%;
+            text-align: left;
+            position: relative;
+            &::after {
+               transition: 0.3s ease 0s;
+               position: absolute;
+               right: 2px;
+               top: 6px;
+               transform: rotate(135deg);
+               border-radius: 1px;
+               content: "";
+               width: 14px;
+               height: 14px;
+               display: block;
+               border-top: 2px solid $goldColor;
+               border-right: 2px solid $goldColor;
+            }
+         }
+         & .select__value {
+            display: flex;
+            align-items: center;
+         }
+         &__content {
+            color: $goldColor;
+            font-size: rem(16);
+            font-weight: 700;
+            width: 100%;
+         }
+         &__options {
+            color: $goldColor;
+            top: 29px;
+            border-radius: 0 0 4px 4px;
+            min-width: 100%;
+            left: 0;
+         }
+         &__option {
+            font-size: rem(16);
+            font-weight: 700;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            margin-top: 10px;
+            padding: 5px 0;
+            color: inherit;
+         }
+         &._select-open .select__title::after {
+            transform: rotate(-45deg);
+            top: 12px;
+         }
+      }
+   }
+
+   @media (max-width: 991px) {
+      &__text {
+         padding-top: 40px;
+      }
+      &__item {
+         &:not(:last-child) {
+            padding-bottom: 14px;
+         }
+      }
+      &__form {
+         gap: 15px;
+      }
+      &__first {
+         gap: 15px;
+      }
+      &__left-column {
+         flex: 0 0 calc(50% - 7.5px);
+      }
+      &__right-column {
+         flex: 0 0 calc(50% - 7.5px);
+      }
+      &__name {
+         padding-top: 6px;
+         padding-left: 20px;
+      }
+      &__currency-name {
+         padding-top: 6px;
+      }
+      &__select {
+         padding: 0px 15px 0px 15px;
+         .select__body {
+            padding: 6px 0;
+         }
+      }
+
+      .select__content {
+         font-size: rem(14);
+      }
+      .select__option {
+         margin-top: 5px;
+         font-size: rem(14);
+      }
+      .select__title {
+         &::after {
+            right: 0;
+            width: 12px;
+            height: 12px;
+         }
+      }
+      .select__title::after {
+         top: 6px;
+      }
+      &__currency-select {
+         max-height: rem(44);
+         & .select__option {
+            margin: 0px 0 0 10px;
+         }
+         & .select__title {
+            padding: 0 4px;
+         }
+      }
+      &__input {
+         svg {
+            right: 15px;
+         }
+      }
+      &__search {
+         font-size: rem(14);
+         padding: 10px 15px;
+      }
+      &__currency-select .select__content {
+         font-size: rem(22);
+      }
+      &__range {
+         height: 44px;
+         padding: 0px 15px 0px 15px;
+         p {
+            font-size: rem(14);
+            margin-bottom: 11px;
+         }
+      }
+      &__value {
+         font-size: rem(14);
+      }
+   }
+   @media (max-width: 768px) {
+      &__form {
+         max-width: 100%;
+      }
+      &__first {
+         flex: 0 0 100%;
+         display: flex;
+         gap: 20px;
+      }
+      &__left-column {
+         flex: 0 0 100%;
+         display: flex;
+         flex-direction: row;
+         gap: 20px;
+      }
+      &__right-column {
+         flex: 0 0 100%;
+         display: flex;
+         flex-direction: row;
+         gap: 20px;
+      }
+      &__item {
+         flex: 0 0 calc(33.3333% - 13.333px);
+      }
+      &__item {
+         &:not(:last-child) {
+            padding-bottom: 0px;
+         }
+      }
+      &__right-column {
+         flex: 0 0 100%;
+      }
+      &__text {
+         padding-bottom: 10px;
+      }
+   }
+   @media (max-width: 650px) {
+      &__text {
+         font-size: rem(13);
+         padding-top: 20px;
+      }
+      &__first {
+         gap: 10px;
+      }
+      &__select {
+         border-radius: 20px;
+      }
+      &__currency-select {
+         padding: 5px 8px;
+      }
+      &__left-column {
+         display: block;
+      }
+      &__right-column {
+         display: block;
+      }
+      &__name {
+         font-size: rem(8);
+      }
+      &__currency-name {
+         font-size: rem(8);
+      }
+      .select__content {
+         font-size: rem(12);
+      }
+      .select__option {
+         font-size: rem(12);
+      }
+      &__form {
+         gap: 10px;
+      }
+      &__left-column {
+         flex: 0 0 calc(50% - 5px);
+      }
+      &__right-column {
+         flex: 0 0 calc(50% - 5px);
+      }
+      .select__title {
+         &::after {
+            top: 6px;
+            right: 0;
+            width: 10px;
+            height: 10px;
+         }
+      }
+      .select._select-open .select__title::after {
+         top: 10px;
+      }
+      &__item {
+         &:not(:last-child) {
+            padding-bottom: 10px;
+         }
+      }
+      &__search {
+         font-size: rem(13);
+      }
+      &__value {
+         font-size: rem(12);
+      }
+      &__currency-select .select__content {
+         font-size: rem(20);
+      }
+      &__select {
+         border-radius: 20px;
+      }
+      &__select {
+         .select__body {
+            padding: 5px 0;
+         }
+      }
+      &__range {
+         height: 39px;
+         p {
+            font-size: rem(12);
+         }
+      }
+   }
+   @media (max-width: 359px) {
+      &__search {
+         padding: 11px 15px;
+         font-size: rem(11);
+      }
+   }
+}
+
+.noUi-target,
+.noUi-target * {
+   -webkit-touch-callout: none;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   -webkit-user-select: none;
+   -ms-touch-action: none;
+   touch-action: none;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   user-select: none;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+.noUi-target {
+   position: relative;
+   bottom: -1px;
+}
+.noUi-base,
+.noUi-connects {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   z-index: 1;
+}
+/* Wrapper for all connect elements.
+ */
+.noUi-connects {
+   overflow: hidden;
+   z-index: 0;
+}
+.noUi-connect,
+.noUi-origin {
+   will-change: transform;
+   position: absolute;
+   z-index: 1;
+   top: 0;
+   right: 0;
+   height: 100%;
+   width: 100%;
+   -ms-transform-origin: 0 0;
+   -webkit-transform-origin: 0 0;
+   -webkit-transform-style: preserve-3d;
+   transform-origin: 0 0;
+   transform-style: flat;
+}
+/* Offset direction
+ */
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+   left: 0;
+   right: auto;
+}
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.noUi-vertical .noUi-origin {
+   top: -100%;
+   width: 0;
+}
+.noUi-horizontal .noUi-origin {
+   height: 0;
+}
+.noUi-handle {
+   position: relative;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+   position: absolute;
+}
+.noUi-touch-area {
+   position: absolute;
+   left: -10px;
+   top: -10px;
+   right: -10px;
+   bottom: -10px;
+}
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+   -webkit-transition: transform 0.3s;
+   transition: transform 0.3s;
+}
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+   height: 1px;
+}
+.noUi-horizontal .noUi-handle {
+   width: 15px;
+   height: 10px;
+   right: -7px;
+   bottom: -6px;
+}
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+   left: -17px;
+   right: auto;
+}
+/* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+.noUi-target {
+   background: transparent;
+   border-radius: 4px;
+}
+.noUi-connect {
+   background: $goldColor;
+}
+.noUi-handle {
+   border-radius: 33px;
+   background: $goldColor;
+   cursor: default;
+}
+.noUi-active {
+   box-shadow: inset 0 0 1px $goldColor, inset 0 1px 7px $goldColor, 0 3px 6px -3px $goldColor;
+}
+/* Horizontal layout;
+ *
+ */
+.noUi-pips-horizontal {
+   padding: 10px 0;
+   height: 80px;
+   top: 100%;
+   left: 0;
+   width: 100%;
+}
+.noUi-value-horizontal {
+   -webkit-transform: translate(-50%, 50%);
+   transform: translate(-50%, 50%);
+}
+.noUi-rtl .noUi-value-horizontal {
+   -webkit-transform: translate(50%, 50%);
+   transform: translate(50%, 50%);
+}
+.noUi-marker-horizontal.noUi-marker {
+   margin-left: -1px;
+   width: 2px;
+   height: 5px;
+}
+.noUi-marker-horizontal.noUi-marker-sub {
+   height: 10px;
+}
+.noUi-marker-horizontal.noUi-marker-large {
+   height: 15px;
+}

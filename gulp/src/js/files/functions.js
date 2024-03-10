@@ -122,6 +122,85 @@ export let _slideDown = (target, duration = 500, showmore = 0) => {
 		}, duration);
 	}
 }
+export let _slideLeft = (target, duration = 500, showmore = 0) => {
+	if (!target.classList.contains('_slide')) {
+		target.classList.add('_slide');
+		target.style.transitionProperty = 'width, margin, padding';
+		target.style.transitionDuration = duration + 'ms';
+		target.style.width = `${target.offsetWidth}px`;
+		target.offsetWidth;
+		target.style.overflow = 'hidden';
+		target.style.width = showmore ? `${showmore}px` : `0px`;
+		target.style.paddingLeft = 0;
+		target.style.paddingRight = 0;
+		target.style.marginLeft = 0;
+		target.style.marginRight = 0;
+		window.setTimeout(() => {
+			target.hidden = !showmore ? true : false;
+			!showmore ? target.style.removeProperty('width') : null;
+			target.style.removeProperty('padding-left');
+			target.style.removeProperty('padding-right');
+			target.style.removeProperty('margin-left');
+			target.style.removeProperty('margin-right');
+			!showmore ? target.style.removeProperty('overflow') : null;
+			target.style.removeProperty('transition-duration');
+			target.style.removeProperty('transition-property');
+			target.classList.remove('_slide');
+			// Создаем событие 
+			document.dispatchEvent(new CustomEvent("slideLeftDone", {
+				detail: {
+					target: target
+				}
+			}));
+		}, duration);
+	}
+}
+
+export let _slideRight = (target, duration = 500, showmore = 0) => {
+	if (!target.classList.contains('_slide')) {
+		target.classList.add('_slide');
+		target.hidden = target.hidden ? false : null;
+		showmore ? target.style.removeProperty('width') : null;
+		let width = target.offsetWidth;
+		target.style.overflow = 'hidden';
+		target.style.width = showmore ? `${showmore}px` : `0px`;
+		target.style.paddingLeft = 0;
+		target.style.paddingRight = 0;
+		target.style.marginLeft = 0;
+		target.style.marginRight = 0;
+		target.offsetWidth;
+		target.style.transitionProperty = "width, margin, padding";
+		target.style.transitionDuration = duration + 'ms';
+		target.style.width = width + 'px';
+		target.style.removeProperty('padding-left');
+		target.style.removeProperty('padding-right');
+		target.style.removeProperty('margin-left');
+		target.style.removeProperty('margin-right');
+		window.setTimeout(() => {
+			target.style.removeProperty('width');
+			target.style.removeProperty('overflow');
+			target.style.removeProperty('transition-duration');
+			target.style.removeProperty('transition-property');
+			target.classList.remove('_slide');
+			// Создаем событие 
+			document.dispatchEvent(new CustomEvent("slideRightDone", {
+				detail: {
+					target: target
+				}
+			}));
+		}, duration);
+	}
+}
+
+
+export let _slideToggleVertical = (target, duration = 500) => {
+	if (target.hidden) {
+		return _slideRight(target, duration);
+	} else {
+		return _slideLeft(target, duration);
+	}
+}
+
 export let _slideToggle = (target, duration = 500) => {
 	if (target.hidden) {
 		return _slideDown(target, duration);
@@ -481,7 +560,7 @@ export function showMore() {
 			showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
 
 			document.addEventListener("click", showMoreActions);
-			window.addEventListener("resize", showMoreActions);
+			//window.addEventListener("resize", showMoreActions);
 
 			// Получение объектов с медиа запросами
 			mdQueriesArray = dataMediaQueries(showMoreBlocks, "showmoreMedia");

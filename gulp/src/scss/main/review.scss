@@ -1,0 +1,215 @@
+// Стили для попапа Оставьте отзыв
+.form-review {
+   max-width: rem(600);
+   &__wrapper {
+   }
+
+   &__title {
+      padding-bottom: rem(50);
+   }
+
+   &__input {
+      background-color: $mainColor;
+      width: 100%;
+      border: rem(1) solid $bronseColor;
+      border-radius: rem(30);
+      padding: rem(14) rem(30);
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 160%;
+      &::placeholder {
+         font-weight: 500;
+         color: $grayColor;
+      }
+      &:focus {
+         outline: none !important;
+         border: rem(1) solid $goldColor;
+      }
+   }
+   &__placeholder {
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: rem(31);
+      color: $grayColor;
+      font-size: rem(20);
+      user-select: none;
+      font-weight: 500;
+      cursor: text;
+      pointer-events: none;
+      span {
+         font-weight: 500;
+         padding-top: 3px;
+         cursor: text;
+         user-select: none;
+         font-size: 14px;
+         display: block;
+      }
+      &.hidden {
+         display: none;
+      }
+   }
+   &__input-body {
+      display: block;
+      position: relative;
+      margin-bottom: rem(20);
+   }
+
+   &__name {
+   }
+
+   &__service {
+   }
+
+   &__file {
+      opacity: 0;
+      visibility: hidden;
+      max-width: 100px;
+      position: absolute;
+      z-index: -1;
+   }
+   &__file-body {
+      &._preview-show {
+         .form-review__preview {
+            display: block;
+         }
+         .form-review__file-lable svg {
+            display: none;
+         }
+      }
+   }
+
+   &__file-lable {
+      cursor: pointer;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      p {
+         color: $goldColor;
+      }
+   }
+   &__preview {
+      display: none;
+      width: rem(60);
+      height: rem(60);
+      object-fit: cover;
+      border-radius: 50%;
+   }
+   &__text {
+      text-align: right;
+      color: $grayColor;
+      padding-bottom: rem(10);
+      font-size: rem(14);
+      letter-spacing: 0.02em;
+      text-align: right;
+   }
+
+   &__textarea-body {
+   }
+   &__textarea {
+      resize: none;
+      border-radius: rem(10);
+      width: 100%;
+      font-weight: 500;
+      font-size: rem(20);
+      padding: rem(20) rem(20);
+      background-color: $mainColor;
+      &::placeholder {
+         font-weight: 500;
+         color: $grayColor;
+      }
+   }
+
+   &__policy {
+      font-size: rem(14);
+      font-weight: 500;
+      line-height: 160%;
+      letter-spacing: em(0.28, 14);
+      max-width: rem(455);
+      padding-top: rem(20);
+      a {
+         color: $goldColor;
+         transition: 0.2s ease 0s;
+         text-decoration: underline;
+         text-decoration-color: transparent;
+         html.pc &:hover {
+            text-decoration-color: $goldColor;
+         }
+      }
+   }
+   &__submit {
+      margin-top: rem(50);
+      cursor: initial;
+      background-color: $bronseColor;
+      html.pc &:hover {
+         background-color: $bronseColor;
+         color: $darkGreenColor;
+         border: 1px solid transparent;
+      }
+      &._active {
+         background-color: $goldColor;
+         cursor: pointer;
+         html.pc &:hover {
+            border: 1px solid $goldColor;
+            background-color: transparent;
+            color: $goldColor;
+         }
+      }
+   }
+   @media (max-width: 650px) {
+      &__title {
+         @include adaptiveValue("font-size", 70, 40, 651, 360);
+         padding-bottom: 20px;
+         max-width: rem(200);
+      }
+
+      &__input {
+         font-size: rem(14);
+         padding: rem(10) rem(20);
+      }
+      &__placeholder {
+         left: rem(21);
+         font-size: rem(14);
+         span {
+            font-size: rem(9);
+         }
+      }
+      &__textarea {
+         font-size: rem(13);
+         height: rem(140);
+      }
+      &__input-body {
+         margin-bottom: rem(10);
+      }
+      &__preview {
+         width: rem(30);
+         height: rem(30);
+      }
+      &__file-lable {
+         gap: rem(8);
+         svg {
+            width: rem(30);
+            height: rem(30);
+         }
+         p {
+            font-size: rem(9);
+         }
+      }
+      &__text {
+         font-size: rem(9);
+      }
+      &__policy {
+         padding-top: 12px;
+         font-size: rem(9);
+      }
+      &__submit {
+         margin-top: rem(30);
+      }
+   }
+   @media (max-width: 360px) {
+      &__title {
+         font-size: rem(40);
+      }
+   }
+}

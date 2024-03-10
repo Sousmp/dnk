@@ -12,7 +12,20 @@
 		align-items: center;
 		max-width: rem(1820);
 	}
-
+	&__back {
+		display: none;
+	}
+	&__request {
+		gap: 0 !important;
+		span {
+			transition: 0.3s ease 0s;
+			opacity: 0;
+			font-size: 0;
+		}
+	}
+	.filter__currency-box {
+		display: none;
+	}
 	&__content {
 		display: flex;
 		align-items: center;
@@ -32,13 +45,13 @@
 		}
 	}
 	@media (max-width: rem(768)) {
-		&__request {
-			padding: rem(10) rem(20);
-			gap: rem(10);
-		}
 	}
 	@media (max-width: rem(650)) {
+		height: 85px;
 		padding: rem(15) 0;
+		&__container {
+			height: 100%;
+		}
 		&__phone {
 			display: none;
 		}
@@ -47,6 +60,11 @@
 		}
 		&__body {
 			padding: 0 rem(20);
+		}
+		&__request {
+			max-height: 41px;
+			padding: rem(10) rem(20);
+			gap: rem(10);
 		}
 	}
 	@media (max-width: rem(320)) {
@@ -78,6 +96,33 @@ html.lock {
 	& .menu__body {
 		visibility: visible;
 		opacity: 1;
+	}
+}
+
+html._currency-mob {
+	.header .filter__currency-box {
+		display: block;
+		.filter__currency-select {
+			min-width: 41px;
+			min-height: 41px;
+		}
+		.select__option {
+			font-size: rem(14);
+		}
+	}
+	.menu__icon {
+		display: none !important;
+	}
+	@media (max-width: 359px) {
+		.header__request {
+			p {
+				display: none;
+			}
+			span {
+				opacity: 1;
+				font-size: 16px;
+			}
+		}
 	}
 }
 
@@ -160,7 +205,7 @@ html.lock {
 				}
 			}
 		}
-		@media (max-width: rem(768)) {
+		@media (max-width: rem(650)) {
 			svg {
 				width: rem(40);
 				height: rem(40);

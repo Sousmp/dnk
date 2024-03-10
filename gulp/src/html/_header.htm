@@ -1,10 +1,19 @@
 <header class="header">
 	<div class="header__container">
 		<!-- <div class="header__body"> -->
-		<a href="#" class="header__logo logo">
-			<img class="header__logo-img" src="@img/header/red-logo.svg" alt="Logo">
-			<p class="header__logo-text  logo__text">Департамент недвижимости <br> Крыма</p>
-		</a>
+		<div class="header__logo">
+			<a href="index.html" class="logo">
+				<img class="header__logo-img" src="@img/header/red-logo.svg" alt="Logo">
+				<p class="header__logo-text  logo__text">Департамент недвижимости <br>Крыма</p>
+			</a>
+			<a href="service.html" class="header__back">
+				<svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="0.5" y="0.5" width="40" height="40" rx="19.5" stroke="#DFC58A" />
+					<path d="M22.5 13.75L16.25 20L22.5 26.25" stroke="#DFC58A" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</a>
+		</div>
+
 		<div class="header__content">
 			<div class="header__phone _phone">
 				<a href="tel:+79789727070">
@@ -13,6 +22,7 @@
 				</a>
 			</div>
 			<button data-popup="#popup" class="header__request _gold-btn">
+				<span class="_icon-telephone"></span>
 				<p>Заказать звонок</p>
 			</button>
 			<button class="menu__icon" data-popup="#menu" aria-label="Гид">
@@ -23,6 +33,15 @@
 					<line x1="13" y1="26.5" x2="41" y2="26.5" stroke="#DFC58A" />
 				</svg>
 			</button>
+			<div class="filter__currency-box">
+				<div class="filter__currency-select">
+					<select data-speed="400" data-vertical name="" id="" class="filter__currency">
+						<option value="rub">₽</option>
+						<option value="usd">$</option>
+						<option value="eur">€</option>
+					</select>
+				</div>
+			</div>
 		</div>
 		<!-- </div> -->
 	</div>

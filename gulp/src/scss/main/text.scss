@@ -1,0 +1,47 @@
+// Текст расположенный под h1 на страницах Partner и Object. Выенесен так потому-что нужен для помощи в анимациях
+
+.text {
+   padding-top: 200px;
+   &__text {
+      font-family: "Muller";
+      font-size: rem(34);
+      max-width: 630px;
+   }
+   @media (max-width: 991px) {
+      padding-top: 150px;
+   }
+   @media (max-width: 768px) {
+      padding-top: 130px;
+   }
+   @media (max-width: 650px) {
+      padding-top: 80px;
+      &__text {
+         display: none;
+      }
+   }
+}
+.text2 {
+   padding-top: 200px;
+   &__text {
+      font-family: "Muller";
+      line-height: 100%;
+      font-size: rem(34);
+      max-width: 630px;
+   }
+   @media (max-width: 1650px) {
+      padding-top: 240px;
+   }
+   @media (max-width: 991px) {
+      padding-top: 180px;
+   }
+   @media (max-width: 768px) {
+      padding-top: 150px;
+   }
+   @media (max-width: 650px) {
+      padding-top: 85px;
+      padding-bottom: 20px;
+      &__text {
+         font-size: rem(15);
+      }
+   }
+}

@@ -6,7 +6,7 @@
    }
 
    &__title {
-      @include adaptiveValue("font-size", 80, 40);
+      @include adaptiveValue("font-size", 70, 40);
       @include adaptiveValue("padding-bottom", 100, 30);
    }
 

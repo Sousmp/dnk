@@ -1,70 +1,435 @@
-// Тест анимации на будущие страницы
-
+// Анимации к дочерним страницам. Без 100 грамм не разберешь..
 .anim {
    position: sticky;
    top: 0;
-   transition: 0.3s ease 0s;
-   h3 {
-      transition: 0.3s ease 0s;
-      font-size: rem(40);
-   }
+   transition: 0.4s ease 0s;
    &__body {
+      transition: 0.4s ease 0s;
       display: flex;
       align-items: center;
       gap: rem(30);
-      height: rem(155);
+      height: rem(1);
+   }
+   &__padding {
+      display: block;
+      height: 100px;
    }
    &__container {
       transition: 0.3s ease 0s;
    }
-   @media (max-width: rem(991)) {
+
+   &__title {
+      transition: all 0.4s ease 0s;
+      transform: translateY(135px);
+   }
+   .anim__object {
+      transition: all 0.4s ease 0s;
+      transform: translateY(135px);
+   }
+   @media (max-width: 1650px) {
+      .anim__object {
+         max-width: 700px;
+      }
+   }
+   @media (max-width: 1200px) {
+      .anim__object {
+         font-size: rem(60);
+         max-width: 600px;
+      }
+   }
+   @media (max-width: 991px) {
+      &__title {
+         transform: translateY(95px);
+      }
+      .anim__object {
+         transform: translateY(95px);
+      }
+   }
+   @media (max-width: rem(768)) {
+      .anim__object {
+         transform: translateY(75px);
+      }
       &__body {
          height: rem(105);
       }
+      &__title {
+         transform: translateY(75px);
+      }
+      &__second-body {
+         height: rem(1) !important;
+      }
    }
    @media (max-width: rem(650)) {
+      &__title {
+         font-size: rem(40);
+         transform: translateY(45px);
+      }
+      .anim__object {
+         transform: translateY(45px);
+         font-size: rem(30);
+         max-width: 300px;
+      }
       &__body {
          gap: rem(15);
          height: rem(85);
       }
+      &__second-body {
+         height: rem(1) !important;
+      }
    }
 }
 html._anim {
-   .header__request p {
-      transition: 0.3s ease 0s;
+   .anim {
+      z-index: 3;
    }
-   .header__logo {
-      transition: 0.3s ease 0s;
+   .service__title {
+      line-height: 90%;
+      span {
+         font-size: rem(60);
+      }
+      &._line-break {
+         align-items: start;
+         span {
+            font-size: 70px;
+            line-height: 90%;
+            margin-top: 0;
+            max-width: 100px;
+         }
+      }
+      @media (max-width: 1200px) {
+         img {
+            width: rem(60);
+         }
+         span {
+            font-size: rem(48);
+         }
+         &._line-break {
+            img {
+               width: rem(60);
+            }
+            span {
+               font-size: rem(48);
+            }
+         }
+      }
+      @media (max-width: 991px) {
+         img {
+            width: rem(50);
+         }
+         span {
+            @include adaptiveValue("font-size", 48, 35, 992, 767);
+         }
+         &._line-break {
+            img {
+               width: rem(50);
+            }
+            span {
+               @include adaptiveValue("font-size", 48, 35, 992, 767);
+            }
+         }
+      }
+      @media (max-width: 768px) {
+         &._line-break {
+            img {
+               width: rem(50);
+            }
+            span {
+               font-size: rem(30);
+            }
+         }
+      }
+      @media (max-width: 650px) {
+         &._line-break {
+            img {
+               width: rem(40);
+            }
+         }
+      }
+      @media (max-width: 359px) {
+         span {
+            font-size: rem(25) !important;
+         }
+      }
+   }
+   .header__request p {
+      transition: font-size 0.4s ease 0s;
    }
    .cards__items {
       padding: rem(0) 0 0 0;
    }
-   .cards {
-      padding-top: 0;
+   .cards__text {
+      padding-top: 140px;
+      &._line-break {
+         padding-top: 180px;
+      }
    }
-   .header__container {
-      position: relative;
-      z-index: 4;
+   .cards {
+      padding-top: 80px;
+   }
+   .cards__title {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      position: absolute;
+      transition: all 0.3s ease 0s;
+      transform: translateY(140px);
+   }
+   .cards__title {
+      img {
+         transition: 0.4s ease 0s;
+      }
+      span {
+         transition: 0.4s ease 0s;
+      }
+   }
+   @media (max-width: 991px) {
+      .cards__title {
+         transform: translateY(130px);
+      }
+      .cards__text {
+         padding-top: 110px;
+      }
+   }
+
+   @media (max-width: 768px) {
+      .cards {
+         padding-top: 0px;
+      }
+      .cards__item:nth-child(1) {
+         display: none;
+      }
+      .cards__title {
+         transform: translateY(0px);
+         img {
+            transition: 0.4s ease 0s;
+            width: 40px;
+         }
+         span {
+            transition: 0.4s ease 0s;
+            letter-spacing: -0.5px;
+            margin-top: 5px;
+            line-height: 100%;
+            font-size: rem(30);
+            padding-left: rem(16);
+         }
+      }
+   }
+   @media (max-width: 650px) {
+      .header__second {
+         .header__back {
+            display: flex !important;
+            align-items: center;
+         }
+         .menu__icon {
+            display: none;
+         }
+         .logo {
+            display: none;
+         }
+      }
    }
 }
 html._scroll {
-   & .header__request {
-      gap: 0;
-   }
-   & .header__request p {
-      font-size: 0;
-   }
-   & .header__logo {
-      transform: translateY(-200%);
-   }
    & .anim {
-      z-index: 3;
-      left: rem(30);
       &__container {
-         max-width: 100%;
+         max-width: 1820px;
       }
-      h3 {
+   }
+   .anim__object {
+      font-size: rem(60);
+      transform: translateY(77.5px);
+   }
+   .anim__title {
+      font-size: rem(60);
+      transform: translateY(77.5px);
+   }
+   .anim__second {
+      padding-top: 0px;
+   }
+   .cards__title {
+      transform: translateY(77.5px);
+   }
+   & .service__title {
+      img {
+         width: 54px;
+         transition: 0.3s ease 0s;
+      }
+      span {
+         font-size: rem(50);
+         padding-left: rem(15);
+         transition: 0.3s ease 0s;
+      }
+      &._line-break {
+         img {
+            width: rem(54);
+         }
+         span {
+            font-size: rem(45);
+         }
+      }
+   }
+   @media (max-width: 1680px) {
+      .anim__object {
+         font-size: rem(50);
+         max-width: 500px;
+      }
+   }
+   @media (max-width: 1200px) {
+      & .service__title {
+         span {
+            font-size: rem(40);
+         }
+      }
+      .anim__object {
+         font-size: rem(38);
+         max-width: 400px;
+      }
+   }
+   @media (max-width: 991px) {
+      .anim__title {
+         transform: translateY(52.5px);
+         font-size: rem(45);
+      }
+      .cards__title {
+         transform: translateY(52.5px);
+      }
+      .anim__object {
+         transform: translateY(52.5px);
+         font-size: rem(32);
+         max-width: 340px;
+      }
+      & .header__request {
+         gap: 0;
+         span {
+            opacity: 1;
+            font-size: 16px;
+         }
+      }
+      & .header__request p {
+         font-size: 0;
+      }
+      & .service__title {
+         img {
+            width: 50px;
+            transition: 0.3s ease 0s;
+         }
+         span {
+            margin-top: 0;
+            font-size: rem(35);
+            padding-left: rem(10);
+            transition: 0.3s ease 0s;
+         }
+         &._line-break {
+            img {
+               width: rem(40);
+            }
+            span {
+               font-size: rem(35);
+            }
+         }
+      }
+   }
+   @media (max-width: 768px) {
+      .anim__title {
+         margin-right: 100px;
+         font-size: rem(32);
+      }
+      .anim__object {
+         transform: translateY(52.5px);
+         font-size: rem(22);
+         max-width: 260px;
+      }
+      .service__title {
+         transform: translateY(0px);
+         img {
+            transition: 0.4s ease 0s;
+            width: rem(40);
+         }
+         span {
+            transition: 0.4s ease 0s;
+            letter-spacing: -0.5px;
+            margin-top: 5px;
+            line-height: 100%;
+            @include adaptiveValue("font-size", 30, 22, 769, 649);
+            padding-left: rem(16);
+         }
+         &._line-break {
+            img {
+               width: rem(40) !important;
+            }
+            span {
+               @include adaptiveValue("font-size", 30, 22, 769, 649);
+            }
+         }
+      }
+      .cards__title {
+         transform: translateY(0px);
+      }
+      .service__anim {
+         width: rem(150);
+      }
+      & .anim {
+         z-index: 3;
+         &__container {
+            max-width: 100%;
+         }
+      }
+   }
+   @media (max-width: 650px) {
+      .anim__object {
          font-size: rem(20);
+         transform: translateY(42.5px);
+         max-width: 190px;
+      }
+      & .cards__title {
+         img {
+            width: 30px;
+         }
+         span {
+            margin-top: 3px;
+            font-size: rem(20);
+            padding-left: rem(10);
+         }
+         &._line-break {
+            img {
+               width: rem(30) !important;
+            }
+            span {
+               font-size: rem(20);
+            }
+         }
+      }
+      .anim__title {
+         font-size: rem(20);
+         transform: translateY(42.5px);
+      }
+   }
+   @media (max-width: 450px) {
+      .anim__object {
+         &._min {
+            font-size: rem(14);
+            max-width: 140px;
+         }
+      }
+   }
+   @media (max-width: 359px) {
+      & .cards__title {
+         span {
+            font-size: rem(16) !important;
+         }
+         &._line-break {
+            span {
+               font-size: rem(16) !important;
+            }
+         }
+      }
+      .anim__object {
+         font-size: rem(16);
+         max-width: 170px;
+         &._min {
+            font-size: rem(11);
+            max-width: 110px;
+         }
       }
    }
 }

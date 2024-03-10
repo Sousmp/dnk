@@ -324,6 +324,8 @@ class Popup {
 		}
 
 		this.popupLogging(`Закрыл попап`);
+
+		history.replaceState(null, null, window.location.href.split('#')[0]);
 	}
 	// Получение хэша 
 	_getHash() {

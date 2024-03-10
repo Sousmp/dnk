@@ -26,7 +26,7 @@
    @include adaptiveValue("padding-top", 100, 40);
    @include adaptiveValue("padding-bottom", 120, 40);
    &__title {
-      @include adaptiveValue("font-size", 80, 40);
+      @include adaptiveValue("font-size", 70, 40);
       @include adaptiveValue("padding-bottom", 80, 30);
       @media (max-width: 768px) {
          max-width: 320px;

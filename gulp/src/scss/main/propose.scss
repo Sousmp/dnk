@@ -1,0 +1,46 @@
+.propose {
+   padding-top: rem(60);
+   padding-bottom: rem(60);
+   &__title {
+      padding-bottom: rem(100);
+   }
+   &__text-body {
+      padding-top: rem(100);
+      border-top: 1px solid $goldColor;
+      display: flex;
+      justify-content: end;
+   }
+   &__text {
+      font-weight: 500;
+      @include adaptiveValue("font-size", 20, 13);
+      line-height: 160%;
+      letter-spacing: 0.02em;
+      max-width: 810px;
+   }
+   @media (max-width: 991px) {
+      padding: rem(40) 0;
+      &__title {
+         padding-bottom: rem(60);
+      }
+      &__text-body {
+         padding-top: rem(60);
+      }
+   }
+   @media (max-width: 650px) {
+      padding: rem(20) 0;
+      &__title {
+         @include adaptiveValue("font-size", 70, 20, 651, 319);
+      }
+      &__title {
+         padding-bottom: rem(30);
+      }
+      &__text-body {
+         padding-top: rem(30);
+      }
+   }
+   @media (max-width: 320px) {
+      &__title {
+         font-size: rem(20);
+      }
+   }
+}

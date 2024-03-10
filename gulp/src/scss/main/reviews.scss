@@ -10,7 +10,7 @@
    }
    &__title {
       max-width: rem(300);
-      @include adaptiveValue("font-size", 80, 40);
+      @include adaptiveValue("font-size", 70, 40);
    }
    &__content {
       padding-right: rem(140);

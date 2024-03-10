@@ -1,0 +1,306 @@
+.estate {
+   padding-top: rem(80);
+   padding-bottom: rem(40);
+   &__items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem(30);
+   }
+   &__more {
+      margin: 100px auto 0 auto;
+   }
+   &__request {
+      margin-top: 50px;
+   }
+
+   &__item {
+      flex: 0 0 calc(50% - 15px);
+   }
+   &__filter {
+      @include adaptiveValue("margin-top", 170, 120, 1920, 768);
+   }
+
+   &__hover {
+      overflow: hidden;
+      border-radius: 30px;
+   }
+   &__plate {
+      background-color: rgba($bronseColor, 0.8);
+      width: 100%;
+      height: 295px;
+   }
+
+   &__img {
+      position: relative;
+      img {
+         width: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &__update {
+      position: absolute;
+      color: $grayColor;
+      bottom: rem(30);
+      left: rem(30);
+      font-weight: 600;
+      font-size: rem(10);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+   }
+
+   &__views {
+      position: absolute;
+      bottom: rem(30);
+      right: rem(30);
+      font-weight: 500;
+      font-size: rem(20);
+      padding: rem(12);
+      color: $darkGreenColor;
+      background-color: $goldColor;
+      border-radius: rem(30);
+      line-height: 90%;
+      letter-spacing: 0.02em;
+      text-align: center;
+   }
+   @media (max-width: 1200px) {
+      &__views {
+         font-size: rem(16);
+      }
+   }
+
+   @media (max-width: 991px) {
+      &__more {
+         margin-top: 60px;
+      }
+      &__items {
+         gap: rem(20);
+      }
+
+      &__request {
+         margin-top: rem(30);
+      }
+      &__item {
+         flex: 0 0 calc(50% - 10px);
+      }
+      &__request {
+         display: none;
+      }
+      &__update {
+         bottom: rem(20);
+         left: rem(20);
+         font-size: rem(8);
+      }
+      &__views {
+         bottom: rem(20);
+         right: rem(20);
+         font-size: rem(12);
+      }
+   }
+   @media (max-width: 768px) {
+      padding-bottom: rem(20);
+      padding-top: 0px;
+      &__item {
+         flex: 0 0 100%;
+      }
+      &__filter {
+         padding-top: 0;
+      }
+      &__update {
+         font-size: rem(10);
+         left: rem(30);
+      }
+      &__views {
+         font-size: rem(20);
+         right: rem(30);
+      }
+   }
+   @media (max-width: 650px) {
+      &__more {
+         margin-top: 30px;
+      }
+      &__items {
+         gap: rem(20);
+      }
+      &__update {
+         font-size: rem(7);
+         left: rem(20);
+      }
+      &__views {
+         padding: rem(8);
+         font-size: rem(12);
+         right: rem(20);
+      }
+   }
+   @media (max-width: 450px) {
+      &__container {
+         padding: 0;
+      }
+      &__filter {
+         padding: 0 20px;
+      }
+   }
+}
+
+.estate-info {
+   padding: rem(30);
+   border-bottom-left-radius: 30px;
+   border-bottom-right-radius: 30px;
+   background-color: rgba($bronseColor, 0.8);
+   &__title {
+      font-weight: 700;
+      font-size: rem(34);
+      border-bottom: 1px solid $goldColor;
+      line-height: 120%;
+      letter-spacing: 0.02em;
+      padding-bottom: rem(30);
+   }
+
+   &__items {
+      padding-top: rem(30);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: rem(25);
+   }
+
+   &__item {
+      display: flex;
+      align-items: center;
+      gap: rem(15);
+   }
+   &__row {
+      display: flex;
+      gap: rem(30);
+   }
+   &__type {
+      font-weight: 500;
+      font-size: rem(13);
+      line-height: 130%;
+      letter-spacing: 0.02em;
+   }
+
+   &__value {
+      white-space: nowrap;
+      position: relative;
+      font-weight: 700;
+      font-size: rem(25);
+      line-height: 120%;
+      letter-spacing: 0.02em;
+      sup {
+         top: -7px;
+         font-size: rem(15);
+         position: absolute;
+      }
+   }
+   @media (max-width: 1200px) {
+      padding: rem(20);
+      &__value {
+         @include adaptiveValue("font-size", 25, 20, 1201, 991);
+      }
+      &__items {
+         gap: rem(20);
+      }
+      &__title {
+         @include adaptiveValue("font-size", 34, 25, 1201, 991);
+      }
+      &__row {
+         gap: rem(20);
+      }
+   }
+   @media (max-width: 991px) {
+      &__title {
+         @include adaptiveValue("font-size", 25, 18, 992, 767);
+      }
+      &__value {
+         @include adaptiveValue("font-size", 20, 15, 992, 767);
+      }
+      &__type {
+         font-size: rem(10);
+      }
+      &__row {
+         gap: rem(15);
+      }
+      &__img {
+         img {
+            @include adaptiveValue("width", 40, 30, 992, 767);
+            width: rem(30);
+         }
+      }
+      &__item {
+         gap: rem(10);
+      }
+   }
+   @media (max-width: 768px) {
+      &__title {
+         font-size: rem(34);
+         padding-bottom: rem(30);
+      }
+      &__items {
+         padding-top: rem(30);
+         gap: rem(25);
+      }
+      &__item {
+         gap: rem(15);
+      }
+      &__row {
+         gap: rem(30);
+      }
+      &__type {
+         font-size: rem(13);
+      }
+
+      &__value {
+         font-size: rem(25);
+      }
+   }
+   @media (max-width: 650px) {
+      &__title {
+         padding-bottom: rem(20);
+         @include adaptiveValue("font-size", 25, 18, 650, 359);
+      }
+      &__value {
+         @include adaptiveValue("font-size", 20, 15, 650, 359);
+         sup {
+            font-size: rem(10);
+         }
+      }
+      &__type {
+         font-size: rem(10);
+      }
+      &__row {
+         gap: rem(15);
+      }
+      &__img {
+         img {
+            @include adaptiveValue("width", 40, 30, 650, 359);
+            width: rem(30);
+         }
+      }
+      &__items {
+         padding-top: rem(20);
+      }
+      &__item {
+         gap: rem(10);
+      }
+   }
+   @media (max-width: 359px) {
+      &__img {
+         img {
+            width: rem(30);
+         }
+      }
+      &__item {
+         gap: rem(7);
+      }
+      &__row {
+         gap: rem(10);
+      }
+      &__title {
+         font-size: rem(18);
+      }
+      &__value {
+         font-size: rem(14);
+      }
+   }
+}

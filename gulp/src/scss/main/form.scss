@@ -11,7 +11,7 @@
 
    &__title {
       padding-right: rem(80);
-      @include adaptiveValue("font-size", 80, 40);
+      @include adaptiveValue("font-size", 70, 40);
    }
 
    &__subtitle {
@@ -118,6 +118,7 @@
          top: rem(20);
          right: rem(20);
       }
+
    }
    @media (max-width: rem(360)) {
       &__policy {

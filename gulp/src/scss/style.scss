@@ -138,13 +138,22 @@ body {
 // Подключение стилей отдельных блоков
 @import "header";
 @import "main/anim";
-@import "main/popup"; // еще стили от popup в base/popup.scss
+@import "main/text";
 @import "main/cards";
+@import "main/popup"; // еще стили от popup в base/popup.scss
 @import "main/withus";
 @import "main/form";
+@import "main/info";
 @import "main/reviews";
+@import "main/photos";
+@import "main/propose";
 @import "main/extra";
+@import "main/estate";
+@import "main/filter";
+@import "main/map";
+
 @import "footer";
+@import "main/review";
 
 // Подключение стилей отдельных страниц
 @import "home";

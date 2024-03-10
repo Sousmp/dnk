@@ -1,0 +1,48 @@
+.map {
+   padding: rem(60) 0;
+   &__container {
+      max-width: 1920px !important;
+      &._showmore-active {
+         .map_map {
+            overflow: auto !important;
+            height: auto !important;
+         }
+      }
+   }
+
+   &__btn {
+      margin: 0 auto;
+   }
+
+   &__map iframe {
+      border-radius: rem(20);
+      margin-top: rem(100);
+      width: 100%;
+      height: rem(1020);
+   }
+   @media (max-width: 1200px) {
+      &__map {
+         iframe {
+            height: rem(720);
+         }
+      }
+   }
+   @media (max-width: 991px) {
+      padding: rem(40) 0;
+      &__map iframe {
+         margin-top: rem(60);
+      }
+   }
+   @media (max-width: 650px) {
+      padding: rem(20) 0;
+      &__map iframe {
+         margin-top: rem(30);
+      }
+   }
+
+   @media (max-width: 450px) {
+      &__container {
+         padding: 0 !important;
+      }
+   }
+}

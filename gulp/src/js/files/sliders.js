@@ -8,7 +8,7 @@
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation, EffectCards } from 'swiper/modules';
+import { Navigation, EffectCards, Pagination } from 'swiper/modules';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -26,7 +26,8 @@ import "../../scss/base/swiper.scss";
 
 // Инициализация слайдеров
 function initSliders() {
-	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
+
+	if (document.querySelector('.reviews__slider')) { // Указываем скласс нужного слайдера
 		let windowWidth = window.innerWidth;
 		let params;
 
@@ -85,12 +86,70 @@ function initSliders() {
 			}
 		}
 
-		var mySwiper = new Swiper('.swiper', params);
+		var mySwiper = new Swiper('.reviews__slider', params);
 	}
+
+	if (document.querySelector('.photos__slider')) {
+		new Swiper('.photos__slider', {
+			modules: [Navigation, Pagination],
+			grabCursor: true,
+			centeredSlides: true,
+			pagination: {
+				el: '.photos__pagination',
+				type: 'bullets',
+			},
+			breakpoints: {
+				320: {
+					spaceBetween: 20,
+					slidesPerView: 1,
+				},
+				650: {
+					spaceBetween: 20,
+					slidesPerView: 1.08,
+				},
+				768: {
+					spaceBetween: 20,
+					slidesPerView: 1.08,
+				},
+				991: {
+					spaceBetween: 30,
+				},
+				1300: {
+					spaceBetween: 30,
+					slidesPerView: 1.06,
+				},
+			},
+			navigation: {
+				prevEl: '.photos__arrow-left',
+				nextEl: '.photos__arrow-right',
+			},
+			on: {
+				init: function (swiper) {
+					var offer = document.querySelector('.photos__number');
+					if (offer) {
+						offer.innerHTML = 'Фото ' + (swiper.activeIndex + 1) + '/' + swiper.slides.length;
+					}
+				},
+				slideChange: function (swiper) {
+					var offer = document.querySelector('.photos__number');
+					if (offer) {
+						offer.innerHTML = 'Фото ' + (swiper.activeIndex + 1) + '/' + swiper.slides.length;
+					}
+				},
+				slideChangeTransitionStart: function () {
+
+				},
+				slideChangeTransitionEnd: function () {
+
+				},
+			}
+		});
+	}
+
 	// Функция для обновления классов слайдов
 	function updateSlideClasses() {
 		if (mySwiper) {
-			var slides = document.querySelectorAll('.swiper-slide');
+			var slides = document.querySelectorAll('.reviews__slide');
 			var activeIndex = mySwiper.activeIndex;
 
 			slides.forEach(function (slide, index) {
@@ -120,43 +179,6 @@ function initSliders() {
 		}
 	}
 }
-
-
 window.addEventListener("load", function (e) {
 	initSliders();
 });
-
-
-
-
-
-
-
-// Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
-function initSlidersScroll() {
-	let sliderScrollItems = document.querySelectorAll('.swiper_scroll');
-	if (sliderScrollItems.length > 0) {
-		for (let index = 0; index < sliderScrollItems.length; index++) {
-			const sliderScrollItem = sliderScrollItems[index];
-			const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
-			const sliderScroll = new Swiper(sliderScrollItem, {
-				observer: true,
-				observeParents: true,
-				direction: 'vertical',
-				slidesPerView: 'auto',
-				freeMode: {
-					enabled: true,
-				},
-				scrollbar: {
-					el: sliderScrollBar,
-					draggable: true,
-					snapOnRelease: false
-				},
-				mousewheel: {
-					releaseOnEdges: true,
-				},
-			});
-			sliderScroll.scrollbar.updateSize();
-		}
-	}
-}

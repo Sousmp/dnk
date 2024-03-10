@@ -72,3 +72,31 @@
       height: rem(30);
    }
 }
+
+.full-review {
+   padding: rem(20);
+   color: $darkGreenColor;
+   & .reviews__btn {
+      width: auto;
+      height: auto;
+      position: static;
+      &::after,
+      &::before {
+         display: none;
+      }
+   }
+   & .reviews__text {
+      -webkit-line-clamp: 21;
+      -webkit-box-orient: vertical;
+      line-clamp: 21;
+   }
+   &__content {
+      background-color: transparent;
+      padding: 0 !important;
+      max-width: 600px;
+   }
+   & .reviews__slide-body {
+      width: 100%;
+      transform: scale(1);
+   }
+}

@@ -1,0 +1,116 @@
+// Это стили для хар-тик дома на странице объект
+
+.info {
+   padding: rem(60) 0;
+   &__container {
+   }
+
+   &__items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+      padding-bottom: rem(100);
+   }
+
+   &__item {
+      gap: rem(15);
+      display: flex;
+      align-items: center;
+      &:not(:last-child) {
+         padding-right: 30px;
+      }
+   }
+
+   &__img {
+   }
+
+   &__texts {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__type {
+      font-weight: 500;
+      font-size: rem(13);
+      line-height: 130%;
+      letter-spacing: 0.02em;
+   }
+
+   &__value {
+      font-weight: 700;
+      font-size: rem(25);
+      line-height: 120%;
+      letter-spacing: 0.02em;
+   }
+
+   &__text {
+      padding-top: rem(100);
+      border-top: 1px solid $goldColor;
+      font-weight: 500;
+      font-size: rem(20);
+      line-height: 160%;
+      letter-spacing: 0.02em;
+   }
+   @media (max-width: 991px) {
+      padding: rem(40) 0;
+      &__items {
+         gap: rem(40);
+         padding-bottom: rem(60);
+      }
+      &__text {
+         padding-top: rem(60);
+      }
+
+      &__item {
+         &:not(:last-child) {
+            padding-right: 0;
+         }
+      }
+   }
+   @media (max-width: 650px) {
+      padding: rem(20) 0;
+      &__items {
+         padding-bottom: rem(30);
+         @include adaptiveValue("gap", 40, 20, 651, 359);
+      }
+
+      &__text {
+         padding-top: rem(30);
+         @include adaptiveValue("font-size", 20, 13, 651, 359);
+      }
+
+      &__value {
+         @include adaptiveValue("font-size", 25, 15, 651, 359);
+      }
+      &__img img {
+         @include adaptiveValue("width", 40, 24, 651, 359);
+      }
+      &__type {
+         @include adaptiveValue("font-size", 15, 8, 651, 359);
+      }
+      &__item {
+         @include adaptiveValue("gap", 15, 8, 651, 359);
+      }
+   }
+   @media (max-width: 359px) {
+      &__items {
+         gap: rem(15);
+      }
+      &__value {
+         font-size: rem(14);
+      }
+      &__img img {
+         width: rem(24);
+      }
+      &__type {
+         font-size: rem(8);
+      }
+      &__item {
+         gap: rem(8);
+      }
+      &__text {
+         font-size: rem(13);
+      }
+   }
+}
