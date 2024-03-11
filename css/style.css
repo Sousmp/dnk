@@ -1775,6 +1775,10 @@ html.pc .form__policy a:hover {
   position: relative;
 }
 
+.reviews__zero {
+  padding: 20px 0 0 4px;
+}
+
 .reviews__wrapper {
   position: static !important;
 }
@@ -5247,6 +5251,18 @@ html.pc .form-review__submit._active:hover {
     display: block;
   }
 
+  .reviews__container._no-review {
+    padding: 0 1.25rem;
+  }
+
+  .reviews__container._no-review .reviews__request {
+    margin: 0 !important;
+  }
+
+  .reviews__container._no-review .reviews__title {
+    padding-left: 0;
+  }
+
   .reviews__slide {
     width: 27.5rem;
   }
@@ -5450,6 +5466,11 @@ html.pc .form-review__submit._active:hover {
 
   .reviews__arrow {
     display: none;
+  }
+
+  .reviews__zero {
+    font-size: 0.875rem;
+    padding-top: 10px;
   }
 }
 

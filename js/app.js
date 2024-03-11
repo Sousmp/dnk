@@ -6706,6 +6706,11 @@
                 }
             }
         }));
+        document.addEventListener("DOMContentLoaded", (function() {
+            const reviewsZero = document.querySelector(".reviews__zero");
+            const reviewsContainer = document.querySelector(".reviews__container");
+            if (!reviewsZero.hasAttribute("hidden")) reviewsContainer.classList.add("_no-review");
+        }));
     }));
     window.addEventListener("resize", (function() {
         const screenWidth = window.innerWidth;
