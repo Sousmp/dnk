@@ -1765,6 +1765,7 @@ html.pc .form__policy a:hover {
 }
 
 .reviews__request {
+  margin-top: 6.25rem;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -2165,6 +2166,8 @@ html.pc .photos__arrow:hover {
 }
 
 .photos__slide {
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
 }
 

@@ -6707,6 +6707,19 @@
             }
         }));
     }));
+    window.addEventListener("resize", (function() {
+        const screenWidth = window.innerWidth;
+        const sliders = document.querySelectorAll(".photos__slide");
+        if (screenWidth < 991) sliders.forEach((slider => {
+            const width = screenWidth;
+            const height = width / 1.5;
+            slider.style.width = `${width}px`;
+            slider.style.height = `${height}px`;
+        })); else sliders.forEach((slider => {
+            slider.style.height = "auto";
+        }));
+    }));
+    window.dispatchEvent(new Event("resize"));
     document.addEventListener("DOMContentLoaded", (function() {
         if (document.documentElement.classList.contains("_anim")) window.addEventListener("scroll", (function() {
             const scrollPosition = window.scrollY;
