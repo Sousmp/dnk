@@ -6731,7 +6731,10 @@
             const logo = document.querySelector(".header__logo");
             let translateY = 0;
             let scrollThreshold = 0;
-            if (window.innerWidth < 769) {
+            if (scrollPosition == 0) {
+                translateY = 0;
+                scrollThreshold = 0;
+            } else if (window.innerWidth < 769) {
                 translateY = Math.min(scrollPosition, 130);
                 scrollThreshold = 20;
             } else if (window.innerWidth > 991) {
