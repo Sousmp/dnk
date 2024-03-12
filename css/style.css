@@ -2041,6 +2041,19 @@ html.pc .reviews__btn:hover {
   gap: 0.625rem;
 }
 
+.user__img {
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+.user__img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
 .user__name {
   font-size: 1rem;
   font-weight: 600;
@@ -5818,9 +5831,17 @@ html.pc .form-review__submit._active:hover {
     }
 }
 
-  .user__img img {
-    width: 100%;
-  }
+@supports (height: clamp( 2.5rem , 1.2989457831rem  +  6.0240963855vw , 3.75rem )) {
+    .user__img {
+      height: clamp( 2.5rem , 1.2989457831rem  +  6.0240963855vw , 3.75rem );
+    }
+}
+
+@supports not (height: clamp( 2.5rem , 1.2989457831rem  +  6.0240963855vw , 3.75rem )) {
+    .user__img {
+      height: calc(2.5rem + 1.25 * (100vw - 19.9375rem) / 20.75);
+    }
+}
 
 @supports (font-size: clamp( 0.75rem , 0.5097891566rem  +  1.2048192771vw , 1rem )) {
     .user__name {
@@ -5898,6 +5919,10 @@ html.pc .form-review__submit._active:hover {
 
   .user__img {
     width: inherit;
+  }
+
+  .user__img {
+    height: inherit;
   }
 
   .user__name {
@@ -6042,10 +6067,7 @@ html.pc .form-review__submit._active:hover {
 
   .user__img {
     width: 2.5rem;
-  }
-
-  .user__img img {
-    width: 100%;
+    height: 2.5rem;
   }
 
   .user__name {
@@ -6246,6 +6268,10 @@ html.pc .form-review__submit._active:hover {
 
   .user__img {
     width: inherit;
+  }
+
+  .user__img {
+    height: inherit;
   }
 
   .user__name {
