@@ -1093,10 +1093,7 @@
                 const selectInput = this.getSelectElement(selectItem, this.selectClasses.classSelectInput).selectElement;
                 if (!selectOptions.classList.contains("_slide")) {
                     selectItem.classList.remove(this.selectClasses.classSelectOpen);
-                    if (originalSelect.hasAttribute("data-vertical")) {
-                        _slideLeft(selectOptions, originalSelect.dataset.speed);
-                        selectInput.value = "";
-                    } else {
+                    if (originalSelect.hasAttribute("data-vertical")) _slideLeft(selectOptions, originalSelect.dataset.speed); else {
                         _slideUp(selectOptions, originalSelect.dataset.speed);
                         const activeOption = selectOptions.querySelector(`.${this.selectClasses.classSelectOption}[aria-selected="true"]`);
                         if (originalSelect.hasAttribute("data-search")) {
@@ -1284,6 +1281,11 @@
             }
             selectCallback(selectItem, originalSelect) {
                 document.dispatchEvent(new CustomEvent("selectCallback", {
+                    detail: {
+                        select: originalSelect
+                    }
+                }));
+                document.dispatchEvent(new CustomEvent("formCallback", {
                     detail: {
                         select: originalSelect
                     }
@@ -2891,6 +2893,35 @@
             }
         }
         rangeInit();
+        class FormHandler {
+            constructor() {
+                this.initializeRangeSliders();
+            }
+            initializeRangeSliders() {
+                const rangeSliders = document.querySelectorAll(".filter__form .filter__range");
+                rangeSliders.forEach((rangeSlider => {
+                    const sliderElement = rangeSlider.querySelector(".filter__area, .filter__price, .и_так_далее");
+                    if (sliderElement && !sliderElement.classList.contains("_initialized")) {
+                        sliderElement.classList.add("_initialized");
+                        sliderElement.noUiSlider.on("change", ((values, handle) => {
+                            this.handleRangeChange(values, handle, sliderElement);
+                        }));
+                    }
+                }));
+            }
+            handleRangeChange(values, handle, sliderElement) {
+                document.dispatchEvent(new CustomEvent("formCallback", {
+                    detail: {
+                        type: "range",
+                        value: values[handle],
+                        sliderElement
+                    }
+                }));
+            }
+        }
+        document.addEventListener("DOMContentLoaded", (function() {
+            new FormHandler;
+        }));
         function ssr_window_esm_isObject(obj) {
             return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
