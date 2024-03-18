@@ -7730,24 +7730,6 @@
             if (input) input.addEventListener("input", (function(event) {
                 if (event.target.value.length === 0) placeholder.style.opacity = "1"; else placeholder.style.opacity = "0";
             }));
-            window.addEventListener("resize", (function() {
-                if (window.innerWidth < 991) {
-                    var map = document.querySelector(".map__map iframe");
-                    if (map) {
-                        var width = map.offsetWidth;
-                        map.style.height = width + "px";
-                    }
-                }
-            }));
-            window.addEventListener("load", (function() {
-                if (window.innerWidth < 991) {
-                    var map = document.querySelector(".map__map iframe");
-                    if (map) {
-                        var width = map.offsetWidth;
-                        map.style.height = width + "px";
-                    }
-                }
-            }));
             document.addEventListener("DOMContentLoaded", (function() {
                 const reviewsZero = document.querySelector(".reviews__zero");
                 const reviewsContainer = document.querySelector(".reviews__container");
