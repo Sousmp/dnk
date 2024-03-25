@@ -12,10 +12,11 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 	<link rel="manifest" href="site.webmanifest">
 	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css?_v=20240325214141" />
 	<meta name="msapplication-config" content="https://sousmp.github.io/myworks/crimea/browserconfig.xml">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240315210016">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240325214141">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -50,6 +51,18 @@
 						<span class="_icon-telephone"></span>
 						<p>Заказать звонок</p>
 					</button>
+
+					<div class="filter__lang-box">
+						<div class="filter__vertical-select filter__lang-select">
+							<select data-speed="500" data-vertical name="" id="" class="filter__lang">
+								<option value="rub">RU</option>
+								<option value="usd">UA</option>
+								<option value="eur">EN</option>
+								<option value="es">ES</option>
+							</select>
+						</div>
+					</div>
+
 					<button class="menu__icon" data-popup="#menu" aria-label="Гид">
 						<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect x="0.5" y="0.5" width="53" height="53" rx="26.5" stroke="#DFC58A" />
@@ -58,9 +71,10 @@
 							<line x1="13" y1="26.5" x2="41" y2="26.5" stroke="#DFC58A" />
 						</svg>
 					</button>
+
 					<div class="filter__currency-box">
-						<div class="filter__currency-select">
-							<select data-speed="400" data-vertical name="" id="" class="filter__currency">
+						<div class="filter__vertical-select filter__currency-select">
+							<select data-speed="500" data-vertical name="" id="" class="filter__currency">
 								<option value="rub">₽</option>
 								<option value="usd">$</option>
 								<option value="eur">€</option>
@@ -161,7 +175,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://unpkg.com/imask?_v=20240315210016"></script>
+	<script src="https://unpkg.com/imask?_v=20240325214141"></script>
 	<div id="popup" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
@@ -296,7 +310,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20240315210016"></script>
+	<script src="js/app.min.js?_v=20240325214141"></script>
 </body>
 
 </html>

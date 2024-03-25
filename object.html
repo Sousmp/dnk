@@ -12,10 +12,11 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 	<link rel="manifest" href="site.webmanifest">
 	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css?_v=20240325214141" />
 	<meta name="msapplication-config" content="https://sousmp.github.io/myworks/crimea/browserconfig.xml">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" href="css/style.min.css?_v=20240315210016">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240325214141">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -56,7 +57,7 @@
 						</svg>
 					</button>
 					<div class="filter__currency-box">
-						<div class="filter__currency-select">
+						<div class="filter__vertical-select filter__currency-select">
 							<select data-speed="400" data-vertical name="" id="" class="filter__currency">
 								<option value="rub">₽</option>
 								<option value="usd">$</option>
@@ -169,7 +170,7 @@
 			</section>
 			<section class="map">
 				<div data-showmore class="map__container">
-					<button hidden data-showmore-button type="button" class="map__btn _transparent-btn">
+					<button hidden data-showmore-button="1" type="button" class="map__btn _transparent-btn">
 						<span>Показать на карте</span>
 						<span>Скрыть карту</span>
 					</button>
@@ -179,20 +180,27 @@
 					</div>
 				</div>
 			</section>
-			<section class="form _last">
+			<section class="form realtor _last">
 				<div class="form__container">
 					<div class="form__body">
-						<h3 class="form__title _title"><span>Оставьте заявку</span></h3>
-						<p class="form__subtitle">Оставьте свой номер телефона и наш специалист свяжется с Вами в течении 5 минут и предоставит всю необходимую информацию.</p>
+						<div class="realtor__info">
+							<div class="realtor__img">
+								<picture><source srcset="img/object/realtor.webp" type="image/webp"><img src="img/object/realtor.png" alt="Image"></picture>
+							</div>
+							<div class="realtor__names">
+								<h6 class="realtor__name">Александра</h6>
+								<p class="realtor__subname">Ваш риелтор</p>
+							</div>
+						</div>
+						<h4 class="form__title _title"><span>Позвоните нам </span><span class="realtor__number">+7 (978) 972-70-70</span></h4>
+						<p class="form__subtitle">или оставьте свой номер телефона и мы Вам перезвоним</p>
 						<form action="#" class="form__form">
-							<input type="tel" class="form__input" placeholder="Номер телефона">
-							<button type="submit" class="form__submit _gold-btn _empty-tel">
-								Получить консультацию
-							</button>
+							<input type="tel" placeholder="Номер телефона" type="text" class="form__input">
+							<button type="submit" class="form__submit _gold-btn _empty-tel">Заказать звонок</button>
 						</form>
-						<p data-da=".form__form,768,1" class="form__policy">Нажимая на кнопку «Получить консультацию», Вы соглашаетесь
-							с условиями <a href="#">политики конфиденциальности</a>
-						</p>
+						<p data-da=".form__form,768,1" class="form__policy">Нажимая на кнопку «Заказать звонок», Вы соглашаетесь
+							с условиями <a href="#">политики конфиденциальности</a></p>
+
 						<div class="form__icon">
 							<img src="img/form-icon.svg" alt="Image">
 						</div>
@@ -398,8 +406,8 @@
 			</div>
 		</div>
 	</div>
-	<script src="https://unpkg.com/imask?_v=20240315210016"></script>
-	<script src="js/app.min.js?_v=20240315210016"></script>
+	<script src="https://unpkg.com/imask?_v=20240325214141"></script>
+	<script src="js/app.min.js?_v=20240325214141"></script>
 </body>
 
 </html>

@@ -7756,6 +7756,21 @@
             }));
         }));
         window.dispatchEvent(new Event("resize"));
+        const animItems = document.querySelectorAll("._anim-items");
+        const headerHeight = document.querySelector("header").offsetHeight;
+        const windowHeight = window.innerHeight;
+        function startAnimation() {
+            animItems.forEach((item => {
+                const itemTop = item.getBoundingClientRect().top + window.scrollY;
+                const itemBottom = itemTop + item.clientHeight;
+                const itemHeight = item.clientHeight;
+                const scrollTop = window.scrollY;
+                if (itemTop + itemHeight * .2 - headerHeight >= scrollTop && itemBottom - headerHeight <= scrollTop + windowHeight) item.classList.add("_active"); else item.classList.remove("_active");
+            }));
+        }
+        window.addEventListener("scroll", startAnimation);
+        window.addEventListener("resize", startAnimation);
+        startAnimation();
         document.addEventListener("DOMContentLoaded", (function() {
             if (document.documentElement.classList.contains("_anim")) window.addEventListener("scroll", (function() {
                 const scrollPosition = window.scrollY;
@@ -7882,30 +7897,20 @@
         }));
         document.addEventListener("selectCallback", (function(e) {
             const currentSelect = e.detail.select;
-            const actions = {
-                residential: {
-                    show: [ ".filter__residential-type-box", ".filter__repair-box", ".filter__bedroom-box" ],
-                    hide: [ ".filter__commercial-type-box", ".filter__plot-type-box", ".filter__room-box", ".filter__comunications-box", ".filter__buildings-box" ]
-                },
-                commercial: {
-                    show: [ ".filter__commercial-type-box", ".filter__room-box", ".filter__repair-box" ],
-                    hide: [ ".filter__residential-type-box", ".filter__plot-type-box", ".filter__bedroom-box", ".filter__comunications-box", ".filter__buildings-box" ]
-                },
-                plot: {
-                    show: [ ".filter__plot-type-box", ".filter__buildings-box", ".filter__comunications-box" ],
-                    hide: [ ".filter__residential-type-box", ".filter__commercial-type-box", ".filter__bedroom-box", ".filter__room-box", ".filter__repair-box" ]
-                }
-            };
-            if (currentSelect.value in actions) {
-                const action = actions[currentSelect.value];
-                action.show.forEach((selector => {
-                    document.querySelector(selector).hidden = false;
-                }));
-                action.hide.forEach((selector => {
-                    document.querySelector(selector).hidden = true;
-                }));
-            }
+            console.log(currentSelect);
         }));
+        const handleSelectClassChange = (mutationsList, observer) => {
+            for (const mutation of mutationsList) if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                const selectElement = document.querySelector(".filter__lang-select .select");
+                const headerRequestElement = document.querySelector(".header__request");
+                if (selectElement.classList.contains("_select-open")) headerRequestElement.classList.add("_min"); else headerRequestElement.classList.remove("_min");
+            }
+        };
+        const observer = new MutationObserver(handleSelectClassChange);
+        const selectElement = document.querySelector(".filter__lang-select .select");
+        if (selectElement) observer.observe(selectElement, {
+            attributes: true
+        });
         document.addEventListener("selectCallback", (function(e) {
             const currentSelect = e.detail.select;
             const currency = document.querySelector(".info__currency");
