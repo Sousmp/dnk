@@ -2788,12 +2788,14 @@
         function rangeInit() {
             var rangeSliderArea = document.querySelector(".filter__area");
             if (rangeSliderArea) {
+                var min = parseInt(rangeSliderArea.getAttribute("data-min"));
+                var max = parseInt(rangeSliderArea.getAttribute("data-max"));
                 initialize(rangeSliderArea, {
                     start: [ 100 ],
                     connect: [ true, false ],
                     range: {
-                        min: [ 40 ],
-                        max: [ 400 ]
+                        min,
+                        max
                     },
                     format: {
                         to: function(value) {
@@ -2811,13 +2813,15 @@
             }
             var rangePrice = document.querySelector(".filter__price");
             if (rangePrice) {
+                min = parseInt(rangePrice.getAttribute("data-min"));
+                max = parseInt(rangePrice.getAttribute("data-max"));
                 var slider = initialize(rangePrice, {
                     start: [ 1e7 ],
                     connect: [ true, false ],
                     step: 100,
                     range: {
-                        min: [ 1e6 ],
-                        max: [ 3e7 ]
+                        min,
+                        max
                     },
                     format: {
                         to: function(value) {
@@ -2847,12 +2851,14 @@
                     const selectedCurrency = currentSelect.value;
                     if (rangePrice && selectedCurrency) {
                         var slider = rangePrice.noUiSlider;
+                        var min = parseInt(rangePrice.getAttribute("data-min"));
+                        var max = parseInt(rangePrice.getAttribute("data-max"));
                         switch (selectedCurrency) {
                           case "rub":
                             slider.updateOptions({
                                 range: {
-                                    min: [ 1e6 ],
-                                    max: [ 3e7 ]
+                                    min: [ min ],
+                                    max: [ max ]
                                 },
                                 start: [ 1e7 ]
                             });
@@ -2861,8 +2867,8 @@
                           case "usd":
                             slider.updateOptions({
                                 range: {
-                                    min: [ 1e4 ],
-                                    max: [ 3e5 ]
+                                    min: [ min / 100 ],
+                                    max: [ max / 100 ]
                                 },
                                 start: [ 1e5 ]
                             });
@@ -2871,8 +2877,8 @@
                           case "eur":
                             slider.updateOptions({
                                 range: {
-                                    min: [ 1e4 ],
-                                    max: [ 3e5 ]
+                                    min: [ min / 100 ],
+                                    max: [ max / 100 ]
                                 },
                                 start: [ 1e5 ]
                             });
@@ -7756,10 +7762,10 @@
             }));
         }));
         window.dispatchEvent(new Event("resize"));
-        const animItems = document.querySelectorAll("._anim-items");
         const headerHeight = document.querySelector("header").offsetHeight;
         const windowHeight = window.innerHeight;
         function startAnimation() {
+            const animItems = document.querySelectorAll("._anim-items");
             animItems.forEach((item => {
                 const itemTop = item.getBoundingClientRect().top + window.scrollY;
                 const itemBottom = itemTop + item.clientHeight;
@@ -7770,7 +7776,9 @@
         }
         window.addEventListener("scroll", startAnimation);
         window.addEventListener("resize", startAnimation);
-        startAnimation();
+        document.addEventListener("DOMContentLoaded", (function() {
+            startAnimation();
+        }));
         document.addEventListener("DOMContentLoaded", (function() {
             if (document.documentElement.classList.contains("_anim")) window.addEventListener("scroll", (function() {
                 const scrollPosition = window.scrollY;
@@ -7816,7 +7824,6 @@
                 }));
                 function checkPhoneNumber() {
                     var phoneNumber = telMask.unmaskedValue;
-                    console.log("phoneNumber:", phoneNumber);
                     if (phoneNumber && phoneNumber.replace(/\D/g, "").length === 10) {
                         if (submitButton) {
                             submitButton.classList.remove("_empty-tel");
@@ -7894,10 +7901,6 @@
                     return false;
                 }
             }));
-        }));
-        document.addEventListener("selectCallback", (function(e) {
-            const currentSelect = e.detail.select;
-            console.log(currentSelect);
         }));
         const handleSelectClassChange = (mutationsList, observer) => {
             for (const mutation of mutationsList) if (mutation.type === "attributes" && mutation.attributeName === "class") {

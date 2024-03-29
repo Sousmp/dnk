@@ -1663,6 +1663,9 @@ html.pc .form__policy a:hover {
 .realtor__img img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .realtor__names {
