@@ -7705,19 +7705,88 @@
         };
         const da = new DynamicAdapt("max");
         da.init();
+        let htmlElement = document.querySelector("html._min-header");
+        if (htmlElement) {
+            function hideHeader() {
+                if (window.scrollY > 155) htmlElement.classList.add("_header-hide");
+            }
+            function showHeader() {
+                htmlElement.classList.remove("_header-hide");
+            }
+            function resetTimer() {
+                clearTimeout(interactionTimer);
+                interactionTimer = setTimeout(hideHeader, 1500);
+                showHeader();
+            }
+            let interactionTimer;
+            function handleScroll() {
+                resetTimer();
+            }
+            function addEventListeners() {
+                document.addEventListener("mousemove", resetTimer);
+                document.addEventListener("keypress", resetTimer);
+                document.addEventListener("wheel", resetTimer);
+                document.addEventListener("keydown", (event => {
+                    if (event.key.startsWith("Arrow")) resetTimer();
+                }));
+            }
+            if (window.innerWidth > 991) {
+                window.addEventListener("scroll", handleScroll);
+                window.addEventListener("resize", handleScroll);
+                document.addEventListener("DOMContentLoaded", (() => {
+                    handleScroll();
+                    addEventListeners();
+                }));
+            }
+        }
+        window.onload = function() {
+            var photosSlide = document.querySelector(".photos__slide");
+            var videoJS = document.querySelector(".video-js");
+            if (videoJS) {
+                function resizeVideo() {
+                    if (window.innerWidth > 649) {
+                        var photosSlideWidth = photosSlide.offsetWidth;
+                        videoJS.style.width = photosSlideWidth + "px";
+                    } else videoJS.style.width = "100%";
+                }
+                window.addEventListener("resize", resizeVideo);
+                resizeVideo();
+            }
+        };
+        if (document.querySelector(".video")) {
+            var player2 = videojs("my-video2");
+            if (player2) {
+                var BigPlayButton = videojs.getComponent("BigPlayButton");
+                BigPlayButton.prototype.handleClick = function() {
+                    if (this.player_.paused()) {
+                        this.player_.play();
+                        this.setIcon("pause");
+                    } else {
+                        this.player_.pause();
+                        this.setIcon("play");
+                    }
+                };
+                var controlBarOptions = player2.controlBar.options_;
+                controlBarOptions.children = [ "playToggle", "progressControl", "currentTimeDisplay", "durationDisplay", "volumePanel", "fullscreenToggle" ];
+                player2.removeChild("ControlBar");
+                player2.addChild("ControlBar", controlBarOptions);
+            } else console.error('Плеер с идентификатором "my-video2" не найден.');
+        }
         document.addEventListener("DOMContentLoaded", (function() {
             const selectFilterCurrency = document.querySelector(".select_filter__currency");
             const titleSpan = document.querySelector(".anim__object._title");
-            const observer = new MutationObserver((function(mutationsList, observer) {
-                for (let mutation of mutationsList) if (mutation.type === "attributes" && mutation.attributeName === "class") {
-                    const isOpen = selectFilterCurrency.classList.contains("_select-open");
-                    if (isOpen) titleSpan.classList.add("_min"); else titleSpan.classList.remove("_min");
-                }
-            }));
-            const config = {
-                attributes: true
-            };
-            observer.observe(selectFilterCurrency, config);
+            if (selectFilterCurrency && titleSpan) {
+                const observer = new MutationObserver((function(mutationsList, observer) {
+                    for (let mutation of mutationsList) if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                        const isOpen = selectFilterCurrency.classList.contains("_select-open");
+                        if (isOpen) titleSpan.classList.add("_min"); else titleSpan.classList.remove("_min");
+                    }
+                }));
+                const config = {
+                    attributes: true
+                };
+                observer.observe(selectFilterCurrency, config);
+            }
             let h1 = document.querySelector(".service__title");
             let text = document.querySelector(".cards__text");
             if (h1) {

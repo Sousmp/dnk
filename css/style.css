@@ -670,6 +670,17 @@ html.pc ._phone a:hover {
   gap: 1.5625rem;
 }
 
+html._min-header .header {
+  -webkit-transition: 0.5s ease 0s;
+  transition: 0.5s ease 0s;
+}
+
+html._header-hide .header {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
 html.menu-open .menu__body {
   overflow-x: hidden;
   -webkit-transform: translateX(-100%);
@@ -957,6 +968,18 @@ html._anim .cards__title img {
 html._anim .cards__title span {
   -webkit-transition: 0.4s ease 0s;
   transition: 0.4s ease 0s;
+}
+
+html._header-hide .anim__object {
+  -webkit-transform: translateY(-100%) !important;
+      -ms-transform: translateY(-100%) !important;
+          transform: translateY(-100%) !important;
+}
+
+html._header-hide .anim__title {
+  -webkit-transform: translateY(-100%) !important;
+      -ms-transform: translateY(-100%) !important;
+          transform: translateY(-100%) !important;
 }
 
 html._scroll .anim__container {
@@ -1654,18 +1677,57 @@ html.pc .form__policy a:hover {
   padding-bottom: 1.875rem;
 }
 
-.realtor__img {
+.realtor__imgs {
   width: 7.5rem;
   height: 7.5rem;
   border-radius: 50%;
+  position: relative;
 }
 
-.realtor__img img {
+.realtor__img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.realtor .form__body {
+  padding: 2.5rem 2.5rem 3.75rem 2.5rem;
+}
+
+.realtor .form__subtitle {
+  padding-top: 1.875rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+.realtor__insta {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  right: -5px;
+  bottom: -5px;
+  background-color: #dfc58a;
+  -webkit-transition: 0.3s ease 0s;
+  transition: 0.3s ease 0s;
+}
+
+.realtor__insta img {
+  width: 20px;
+}
+
+html.pc .realtor__insta:hover {
+  background-color: #f7f3e3;
 }
 
 .realtor__names {
@@ -1735,6 +1797,15 @@ html.pc .form__policy a:hover {
   padding: 3.75rem 0;
 }
 
+.info__video .info__items {
+  padding-bottom: 0 !important;
+}
+
+.info__video-text .info__text {
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+
 .info__items {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1793,6 +1864,191 @@ html.pc .form__policy a:hover {
   font-size: 1.25rem;
   line-height: 160%;
   letter-spacing: 0.02em;
+}
+
+.video {
+  padding-top: 6.25rem;
+}
+
+.video__container {
+  max-width: 1920px;
+  text-align: center;
+  padding: 0 !important;
+}
+
+.video-js {
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: auto;
+  border-radius: 20px 20px 0 0;
+}
+
+.vjs-tech {
+  border-radius: 20px 20px 0 0;
+}
+
+/* Удаляем обводку при фокусе */
+
+.video-js:focus,
+.vjs-tech:focus {
+  outline: none;
+}
+
+/* Удаляем обводку при клике */
+
+.video-js.vjs-workinghover {
+  outline: none;
+}
+
+.vjs-poster img {
+  border-radius: 20px 20px 0 0;
+}
+
+.video-js .vjs-current-time,
+.video-js .vjs-duration {
+  display: block !important;
+  /* Переопределение стилей */
+}
+
+.video-js .vjs-current-time {
+  width: 35px !important;
+  text-align: right !important;
+}
+
+.vjs-user-active.vjs-show-big-pause-button-on-play:not(.vjs-seeking, .vjs-scrubbing, .vjs-error, .vjs-paused) .vjs-big-play-button {
+  display: block;
+}
+
+.vjs-user-active.vjs-show-big-pause-button-on-play:not(.vjs-seeking, .vjs-scrubbing, .vjs-error, .vjs-paused) .vjs-big-play-button .vjs-icon-placeholder:before {
+  content: "\f103";
+}
+
+.vjs-show-big-pause-button-on-play:not(.vjs-seeking, .vjs-scrubbing, .vjs-error, .vjs-paused) .vjs-big-play-button .vjs-icon-placeholder:before {
+  content: "\f103";
+}
+
+.vjs-show-big-pause-button-on-play:not(.vjs-seeking, .vjs-scrubbing, .vjs-error, .vjs-paused) .vjs-big-play-button {
+  display: block !important;
+}
+
+.vjs-has-started.vjs-user-inactive.vjs-show-big-pause-button-on-play:not(.vjs-seeking,
+.vjs-scrubbing,
+.vjs-error,
+.vjs-paused) .vjs-big-play-button {
+  visibility: visible;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: visibility 1s, opacity 1s;
+  transition: visibility 1s, opacity 1s;
+}
+
+.video-js .vjs-current-time:after {
+  content: "/";
+  margin-left: 5px;
+  /* Расстояние между разделителем и текущим временем */
+}
+
+.video-js .vjs-time-control {
+  font-family: Manrope;
+  padding: 0 3px !important;
+}
+
+.video-js .vjs-progress-control .vjs-progress-holder {
+  margin: 0 10px 0 5px !important;
+}
+
+.vjs-play-progress .vjs-slider-bar {
+  color: #dfc58a;
+}
+
+.vjs-play-control .vjs-icon-placeholder {
+  color: #dfc58a;
+  line-height: 100%;
+  font-size: 16px !important;
+  width: 30px !important;
+}
+
+.vjs-mute-control .vjs-icon-placeholder {
+  font-size: 12px !important;
+}
+
+.vjs-fullscreen-control {
+  width: 25px !important;
+}
+
+.vjs-fullscreen-control .vjs-icon-placeholder {
+  font-size: 12px;
+}
+
+.vjs-time-tooltip {
+  padding: 6px 8px 4px 8px !important;
+}
+
+.vjs-play-progress .vjs-time-tooltip {
+  background-color: rgba(223, 197, 138, 0.8) !important;
+}
+
+.vjs-mouse-display .vjs-time-tooltip {
+  background-color: rgba(156, 156, 156, 0.8) !important;
+}
+
+.vjs-icon-placeholder:before {
+  line-height: 1 !important;
+  top: 49% !important;
+  height: auto !important;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.vjs-time-control span {
+  line-height: 4em !important;
+}
+
+.vjs-volume-horizontal {
+  height: 4em !important;
+}
+
+.vjs-progress-control .vjs-play-progress {
+  color: #dfc58a;
+  background-color: #dfc58a !important;
+}
+
+.vjs-control-bar {
+  padding: 0 10px 0 5px;
+  height: 40px !important;
+  background-color: rgba(25, 45, 34, 0.8) !important;
+}
+
+.video-js .vjs-volume-bar {
+  margin: 1.85em 0.45em !important;
+}
+
+.video-js .vjs-slider {
+  background-color: #9c9c9c !important;
+}
+
+.video-js .vjs-load-progress {
+  display: none !important;
+}
+
+.vjs-big-play-button {
+  width: 60px !important;
+  height: 60px !important;
+  margin: 0 !important;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  border-radius: 50% !important;
+  border: 0 !important;
+  background-color: rgba(25, 45, 34, 0.8) !important;
+}
+
+.vjs-big-play-button .vjs-icon-placeholder {
+  font-size: 40px;
+}
+
+.vjs-big-play-button .vjs-icon-placeholder::before {
+  color: #dfc58a;
 }
 
 .reviews {
@@ -2179,6 +2435,14 @@ html.pc .reviews__btn:hover {
 .photos__container {
   max-width: 1920px;
   padding: 0 !important;
+}
+
+.photos__video {
+  padding-top: 0 !important;
+}
+
+.photos__video .photos__slide img {
+  border-radius: 0 0 20px 20px !important;
 }
 
 .photos__slider {
@@ -4426,6 +4690,10 @@ html.pc .form-review__submit._active:hover {
     padding-right: 0;
   }
 
+  .video {
+    padding-top: 3.75rem;
+  }
+
   .photos {
     padding-top: 3.75rem;
     padding-bottom: 2.5rem;
@@ -4907,6 +5175,19 @@ html.pc .form-review__submit._active:hover {
     }
 }
 
+  .video {
+    padding-top: 2.5rem;
+  }
+
+  .vjs-big-play-button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .vjs-big-play-button .vjs-icon-placeholder {
+    font-size: 30px;
+  }
+
   .photos__number {
     bottom: 30px;
   }
@@ -5049,7 +5330,7 @@ html.pc .form-review__submit._active:hover {
   }
 
   .footer__bottom {
-    padding-top: 30px;
+    padding-top: 1.875rem;
   }
 
   .footer__logo-text {
@@ -5216,6 +5497,17 @@ html.pc .form-review__submit._active:hover {
     padding: 8px;
   }
 
+  .realtor__insta {
+    width: 1.5rem;
+    height: 1.5rem;
+    right: -5px;
+    bottom: -5px;
+  }
+
+  .realtor__insta img {
+    width: 12px;
+  }
+
   .realtor__number {
     padding-top: 0.625rem;
   }
@@ -5225,12 +5517,20 @@ html.pc .form-review__submit._active:hover {
     font-size: 2.1875rem;
   }
 
-  .realtor__img {
+  .realtor .form__body {
+    padding: 1.25rem 1.25rem 1.875rem 1.25rem;
+  }
+
+  .realtor__imgs {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 3.75rem;
             flex: 0 0 3.75rem;
     width: 3.75rem;
     height: 3.75rem;
+  }
+
+  .realtor .form__subtitle {
+    padding: 1.25rem 0 0.9375rem;
   }
 
   .realtor__info {
@@ -5328,6 +5628,14 @@ html.pc .form-review__submit._active:hover {
       gap: calc(0.5rem + 0.4375 * (100vw - 22.4375rem) / 18.25);
     }
 }
+
+  .video {
+    padding-top: 0rem;
+  }
+
+  .video__container {
+    padding: 0 !important;
+  }
 
   .photos {
     padding-bottom: 1.25rem;
@@ -5616,18 +5924,18 @@ html.pc .form-review__submit._active:hover {
   }
 
   .footer {
-    padding: 30px 0;
+    padding: 1.25rem 0 1.875rem;
   }
 
   .footer__logo-img {
-    height: 50px;
+    height: 3.125rem;
   }
 
   .footer__logo-text {
-    max-width: 80px;
-    padding-left: 12px;
-    padding-bottom: 12px;
-    font-size: 10px;
+    max-width: 5rem;
+    padding-left: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 0.625rem;
   }
 
   .form-review__title {
@@ -5786,7 +6094,11 @@ html.pc .form-review__submit._active:hover {
 
 @media (max-width: 425px) {
   .footer__logo-text {
-    font-size: 9px;
+    font-size: 0.5625rem;
+  }
+
+  .footer__bottom {
+    padding-top: 0.9375rem;
   }
 }
 
@@ -5937,7 +6249,7 @@ html.pc .form-review__submit._active:hover {
   }
 
   .footer__logo-text {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
 }
 
