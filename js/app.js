@@ -6643,9 +6643,7 @@
                 }
             }
         }
-        window.addEventListener("load", (function(e) {
-            initSliders();
-        }));
+        initSliders();
         var can_use_dom = __webpack_require__(807);
         function isObject_isObject(value) {
             var type = typeof value;
