@@ -717,7 +717,7 @@ html._currency-mob .header .filter__currency-box .filter__currency-select {
 }
 
 html._currency-mob .header .filter__currency-box .select__option {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 html._currency-mob .menu__icon {
@@ -876,6 +876,13 @@ html.pc .menu__link:hover::after {
           transform: translateY(135px);
 }
 
+.anim .anim__object._big {
+  max-width: 1100px;
+  -webkit-transform: translateY(145px);
+      -ms-transform: translateY(145px);
+          transform: translateY(145px);
+}
+
 html._anim .anim {
   z-index: 3;
 }
@@ -993,6 +1000,13 @@ html._scroll .anim__object {
           transform: translateY(77.5px);
 }
 
+html._scroll .anim__object._big {
+  -webkit-transform: translateY(77.5px);
+      -ms-transform: translateY(77.5px);
+          transform: translateY(77.5px);
+  max-width: 1100px;
+}
+
 html._scroll .anim__title {
   font-size: 3.75rem;
   -webkit-transform: translateY(77.5px);
@@ -1050,6 +1064,10 @@ html._scroll .service__title._line-break span {
   line-height: 100%;
   font-size: 2.125rem;
   max-width: 630px;
+}
+
+.text2._big {
+  padding-top: 240px;
 }
 
 .cards {
@@ -2447,8 +2465,19 @@ html.pc .reviews__btn:hover {
 
 .photos__slider {
   width: 100%;
-  height: 100%;
   position: relative;
+}
+
+@supports (height: clamp( 13.75rem , 3.7rem  +  50.25vw , 64rem )) {
+  .photos__slider {
+    height: clamp( 13.75rem , 3.7rem  +  50.25vw , 64rem );
+  }
+}
+
+@supports not (height: clamp( 13.75rem , 3.7rem  +  50.25vw , 64rem )) {
+  .photos__slider {
+    height: calc(13.75rem + 50.25 * (100vw - 20rem) / 100);
+  }
 }
 
 .photos__arrow {
@@ -2548,7 +2577,9 @@ html.pc .photos__arrow:hover {
   width: 100%;
   height: 100%;
   position: relative;
-  display: none;
+  opacity: 0;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .photos__slide {
@@ -2557,15 +2588,15 @@ html.pc .photos__arrow:hover {
   border-radius: 20px;
 }
 
-@supports (max-height: clamp( 28.75rem , 5.300954033rem  +  48.9158716392vw , 64rem )) {
+@supports (max-height: clamp( 13.75rem , 3.73766396rem  +  50.2186133666vw , 64rem )) {
   .photos__slide {
-    max-height: clamp( 28.75rem , 5.300954033rem  +  48.9158716392vw , 64rem );
+    max-height: clamp( 13.75rem , 3.73766396rem  +  50.2186133666vw , 64rem );
   }
 }
 
-@supports not (max-height: clamp( 28.75rem , 5.300954033rem  +  48.9158716392vw , 64rem )) {
+@supports not (max-height: clamp( 13.75rem , 3.73766396rem  +  50.2186133666vw , 64rem )) {
   .photos__slide {
-    max-height: calc(28.75rem + 35.25 * (100vw - 47.9375rem) / 72.0625);
+    max-height: calc(13.75rem + 50.25 * (100vw - 19.9375rem) / 100.0625);
   }
 }
 
@@ -3256,7 +3287,7 @@ html.pc .filter .select__title:hover .select__content {
 
 .filter__cities-box .select__option {
   color: #dfc58a;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   width: 100%;
   text-align: left;
@@ -4345,11 +4376,20 @@ html.pc .form-review__submit._active:hover {
     font-size: 3.125rem;
     max-width: 500px;
   }
+
+  html._scroll .anim__object._big {
+    font-size: 2.8125rem;
+    max-width: 580px;
+  }
 }
 
 @media (max-width: 1650px) {
   .anim .anim__object {
     max-width: 700px;
+  }
+
+  .anim .anim__object._big {
+    max-width: 900px;
   }
 
   .text2 {
@@ -4377,6 +4417,11 @@ html.pc .form-review__submit._active:hover {
 
   html.lang .header__content {
     gap: 1.25rem;
+  }
+
+  html._scroll .anim__object._big {
+    font-size: 2.1875rem;
+    max-width: 500px;
   }
 }
 
@@ -4416,6 +4461,16 @@ html.pc .form-review__submit._active:hover {
   html._scroll .anim__object {
     font-size: 2.375rem;
     max-width: 400px;
+  }
+
+  html._scroll .anim__object._big {
+    font-size: 1.75rem;
+    max-width: 400px;
+  }
+
+  html._scroll .anim__object._big._min {
+    font-size: 1.375rem;
+    max-width: 300px;
   }
 
   .estate__views {
@@ -4510,6 +4565,10 @@ html.pc .form-review__submit._active:hover {
     font-size: 18px;
   }
 
+  html._currency-mob .header .filter__currency-box .select__option {
+    font-size: 0.875rem;
+  }
+
   .menu__wrapper {
     padding-top: 75px;
   }
@@ -4536,6 +4595,14 @@ html.pc .form-review__submit._active:hover {
     -webkit-transform: translateY(95px);
         -ms-transform: translateY(95px);
             transform: translateY(95px);
+  }
+
+  .anim .anim__object._big {
+    max-width: 600px;
+    padding-right: 50px;
+    -webkit-transform: translateY(110px);
+        -ms-transform: translateY(110px);
+            transform: translateY(110px);
   }
 
   html._anim .service__title img {
@@ -4606,6 +4673,19 @@ html.pc .form-review__submit._active:hover {
     max-width: 340px;
   }
 
+  html._scroll .anim__object._big {
+    font-size: 1.75rem;
+    -webkit-transform: translateY(52.5px);
+        -ms-transform: translateY(52.5px);
+            transform: translateY(52.5px);
+    max-width: 330px;
+  }
+
+  html._scroll .anim__object._big._min {
+    font-size: 1.375rem;
+    max-width: 320px;
+  }
+
   html._scroll .header__request {
     gap: 0;
   }
@@ -4647,6 +4727,10 @@ html.pc .form-review__submit._active:hover {
 
   .text2 {
     padding-top: 180px;
+  }
+
+  .text2._big {
+    padding-top: 220px;
   }
 
   .service__title {
@@ -5073,6 +5157,19 @@ html.pc .form-review__submit._active:hover {
     max-width: 260px;
   }
 
+  html._scroll .anim__object._big {
+    font-size: 1.5rem;
+    -webkit-transform: translateY(52.5px);
+        -ms-transform: translateY(52.5px);
+            transform: translateY(52.5px);
+    max-width: 260px;
+  }
+
+  html._scroll .anim__object._big._min {
+    font-size: 1rem;
+    max-width: 250px;
+  }
+
   html._scroll .service__title {
     -webkit-transform: translateY(0px);
         -ms-transform: translateY(0px);
@@ -5196,18 +5293,6 @@ html.pc .form-review__submit._active:hover {
   .photos__number {
     bottom: 30px;
   }
-
-@supports (max-height: clamp( 15rem , 2.8676470588rem  +  53.9215686275vw , 28.75rem )) {
-    .photos__slide {
-      max-height: clamp( 15rem , 2.8676470588rem  +  53.9215686275vw , 28.75rem );
-    }
-}
-
-@supports not (max-height: clamp( 15rem , 2.8676470588rem  +  53.9215686275vw , 28.75rem )) {
-    .photos__slide {
-      max-height: calc(15rem + 13.75 * (100vw - 22.5rem) / 25.5);
-    }
-}
 
   .error__title {
     max-width: 320px;
@@ -5366,12 +5451,6 @@ html.pc .form-review__submit._active:hover {
   }
 }
 
-@media (max-width: 768px) and (max-width: 22.5em) {
-  .photos__slide {
-    max-height: inherit;
-  }
-}
-
 @media (max-width: 48em) {
   .estate__filter {
     margin-top: inherit;
@@ -5452,6 +5531,19 @@ html.pc .form-review__submit._active:hover {
     max-width: 190px;
   }
 
+  html._scroll .anim__object._big {
+    font-size: 1.25rem;
+    -webkit-transform: translateY(42.5px) !important;
+        -ms-transform: translateY(42.5px) !important;
+            transform: translateY(42.5px) !important;
+    max-width: 195px;
+  }
+
+  html._scroll .anim__object._big._min {
+    font-size: 0.875rem;
+    max-width: 180px;
+  }
+
   html._scroll .cards__title img {
     width: 30px;
   }
@@ -5492,6 +5584,10 @@ html.pc .form-review__submit._active:hover {
 
   .text2__text {
     font-size: 0.9375rem;
+  }
+
+  .text2._big {
+    padding-top: 110px;
   }
 
   .service__plate {
@@ -6075,6 +6171,11 @@ html.pc .form-review__submit._active:hover {
     max-width: 140px;
   }
 
+  html._scroll .anim__object._big._min {
+    font-size: 0.75rem;
+    max-width: 140px;
+  }
+
   .estate__container {
     padding: 0;
   }
@@ -6108,10 +6209,6 @@ html.pc .form-review__submit._active:hover {
 }
 
 @media (max-width: 360px) {
-  .photos__slide {
-    max-height: 240px;
-  }
-
   .form-review__title {
     font-size: 2.5rem;
   }
@@ -6239,6 +6336,10 @@ html.pc .form-review__submit._active:hover {
 
   .realtor .form__subtitle {
     font-size: 0.8125rem;
+  }
+
+  .photos__slider {
+    height: 210px;
   }
 
   .propose__title {
@@ -6509,6 +6610,10 @@ html.pc .form-review__submit._active:hover {
             transform: translateY(75px);
   }
 
+  .anim .anim__object._big {
+    max-width: 580px;
+  }
+
   .anim__body {
     height: 6.5625rem;
   }
@@ -6678,12 +6783,6 @@ html.pc .form-review__submit._active:hover {
   }
 }
 
-@media (max-width: 47.9375em) {
-  .photos__slide {
-    max-height: inherit;
-  }
-}
-
 @media (max-width: 40.625rem) {
   .gradient span {
     bottom: 6.875rem;
@@ -6745,6 +6844,14 @@ html.pc .form-review__submit._active:hover {
         -ms-transform: translateY(45px);
             transform: translateY(45px);
     font-size: 1.875rem;
+    max-width: 300px;
+  }
+
+  .anim .anim__object._big {
+    -webkit-transform: translateY(55px);
+        -ms-transform: translateY(55px);
+            transform: translateY(55px);
+    padding-right: 30px;
     max-width: 300px;
   }
 
@@ -7250,6 +7357,12 @@ html.pc .form-review__submit._active:hover {
   }
 }
 
+@media (max-width: 19.9375em) {
+  .photos__slide {
+    max-height: inherit;
+  }
+}
+
 @media (max-width: 61.9375rem) and (min-width: 62em) {
   .header__content {
     gap: inherit;
@@ -7457,12 +7570,6 @@ html.pc .form-review__submit._active:hover {
 
   .user__task {
     font-size: inherit;
-  }
-}
-
-@media (max-width: 768px) and (min-width: 48em) {
-  .photos__slide {
-    max-height: inherit;
   }
 }
 

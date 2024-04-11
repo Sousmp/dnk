@@ -6644,7 +6644,9 @@
             }
         }
         initSliders();
-        document.querySelector(".swiper-slide").style.display = "flex";
+        window.addEventListener("load", (function(e) {
+            document.querySelector(".swiper-wrapper").style.opacity = "1";
+        }));
         var can_use_dom = __webpack_require__(807);
         function isObject_isObject(value) {
             var type = typeof value;
@@ -7816,6 +7818,15 @@
                     selectInput.classList.add("_empty");
                 } else selectInput.classList.remove("_empty");
             }));
+            var titleElement = document.querySelector(".anim__object");
+            var textElement = document.querySelector(".text2");
+            if (titleElement) {
+                var titleElementSpan = document.querySelector(".anim__object span");
+                if (titleElementSpan.textContent.length > 32) {
+                    titleElement.classList.add("_big");
+                    textElement.classList.add("_big");
+                }
+            }
         }));
         window.addEventListener("resize", (function() {
             const screenWidth = window.innerWidth;
