@@ -2466,6 +2466,43 @@ html.pc .reviews__btn:hover {
 .photos__slider {
   width: 100%;
   position: relative;
+  /*       &.fullscreen {
+     position: fixed;
+     top: 50%;
+     transform: translateY(-50%);
+     left: 0;
+     z-index: 9999;
+     height: 100%;
+     & .swiper-slide {
+        display: none;
+     }
+     & .fullscreen-slide {
+        display: block;
+        height: 100% !important;
+        width: 100vw !important;
+        img {
+           object-fit: contain;
+           min-height: 240px;
+        }
+     }
+     & .photos__wrapper {
+        transform: translate3d(0px, 0px, 0px) !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+     }
+     & .photos__number {
+        display: none;
+     }
+     & .photos__arrow {
+        display: none;
+     }
+  }
+  &.fullscreen + .photos__overlay {
+     opacity: 1;
+  } */
 }
 
 @supports (height: clamp( 13.75rem , 3.7rem  +  50.25vw , 64rem )) {
@@ -2478,6 +2515,51 @@ html.pc .reviews__btn:hover {
   .photos__slider {
     height: calc(13.75rem + 50.25 * (100vw - 20rem) / 100);
   }
+}
+
+.photos__slider.fullscreen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  z-index: 9999;
+  max-width: 100vw;
+  height: auto;
+  width: auto;
+  max-height: 100%;
+}
+
+.photos__slider.fullscreen .photos__slide {
+  max-width: 100vw;
+  width: auto;
+  max-height: calc(var(--vh, 1vh) * 100);
+}
+
+.photos__slider.fullscreen .photos__slide img {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+}
+
+.photos__slider.fullscreen + .photos__overlay {
+  opacity: 1;
+}
+
+.photos__overlay {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
+  display: block;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 200vh;
+  background-color: #192d22;
+  z-index: 10;
 }
 
 .photos__arrow {
@@ -2576,7 +2658,6 @@ html.pc .photos__arrow:hover {
 .photos__wrapper {
   width: 100%;
   height: 100%;
-  position: relative;
   opacity: 0;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
@@ -2585,6 +2666,7 @@ html.pc .photos__arrow:hover {
 .photos__slide {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   border-radius: 20px;
 }
 
@@ -2606,6 +2688,21 @@ html.pc .photos__arrow:hover {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 20px;
+  -webkit-transition: -webkit-transform 2s ease 0s;
+  transition: -webkit-transform 2s ease 0s;
+  transition: transform 2s ease 0s;
+  transition: transform 2s ease 0s, -webkit-transform 2s ease 0s;
+}
+
+.photos__slide.active img {
+  -webkit-transform: scale(1.08);
+      -ms-transform: scale(1.08);
+          transform: scale(1.08);
+  /* Увеличиваем размер слайда при активации */
+}
+
+html.lock .photos__slider.fullscreen + .photos__overlay {
+  visibility: visible;
 }
 
 .propose {
@@ -4783,6 +4880,10 @@ html.pc .form-review__submit._active:hover {
     padding-top: 3.75rem;
   }
 
+  .photos__slider.fullscreen .photos__number {
+    display: none;
+  }
+
   .photos {
     padding-top: 3.75rem;
     padding-bottom: 2.5rem;
@@ -5533,9 +5634,9 @@ html.pc .form-review__submit._active:hover {
 
   html._scroll .anim__object._big {
     font-size: 1.25rem;
-    -webkit-transform: translateY(42.5px) !important;
-        -ms-transform: translateY(42.5px) !important;
-            transform: translateY(42.5px) !important;
+    -webkit-transform: translateY(42.5px);
+        -ms-transform: translateY(42.5px);
+            transform: translateY(42.5px);
     max-width: 195px;
   }
 
